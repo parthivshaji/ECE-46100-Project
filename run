@@ -1,0 +1,11 @@
+#!/bin/bash
+# Entry point for the CLI
+
+if [ "$1" = "install" ]; then
+    npm install typescript ts-node @types/node --save-dev
+elif [ "$1" = "test" ]; then
+    npm run test
+else
+    # Pass the arguments to the TypeScript compiled CLI
+    node dist/cli.js "$@"
+fi
