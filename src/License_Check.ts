@@ -1,31 +1,29 @@
-import fetch from 'node-fetch';
+import * as fs from 'fs';
+import * as path from 'path';
 
-// Define the GitHub repository owner and name
-const owner = 'aryansri0208'; // Replace with the actual owner of the repository
-const repo = 'ECE-46100-Project';   // Replace with the actual repository name
+// Function to check if a license file exists and is valid
+export function calculateLicenseMetric(repoPath: string): number {
+    // Common license filenames
+    const licenseFilenames = ['LICENSE', 'LICENSE.txt', 'LICENSE.md', 'LICENSE.rst'];
+    let licenseScore = 0;
 
-// Define the GitHub API URL to fetch repository data
-const url = `https://api.github.com/repos/${owner}/${repo}`;
+    // Check if any common license files exist in the repository
+    const licenseFile = licenseFilenames.find(filename => fs.existsSync(path.join(repoPath, filename)));
 
-// Function to fetch repository data from GitHub API
-async function fetchRepoData() {
-  try {
-    const response = await fetch(url, {
-      headers: {
-        'Accept': 'application/vnd.github.v3+json'
-      }
-    });
+    if (licenseFile) {
+        const licensePath = path.join(repoPath, licenseFile);
+        const stats = fs.statSync(licensePath);
+        const fileSizeInKB = stats.size / 1024; // Size in KB
 
-    if (response.ok) {
-      const data = await response.json();
-      console.log('Repository Data:', data);
+        if (fileSizeInKB > 5) {
+            // A larger license file may imply a comprehensive license
+            licenseScore += 10; // High score for valid and comprehensive license
+        } else {
+            licenseScore += 7; // Moderate score for valid but shorter license
+        }
     } else {
-      console.log(`Error: ${response.status} ${response.statusText}`);
+        licenseScore += 1; // Low score for missing license
     }
-  } catch (error) {
-    console.error('Failed to fetch repository data:', error);
-  }
-}
 
-// Call the function to fetch repository data
-fetchRepoData();
+    return licenseScore;
+}
