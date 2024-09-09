@@ -3,6 +3,8 @@
 
 if [ "$1" = "install" ]; then
     npm install typescript ts-node @types/node --save-dev
+    npm install node-fetch
+    npm install axios 
 elif [ "$1" = "test" ]; then
     npm run test
 else
