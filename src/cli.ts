@@ -4,7 +4,9 @@ import { execSync } from 'child_process';
 import { performance } from 'perf_hooks';
 import * as fs from 'fs';
 import * as url from 'url';
-import * as cm from './correctnessMetric'
+import * as cm from './correctnessMetric';
+import * as ramp from './rampUpMetric';
+import * as resp from './responsivenessMetric';
 
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name: string, start: number): { score: number, latency: number } => {
@@ -55,15 +57,33 @@ const processUrl = async (url: string) => {
 
     let correctness: number;
     let correctness_latency: number;
+    let responsiveness: number;
+    let responsiveness_latency: number;
+    let rampup_latency: number; 
+    let rampup: number; 
 
     if (parsedUrl.type === 'npm') {
         const result = await cm.calculateNpmCorrectness(parsedUrl.packageName!);
         correctness = result.correctness;
         correctness_latency = result.latency;
+        responsiveness =  0; 
+        responsiveness_latency = 0;
+        rampup = 0; 
+        rampup_latency = 0;
     } else if (parsedUrl.type === 'github') {
         const result = await cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
+        const resultResp = await resp.calculateGitResponsiveness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '' );
+        const resultRamp = await ramp.calculateGitRampUpMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '')
         correctness = result.correctness;
         correctness_latency = result.latency;
+        responsiveness = 0
+        responsiveness_latency = 0
+
+        responsiveness = resultResp[0];
+        responsiveness_latency = resultResp[1];
+
+        rampup = resultRamp[0];
+        rampup_latency = resultRamp[1];
     } else {
         console.error(`Unknown URL format: ${url}`);
         return null;
@@ -75,34 +95,36 @@ const processUrl = async (url: string) => {
     }
 
     const metrics = {
-        RampUp: calculateMetric('RampUp', start),
+        RampUp: rampup,
         Correctness: correctness,
         BusFactor: calculateMetric('BusFactor', start),
-        ResponsiveMaintainer: calculateMetric('ResponsiveMaintainer', start),
+        ResponsiveMaintainer:  responsiveness,
+        ResponsiveMaintainer_Latency: responsiveness_latency,
         License: calculateMetric('License', start),
         CorrectnessLatency: correctness_latency,
+        RampUp_Latency: rampup_latency,
     };
 
     // Calculate NetScore (weighted sum based on project requirements)
     const NetScore = (
-        0.25 * metrics.RampUp.score +
+        0.25 * metrics.RampUp +
         0.25 * metrics.Correctness +
         0.2 * metrics.BusFactor.score +
-        0.2 * metrics.ResponsiveMaintainer.score +
+        0.2 * metrics.ResponsiveMaintainer +
         0.1 * metrics.License.score
     );
 
     return {
         URL: url,
         NetScore,
-        RampUp: metrics.RampUp.score,
-        RampUp_Latency: metrics.RampUp.latency,
+        RampUp: metrics.RampUp,
+        RampUp_Latency: metrics.RampUp_Latency,
         Correctness: metrics.Correctness,
         Correctness_Latency: metrics.CorrectnessLatency,
         BusFactor: metrics.BusFactor.score,
         BusFactor_Latency: metrics.BusFactor.latency,
-        ResponsiveMaintainer: metrics.ResponsiveMaintainer.score,
-        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer.latency,
+        ResponsiveMaintainer: metrics.ResponsiveMaintainer,
+        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
         License: metrics.License.score,
         License_Latency: metrics.License.latency,
     };
