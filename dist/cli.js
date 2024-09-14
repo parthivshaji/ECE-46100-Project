@@ -36,6 +36,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const perf_hooks_1 = require("perf_hooks");
 const fs = __importStar(require("fs"));
 const cm = __importStar(require("./correctnessMetric"));
+const License_Check_1 = require("./License_Check");
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name, start) => {
     const latency = perf_hooks_1.performance.now() - start;
@@ -74,19 +75,27 @@ const parseUrl = (urlString) => {
 // Function to process a single URL
 const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     const start = perf_hooks_1.performance.now();
-    console.log(`Processing URL: ${url}`);
     const parsedUrl = parseUrl(url);
     let correctness;
     let correctness_latency;
+    let licenseScore = 0;
+    let licenseLatency = 0;
     if (parsedUrl.type === 'npm') {
         const result = yield cm.calculateNpmCorrectness(parsedUrl.packageName);
         correctness = result.correctness;
         correctness_latency = result.latency;
+        const licenseResult = yield (0, License_Check_1.calculateNpmLicenseMetric)(parsedUrl.packageName);
+        licenseScore = licenseResult.score;
+        licenseLatency = licenseResult.latency;
     }
     else if (parsedUrl.type === 'github') {
         const result = yield cm.calculateGitHubCorrectness(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || '');
         correctness = result.correctness;
         correctness_latency = result.latency;
+        // Calculate license metric for GitHub repository
+        const licenseResult = yield (0, License_Check_1.calculateGitHubLicenseMetric)(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || '');
+        licenseScore = licenseResult.score;
+        licenseLatency = licenseResult.latency;
     }
     else {
         console.error(`Unknown URL format: ${url}`);
@@ -101,7 +110,7 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         Correctness: correctness,
         BusFactor: calculateMetric('BusFactor', start),
         ResponsiveMaintainer: calculateMetric('ResponsiveMaintainer', start),
-        License: calculateMetric('License', start),
+        License: { score: licenseScore, latency: licenseLatency },
         CorrectnessLatency: correctness_latency,
     };
     // Calculate NetScore (weighted sum based on project requirements)
