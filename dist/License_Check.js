@@ -1,52 +1,92 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculateLicenseMetric = calculateLicenseMetric;
-const fs = __importStar(require("fs"));
-const path = __importStar(require("path"));
-// Function to check if a license file exists and is valid
-function calculateLicenseMetric(repoPath) {
-    // Common license filenames
-    const licenseFilenames = ['LICENSE', 'LICENSE.txt', 'LICENSE.md', 'LICENSE.rst'];
-    let licenseScore = 0;
-    // Check if any common license files exist in the repository
-    const licenseFile = licenseFilenames.find(filename => fs.existsSync(path.join(repoPath, filename)));
-    if (licenseFile) {
-        const licensePath = path.join(repoPath, licenseFile);
-        const stats = fs.statSync(licensePath);
-        const fileSizeInKB = stats.size / 1024; // Size in KB
-        if (fileSizeInKB > 5) {
-            // A larger license file may imply a comprehensive license
-            licenseScore += 10; // High score for valid and comprehensive license
-        }
-        else {
-            licenseScore += 7; // Moderate score for valid but shorter license
-        }
+exports.calculateNpmLicenseMetric = exports.calculateGitHubLicenseMetric = void 0;
+const axios_1 = __importDefault(require("axios"));
+// List of licenses compatible with GNU LGPL v2.1
+const compatibleLicenses = [
+    'LGPL-2.1',
+    'LGPL-2.1-or-later',
+    'MIT',
+    'BSD-2-Clause',
+    'BSD-3-Clause',
+    'Apache-2.0',
+    'Artistic-2.0'
+];
+// Function to check if a license is compatible with LGPL v2.1
+const isLicenseCompatibleWithLGPLv21 = (licenseId) => {
+    return compatibleLicenses.includes(licenseId);
+};
+// Function to fetch license information for a GitHub repository
+const calculateGitHubLicenseMetric = (owner, repo, githubToken) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const start = performance.now(); // Record start time
+    try {
+        // Fetch repository license information using GitHub API
+        const response = yield axios_1.default.get(`https://api.github.com/repos/${owner}/${repo}/license`, {
+            headers: { Authorization: `token ${githubToken}` }
+        });
+        const license = ((_a = response.data.license) === null || _a === void 0 ? void 0 : _a.spdx_id) || ''; // Get the SPDX ID of the license
+        const end = performance.now(); // Record end time
+        const latency = end - start; // Calculate latency
+        // Check if the license is compatible with LGPL v2.1
+        const score = isLicenseCompatibleWithLGPLv21(license) ? 1 : 0;
+        return { score, latency };
     }
-    else {
-        licenseScore += 1; // Low score for missing license
+    catch (error) {
+        let errorMessage = "Failed to fetch license information for GitHub repository";
+        if (error instanceof Error) {
+        }
+        const end = performance.now(); // Record end time in case of error
+        const latency = end - start; // Calculate latency
+        // Return default values for score and latency in case of error
+        return { score: 0, latency };
     }
-    return licenseScore;
-}
+});
+exports.calculateGitHubLicenseMetric = calculateGitHubLicenseMetric;
+// Function to calculate license metric for npm packages
+const calculateNpmLicenseMetric = (packageName) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const start = performance.now(); // Record start time
+    try {
+        // Fetch package metadata from the npm registry
+        const packageResponse = yield axios_1.default.get(`https://registry.npmjs.org/${packageName}`);
+        const repoUrl = (_a = packageResponse.data.repository) === null || _a === void 0 ? void 0 : _a.url;
+        if (repoUrl && repoUrl.includes('github.com')) {
+            // Extract GitHub owner and repository name from the URL
+            const match = repoUrl.match(/github\.com[/:](.*?)(?:\.git)?$/);
+            if (match && match[1]) {
+                const [owner, repo] = match[1].split('/');
+                const { score, latency } = yield (0, exports.calculateGitHubLicenseMetric)(owner, repo, process.env.GITHUB_TOKEN || '');
+                // Calculate total latency
+                const end = performance.now(); // Record end time
+                const totalLatency = end - start + latency; // Add latencies if needed
+                return { score, latency: totalLatency };
+            }
+        }
+        const end = performance.now(); // Record end time if no GitHub repo is found
+        const latency = end - start; // Calculate latency
+        return { score: 0, latency }; // If no GitHub repo is found, assume no license
+    }
+    catch (error) {
+        let errorMessage = "Failed to calculate license metric for npm package";
+        if (error instanceof Error) {
+        }
+        const end = performance.now(); // Record end time in case of error
+        const latency = end - start; // Calculate latency
+        // Return default values for score and latency in case of error
+        return { score: 0, latency };
+    }
+});
+exports.calculateNpmLicenseMetric = calculateNpmLicenseMetric;
