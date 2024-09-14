@@ -65,24 +65,21 @@ const processUrl = async (url: string) => {
     if (parsedUrl.type === 'npm') {
         const result = await cm.calculateNpmCorrectness(parsedUrl.packageName!);
         const resultRamp = await ramp.calculateNpmRampUpMetric(parsedUrl.packageName!);
+        const resultResp = await resp.calculateNpmResponsiveness(parsedUrl.packageName!);
         correctness = result.correctness;
         correctness_latency = result.latency;
-        responsiveness =  0; 
-        responsiveness_latency = 0;
+        responsiveness =  resultResp.responsiveness; 
+        responsiveness_latency = resultResp.latency;
         rampup = resultRamp.rampup; 
         rampup_latency = resultRamp.latency;
     } else if (parsedUrl.type === 'github') {
         const result = await cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
         const resultResp = await resp.calculateGitResponsiveness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '' );
-        const resultRamp = await ramp.calculateGitRampUpMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '')
+        const resultRamp = await ramp.calculateGitRampUpMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
         correctness = result.correctness;
         correctness_latency = result.latency;
-        responsiveness = 0
-        responsiveness_latency = 0
-
         responsiveness = resultResp[0];
         responsiveness_latency = resultResp[1];
-
         rampup = resultRamp[0];
         rampup_latency = resultRamp[1];
     } else {

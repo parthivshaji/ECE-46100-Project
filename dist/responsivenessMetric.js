@@ -12,7 +12,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculateGitResponsiveness = void 0;
+exports.calculateNpmResponsiveness = exports.calculateGitResponsiveness = void 0;
 const axios_1 = __importDefault(require("axios"));
 const GITHUB_API_BASE = 'https://api.github.com';
 function getGitIssueResponseTime(issueNumber, owner, repo, token) {
@@ -89,3 +89,41 @@ const calculateGitResponsiveness = function (owner, repo, token) {
     });
 };
 exports.calculateGitResponsiveness = calculateGitResponsiveness;
+// Function to calculate correctness for npm URLs
+const calculateNpmResponsiveness = (packageName) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const start = performance.now(); // Record start time
+    try {
+        // Fetch download stats from npm
+        const response = yield axios_1.default.get(`https://api.npmjs.org/downloads/point/last-month/${packageName}`);
+        const downloadCount = response.data.downloads;
+        // Fetch bugs from the GitHub repository of the npm package if available
+        // Assuming the repository is linked in the package.json
+        const packageResponse = yield axios_1.default.get(`https://registry.npmjs.org/${packageName}`);
+        const repoUrl = (_a = packageResponse.data.repository) === null || _a === void 0 ? void 0 : _a.url;
+        if (repoUrl && repoUrl.includes('github.com')) {
+            const [owner, repo] = repoUrl.split('github.com/')[1].split('/');
+            const result = yield (0, exports.calculateGitResponsiveness)(owner, repo.split('.git')[0], process.env.GITHUB_TOKEN || '');
+            // Calculate latency for npm correctness
+            const end = performance.now(); // Record end time
+            const latency = end - start; // Calculate latency
+            // Return combined results
+            return { responsiveness: result[0], latency: latency }; // Add latencies if needed
+        }
+        const end = performance.now(); // Record end time if no GitHub repo is found
+        const latency = end - start; // Calculate latency
+        return { responsiveness: 1, latency }; // If no GitHub repo is found, assume correctness is perfect
+    }
+    catch (error) {
+        let errorMessage = "Failed to calculate correctness for npm package";
+        if (error instanceof Error) {
+            errorMessage = error.message;
+        }
+        console.log(errorMessage);
+        const end = performance.now(); // Record end time in case of error
+        const latency = end - start; // Calculate latency
+        // Return default values for correctness and latency in case of error
+        return { responsiveness: -1, latency: 0 };
+    }
+});
+exports.calculateNpmResponsiveness = calculateNpmResponsiveness;

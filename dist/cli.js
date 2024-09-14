@@ -83,10 +83,11 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     if (parsedUrl.type === 'npm') {
         const result = yield cm.calculateNpmCorrectness(parsedUrl.packageName);
         const resultRamp = yield ramp.calculateNpmRampUpMetric(parsedUrl.packageName);
+        const resultResp = yield resp.calculateNpmResponsiveness(parsedUrl.packageName);
         correctness = result.correctness;
         correctness_latency = result.latency;
-        responsiveness = 0;
-        responsiveness_latency = 0;
+        responsiveness = resultResp.responsiveness;
+        responsiveness_latency = resultResp.latency;
         rampup = resultRamp.rampup;
         rampup_latency = resultRamp.latency;
     }
@@ -96,8 +97,6 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         const resultRamp = yield ramp.calculateGitRampUpMetric(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || '');
         correctness = result.correctness;
         correctness_latency = result.latency;
-        responsiveness = 0;
-        responsiveness_latency = 0;
         responsiveness = resultResp[0];
         responsiveness_latency = resultResp[1];
         rampup = resultRamp[0];

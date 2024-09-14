@@ -3,7 +3,7 @@ import axios from 'axios';
 // Define GitHub API base
 const GITHUB_API_BASE = 'https://api.github.com';
 
-// Helper function to download a file from GitHub
+// Helper function to download a file from GitHub with enhanced error handling
 async function downloadFile(url: string, token: string): Promise<string> {
     try {
         const response = await axios.get(url, {
@@ -15,7 +15,20 @@ async function downloadFile(url: string, token: string): Promise<string> {
 
         return response.data;
     } catch (error) {
-        console.error('Failed to download file:', error);
+        if (axios.isAxiosError(error)) {
+            const status = error.response?.status;
+            if (status === 403) {
+                console.error('Access forbidden: You might be rate-limited or lack permission.');
+            } else if (status === 401) {
+                console.error('Unauthorized: Check your GitHub token or permissions.');
+            } else if (status === 404) {
+                console.error('File not found.');
+            } else {
+                console.error('Failed to download file:', error.message);
+            }
+        } else {
+            console.error('Unexpected error:', error);
+        }
         return ''; // Return empty string if download fails
     }
 }
@@ -51,7 +64,7 @@ export async function calculateGitRampUpMetric(owner: string, repo: string, toke
         const end = performance.now(); // End timing
         const latency = end - start; // Calculate latency
 
-        return [rampUpScore, latency];
+        return [rampUpScore / 10, latency];
 
     } catch (error) {
         console.error('Failed to calculate ramp-up metric:', error);

@@ -83,3 +83,49 @@ export const calculateGitResponsiveness = async function(owner: string, repo: st
         return [0, performance.now() - start];
     }
 }
+
+
+// Function to calculate correctness for npm URLs
+export const calculateNpmResponsiveness = async (packageName: string): Promise<{ responsiveness: number; latency: number }> => {
+    const start = performance.now(); // Record start time
+    try {
+        // Fetch download stats from npm
+        const response = await axios.get(`https://api.npmjs.org/downloads/point/last-month/${packageName}`);
+        const downloadCount = response.data.downloads;
+
+        // Fetch bugs from the GitHub repository of the npm package if available
+        // Assuming the repository is linked in the package.json
+        const packageResponse = await axios.get(`https://registry.npmjs.org/${packageName}`);
+        const repoUrl = packageResponse.data.repository?.url;
+
+        if (repoUrl && repoUrl.includes('github.com')) {
+            const [owner, repo] = repoUrl.split('github.com/')[1].split('/');
+            const result = await calculateGitResponsiveness(owner, repo.split('.git')[0], process.env.GITHUB_TOKEN || '');
+            
+            // Calculate latency for npm correctness
+            const end = performance.now(); // Record end time
+            const latency = end - start; // Calculate latency
+
+            // Return combined results
+            return { responsiveness: result[0], latency: latency }; // Add latencies if needed
+
+        }
+
+        const end = performance.now(); // Record end time if no GitHub repo is found
+        const latency = end - start; // Calculate latency
+        return {responsiveness: 1, latency }; // If no GitHub repo is found, assume correctness is perfect
+
+    } catch (error) {
+        let errorMessage = "Failed to calculate correctness for npm package";
+        if (error instanceof Error) {
+            errorMessage = error.message;
+        }
+        console.log(errorMessage);
+        
+        const end = performance.now(); // Record end time in case of error
+        const latency = end - start; // Calculate latency
+        
+        // Return default values for correctness and latency in case of error
+        return {responsiveness: -1, latency : 0};
+    }
+};

@@ -16,8 +16,9 @@ exports.calculateNpmRampUpMetric = exports.calculateGitRampUpMetric = void 0;
 const axios_1 = __importDefault(require("axios"));
 // Define GitHub API base
 const GITHUB_API_BASE = 'https://api.github.com';
-// Helper function to download a file from GitHub
+// Helper function to download a file from GitHub with enhanced error handling
 function downloadFile(url, token) {
+    var _a;
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const response = yield axios_1.default.get(url, {
@@ -29,7 +30,24 @@ function downloadFile(url, token) {
             return response.data;
         }
         catch (error) {
-            console.error('Failed to download file:', error);
+            if (axios_1.default.isAxiosError(error)) {
+                const status = (_a = error.response) === null || _a === void 0 ? void 0 : _a.status;
+                if (status === 403) {
+                    console.error('Access forbidden: You might be rate-limited or lack permission.');
+                }
+                else if (status === 401) {
+                    console.error('Unauthorized: Check your GitHub token or permissions.');
+                }
+                else if (status === 404) {
+                    console.error('File not found.');
+                }
+                else {
+                    console.error('Failed to download file:', error.message);
+                }
+            }
+            else {
+                console.error('Unexpected error:', error);
+            }
             return ''; // Return empty string if download fails
         }
     });
@@ -62,7 +80,7 @@ function calculateGitRampUpMetric(owner, repo, token) {
             }
             const end = performance.now(); // End timing
             const latency = end - start; // Calculate latency
-            return [rampUpScore, latency];
+            return [rampUpScore / 10, latency];
         }
         catch (error) {
             console.error('Failed to calculate ramp-up metric:', error);
