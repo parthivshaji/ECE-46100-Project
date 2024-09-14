@@ -15,14 +15,15 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.calculateNpmResponsiveness = exports.calculateGitResponsiveness = void 0;
 const axios_1 = __importDefault(require("axios"));
 const GITHUB_API_BASE = 'https://api.github.com';
+// Helper function to get the response time of a GitHub issue
 function getGitIssueResponseTime(issueNumber, owner, repo, token) {
     return __awaiter(this, void 0, void 0, function* () {
         const issueUrl = `${GITHUB_API_BASE}/repos/${owner}/${repo}/issues/${issueNumber}`;
         try {
             const response = yield axios_1.default.get(issueUrl, {
                 headers: {
-                    Authorization: `Bearer ${token}`
-                }
+                    Authorization: `Bearer ${token}`,
+                },
             });
             const issueData = response.data;
             const createdAt = new Date(issueData.created_at).getTime();
@@ -30,12 +31,13 @@ function getGitIssueResponseTime(issueNumber, owner, repo, token) {
             const responseTime = closedAt - createdAt; // Time in milliseconds
             return responseTime / (1000 * 60 * 60 * 24); // Convert to days
         }
-        catch (error) {
-            console.error(`Failed to get issue response time for #${issueNumber}:`, error);
-            return 0;
+        catch (_a) {
+            // Silent catch to handle errors like 403 without logging or interrupting execution
+            return 0; // Return 0 for invalid response times
         }
     });
 }
+// Helper function to get all issues and PR numbers from GitHub
 function getGitIssuesAndPRs(state = 'all', owner, repo, token) {
     return __awaiter(this, void 0, void 0, function* () {
         const issueNumbers = [];
@@ -46,32 +48,33 @@ function getGitIssuesAndPRs(state = 'all', owner, repo, token) {
             try {
                 const response = yield axios_1.default.get(issuesUrl, {
                     headers: {
-                        Authorization: `Bearer ${token}`
-                    }
+                        Authorization: `Bearer ${token}`,
+                    },
                 });
                 const issues = response.data;
                 if (issues.length === 0)
-                    break;
+                    break; // Exit loop if no more issues
                 issueNumbers.push(...issues.map((issue) => issue.number));
                 page++;
             }
-            catch (error) {
-                console.error('Failed to fetch issues and PRs:', error);
-                break;
+            catch (_a) {
+                // Silent catch to skip over errors and break the loop
+                break; // Exit loop if there's a failure, e.g., 403 Forbidden
             }
         }
         return issueNumbers;
     });
 }
+// Function to calculate responsiveness based on GitHub issues
 const calculateGitResponsiveness = function (owner, repo, token) {
     return __awaiter(this, void 0, void 0, function* () {
         const start = performance.now();
         try {
             const issuesAndPRs = yield getGitIssuesAndPRs('all', owner, repo, token);
             // Use Promise.all to fetch response times in parallel
-            const responseTimes = yield Promise.all(issuesAndPRs.map(issueNumber => getGitIssueResponseTime(issueNumber, owner, repo, token)));
+            const responseTimes = yield Promise.all(issuesAndPRs.map((issueNumber) => getGitIssueResponseTime(issueNumber, owner, repo, token)));
             // Filter out invalid response times and calculate metrics
-            const validResponseTimes = responseTimes.filter(rt => rt > 0);
+            const validResponseTimes = responseTimes.filter((rt) => rt > 0);
             const end = performance.now();
             const latency = end - start;
             if (validResponseTimes.length === 0) {
@@ -79,17 +82,16 @@ const calculateGitResponsiveness = function (owner, repo, token) {
             }
             const averageResponseTime = validResponseTimes.reduce((sum, rt) => sum + rt, 0) / validResponseTimes.length;
             const maxResponseTime = Math.max(...validResponseTimes);
-            const responsiveness = 1 - (averageResponseTime / maxResponseTime);
+            const responsiveness = 1 - averageResponseTime / maxResponseTime;
             return [responsiveness, latency];
         }
-        catch (error) {
-            console.error('Failed to calculate responsiveness:', error);
+        catch (_a) {
             return [0, performance.now() - start];
         }
     });
 };
 exports.calculateGitResponsiveness = calculateGitResponsiveness;
-// Function to calculate correctness for npm URLs
+// Function to calculate responsiveness for npm packages
 const calculateNpmResponsiveness = (packageName) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
     const start = performance.now(); // Record start time
@@ -104,26 +106,20 @@ const calculateNpmResponsiveness = (packageName) => __awaiter(void 0, void 0, vo
         if (repoUrl && repoUrl.includes('github.com')) {
             const [owner, repo] = repoUrl.split('github.com/')[1].split('/');
             const result = yield (0, exports.calculateGitResponsiveness)(owner, repo.split('.git')[0], process.env.GITHUB_TOKEN || '');
-            // Calculate latency for npm correctness
+            // Calculate latency for npm responsiveness
             const end = performance.now(); // Record end time
             const latency = end - start; // Calculate latency
             // Return combined results
-            return { responsiveness: result[0], latency: latency }; // Add latencies if needed
+            return { responsiveness: result[0], latency }; // Add latencies if needed
         }
         const end = performance.now(); // Record end time if no GitHub repo is found
         const latency = end - start; // Calculate latency
-        return { responsiveness: 1, latency }; // If no GitHub repo is found, assume correctness is perfect
+        return { responsiveness: 1, latency }; // If no GitHub repo is found, assume responsiveness is perfect
     }
-    catch (error) {
-        let errorMessage = "Failed to calculate correctness for npm package";
-        if (error instanceof Error) {
-            errorMessage = error.message;
-        }
-        console.log(errorMessage);
+    catch (_b) {
         const end = performance.now(); // Record end time in case of error
         const latency = end - start; // Calculate latency
-        // Return default values for correctness and latency in case of error
-        return { responsiveness: -1, latency: 0 };
+        return { responsiveness: -1, latency }; // Return default values in case of error
     }
 });
 exports.calculateNpmResponsiveness = calculateNpmResponsiveness;
