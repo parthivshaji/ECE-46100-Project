@@ -58,3 +58,46 @@ export async function calculateGitRampUpMetric(owner: string, repo: string, toke
         return [0, performance.now() - start]; // Return 0 score and elapsed time in case of error
     }
 }
+
+// Function to calculate correctness for npm URLs
+export const calculateNpmRampUpMetric = async (packageName: string): Promise<{ rampup: number; latency: number }> => {
+    const start = performance.now(); // Record start time
+    try {
+        // Fetch download stats from npm
+        const response = await axios.get(`https://api.npmjs.org/downloads/point/last-month/${packageName}`);
+        const downloadCount = response.data.downloads;
+
+        // Fetch package metadata from npm registry
+        const packageResponse = await axios.get(`https://registry.npmjs.org/${packageName}`);
+        const repoUrl = packageResponse.data.repository?.url;
+
+        if (repoUrl && repoUrl.includes('github.com')) {
+            // Extract owner and repo from the URL
+            const cleanedRepoUrl = repoUrl.replace(/^git\+/, '').replace(/\.git$/, '');
+            const [owner, repo] = cleanedRepoUrl.split('github.com/')[1].split('/');
+            
+            // Calculate ramp-up using GitHub repository information
+            const result = await calculateGitRampUpMetric(owner, repo, process.env.GITHUB_TOKEN || '');
+            
+            const end = performance.now(); // Record end time
+            const latency = end - start; // Calculate latency
+
+            // Return combined results
+            return { rampup: result[0], latency }; // Add latencies if needed
+        }
+
+        // Handle case where GitHub repository is not found
+        const end = performance.now(); // Record end time if no GitHub repo is found
+        const latency = end - start; // Calculate latency
+        return { rampup: 1, latency }; // Assume perfect ramp-up if no GitHub repo is found
+
+    } catch (error) {
+        console.error("Error calculating ramp-up for npm package:", error);
+
+        const end = performance.now(); // Record end time in case of error
+        const latency = end - start; // Calculate latency
+        
+        // Return default values for ramp-up and latency in case of error
+        return { rampup: -1, latency };
+    }
+};

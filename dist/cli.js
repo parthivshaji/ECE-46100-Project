@@ -2,11 +2,7 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -36,6 +32,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const perf_hooks_1 = require("perf_hooks");
 const fs = __importStar(require("fs"));
 const cm = __importStar(require("./correctnessMetric"));
+const ramp = __importStar(require("./rampUpMetric"));
+const resp = __importStar(require("./responsivenessMetric"));
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name, start) => {
     const latency = perf_hooks_1.performance.now() - start;
@@ -78,15 +76,32 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     const parsedUrl = parseUrl(url);
     let correctness;
     let correctness_latency;
+    let responsiveness;
+    let responsiveness_latency;
+    let rampup_latency;
+    let rampup;
     if (parsedUrl.type === 'npm') {
         const result = yield cm.calculateNpmCorrectness(parsedUrl.packageName);
+        const resultRamp = yield ramp.calculateNpmRampUpMetric(parsedUrl.packageName);
         correctness = result.correctness;
         correctness_latency = result.latency;
+        responsiveness = 0;
+        responsiveness_latency = 0;
+        rampup = resultRamp.rampup;
+        rampup_latency = resultRamp.latency;
     }
     else if (parsedUrl.type === 'github') {
         const result = yield cm.calculateGitHubCorrectness(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || '');
+        const resultResp = yield resp.calculateGitResponsiveness(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || '');
+        const resultRamp = yield ramp.calculateGitRampUpMetric(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || '');
         correctness = result.correctness;
         correctness_latency = result.latency;
+        responsiveness = 0;
+        responsiveness_latency = 0;
+        responsiveness = resultResp[0];
+        responsiveness_latency = resultResp[1];
+        rampup = resultRamp[0];
+        rampup_latency = resultRamp[1];
     }
     else {
         console.error(`Unknown URL format: ${url}`);
@@ -97,30 +112,32 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         return null;
     }
     const metrics = {
-        RampUp: calculateMetric('RampUp', start),
+        RampUp: rampup,
         Correctness: correctness,
         BusFactor: calculateMetric('BusFactor', start),
-        ResponsiveMaintainer: calculateMetric('ResponsiveMaintainer', start),
+        ResponsiveMaintainer: responsiveness,
+        ResponsiveMaintainer_Latency: responsiveness_latency,
         License: calculateMetric('License', start),
         CorrectnessLatency: correctness_latency,
+        RampUp_Latency: rampup_latency,
     };
     // Calculate NetScore (weighted sum based on project requirements)
-    const NetScore = (0.25 * metrics.RampUp.score +
+    const NetScore = (0.25 * metrics.RampUp +
         0.25 * metrics.Correctness +
         0.2 * metrics.BusFactor.score +
-        0.2 * metrics.ResponsiveMaintainer.score +
+        0.2 * metrics.ResponsiveMaintainer +
         0.1 * metrics.License.score);
     return {
         URL: url,
         NetScore,
-        RampUp: metrics.RampUp.score,
-        RampUp_Latency: metrics.RampUp.latency,
+        RampUp: metrics.RampUp,
+        RampUp_Latency: metrics.RampUp_Latency,
         Correctness: metrics.Correctness,
         Correctness_Latency: metrics.CorrectnessLatency,
         BusFactor: metrics.BusFactor.score,
         BusFactor_Latency: metrics.BusFactor.latency,
-        ResponsiveMaintainer: metrics.ResponsiveMaintainer.score,
-        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer.latency,
+        ResponsiveMaintainer: metrics.ResponsiveMaintainer,
+        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
         License: metrics.License.score,
         License_Latency: metrics.License.latency,
     };
