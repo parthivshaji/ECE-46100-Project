@@ -3,6 +3,8 @@
 import { execSync } from 'child_process';
 import { performance } from 'perf_hooks';
 import * as fs from 'fs';
+import * as url from 'url';
+import * as cm from './correctnessMetric'
 
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name: string, start: number): { score: number, latency: number } => {
@@ -11,25 +13,80 @@ const calculateMetric = (name: string, start: number): { score: number, latency:
     return { score, latency };
 }
 
+// Helper function to identify and parse URLs
+const parseUrl = (urlString: string) => {
+    let parsedUrl: URL;
+
+    try {
+        parsedUrl = new URL(urlString);
+    } catch (error) {
+        console.error(`Invalid URL: ${urlString}.`);
+        return { type: 'invalid', url: urlString };
+    }
+    
+    // Check if it's an npm URL
+    if (parsedUrl.hostname === 'www.npmjs.com' || parsedUrl.hostname === 'npmjs.com') {
+        const parts = parsedUrl.pathname.split('/').filter(Boolean); // Split by `/` and remove empty parts
+        if (parts.length === 2 && parts[0] === 'package') {
+            const packageName = parts[1];
+            return { type: 'npm', packageName };
+        }
+    }
+    
+    // Check if it's a GitHub URL
+    if (parsedUrl.hostname === 'www.github.com' || parsedUrl.hostname === 'github.com') {
+        const parts = parsedUrl.pathname.split('/').filter(Boolean); // Split by `/` and remove empty parts
+        if (parts.length >= 2) {
+            const [owner, repo] = parts;
+            return { type: 'github', owner, repo };
+        }
+    }
+
+    // If URL doesn't match either pattern
+    return { type: 'unknown', url: urlString };
+};
+
 // Function to process a single URL
-const processUrl = (url: string) => {
+const processUrl = async (url: string) => {
     const start = performance.now();
 
-    // Placeholder: Actual logic to process the URL (e.g., GitHub or npm)
     console.log(`Processing URL: ${url}`);
+    const parsedUrl = parseUrl(url);
+
+    let correctness: number;
+    let correctness_latency: number;
+
+    if (parsedUrl.type === 'npm') {
+        const result = await cm.calculateNpmCorrectness(parsedUrl.packageName!);
+        correctness = result.correctness;
+        correctness_latency = result.latency;
+    } else if (parsedUrl.type === 'github') {
+        const result = await cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
+        correctness = result.correctness;
+        correctness_latency = result.latency;
+    } else {
+        console.error(`Unknown URL format: ${url}`);
+        return null;
+    }
+
+    if (correctness == -1) {
+        console.log("Error in correctness metric calculation");
+        return null;
+    }
 
     const metrics = {
         RampUp: calculateMetric('RampUp', start),
-        Correctness: calculateMetric('Correctness', start),
+        Correctness: correctness,
         BusFactor: calculateMetric('BusFactor', start),
         ResponsiveMaintainer: calculateMetric('ResponsiveMaintainer', start),
         License: calculateMetric('License', start),
+        CorrectnessLatency: correctness_latency,
     };
 
     // Calculate NetScore (weighted sum based on project requirements)
     const NetScore = (
         0.25 * metrics.RampUp.score +
-        0.25 * metrics.Correctness.score +
+        0.25 * metrics.Correctness +
         0.2 * metrics.BusFactor.score +
         0.2 * metrics.ResponsiveMaintainer.score +
         0.1 * metrics.License.score
@@ -40,8 +97,8 @@ const processUrl = (url: string) => {
         NetScore,
         RampUp: metrics.RampUp.score,
         RampUp_Latency: metrics.RampUp.latency,
-        Correctness: metrics.Correctness.score,
-        Correctness_Latency: metrics.Correctness.latency,
+        Correctness: metrics.Correctness,
+        Correctness_Latency: metrics.CorrectnessLatency,
         BusFactor: metrics.BusFactor.score,
         BusFactor_Latency: metrics.BusFactor.latency,
         ResponsiveMaintainer: metrics.ResponsiveMaintainer.score,
@@ -51,8 +108,7 @@ const processUrl = (url: string) => {
     };
 };
 
-// Function to handle the CLI arguments
-const main = () => {
+const main = async () => { // Make main function async
     const args = process.argv.slice(2);
 
     if (args.length < 1) {
@@ -83,10 +139,17 @@ const main = () => {
         }
 
         const urls = fs.readFileSync(urlFile, 'utf-8').split('\n').filter(line => line.trim().length > 0);
-        const results = urls.map(url => processUrl(url));
+
+        // Wait for all promises to resolve
+        const results = await Promise.all(urls.map(url => processUrl(url)));
 
         results.forEach(result => {
-            console.log(JSON.stringify(result));
+            if (result !== null) {
+                console.log(JSON.stringify(result));
+            } else {
+                console.error('Error in metrics calculation with one of the URLs.');
+                process.exit(1);
+            }
         });
 
         process.exit(0);
@@ -94,4 +157,7 @@ const main = () => {
 };
 
 // Execute the main function
-main();
+main().catch(error => {
+    console.error('Error:', error);
+    process.exit(1);
+});
