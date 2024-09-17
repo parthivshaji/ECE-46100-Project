@@ -37,6 +37,7 @@ const perf_hooks_1 = require("perf_hooks");
 const fs = __importStar(require("fs"));
 const cm = __importStar(require("./correctnessMetric"));
 const License_Check_1 = require("./License_Check");
+const logging_1 = require("./logging");
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name, start) => {
     const latency = perf_hooks_1.performance.now() - start;
@@ -50,9 +51,10 @@ const parseUrl = (urlString) => {
         parsedUrl = new URL(urlString);
     }
     catch (error) {
-        console.error(`Invalid URL: ${urlString}.`);
+        (0, logging_1.log)(`Invalid URL: ${urlString}`, 1); // Info level
         return { type: 'invalid', url: urlString };
     }
+    (0, logging_1.log)(`Processing URL: ${urlString}`, 1); // Info level
     // Check if it's an npm URL
     if (parsedUrl.hostname === 'www.npmjs.com' || parsedUrl.hostname === 'npmjs.com') {
         const parts = parsedUrl.pathname.split('/').filter(Boolean); // Split by `/` and remove empty parts
@@ -69,6 +71,7 @@ const parseUrl = (urlString) => {
             return { type: 'github', owner, repo };
         }
     }
+    (0, logging_1.log)(`Unknown URL format: ${urlString}`, 1); // Info level
     // If URL doesn't match either pattern
     return { type: 'unknown', url: urlString };
 };
@@ -98,11 +101,12 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         licenseLatency = licenseResult.latency;
     }
     else {
-        console.error(`Unknown URL format: ${url}`);
+        (0, logging_1.log)(`Unknown URL format: ${url}`, 1); // Info level
         return null;
     }
     if (correctness == -1) {
         console.log("Error in correctness metric calculation");
+        (0, logging_1.log)(`Error in correctness metric calculation: ${url}`, 1); // Info level
         return null;
     }
     const metrics = {
@@ -113,6 +117,7 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         License: { score: licenseScore, latency: licenseLatency },
         CorrectnessLatency: correctness_latency,
     };
+    (0, logging_1.log)(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
     // Calculate NetScore (weighted sum based on project requirements)
     const NetScore = (0.25 * metrics.RampUp.score +
         0.25 * metrics.Correctness +
@@ -143,12 +148,12 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     const command = args[0];
     if (command === 'install') {
         // Install dependencies (npm install is handled in the run script)
-        console.log('Installing dependencies...');
+        (0, logging_1.log)('Installing dependencies...', 1);
         process.exit(0);
     }
     else if (command === 'test') {
         // Run test cases (you would invoke your test suite here)
-        console.log('Running tests...');
+        (0, logging_1.log)('Running tests...', 1);
         const testCasesPassed = 20; // Dummy value
         const totalTestCases = 20; // Dummy value
         const coverage = 85; // Dummy value
@@ -158,7 +163,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
     else {
         const urlFile = command;
         if (!fs.existsSync(urlFile)) {
-            console.error(`File not found: ${urlFile}`);
+            (0, logging_1.log)(`Error: File not found: ${urlFile}`, 1);
             process.exit(1);
         }
         const urls = fs.readFileSync(urlFile, 'utf-8').split('\n').filter(line => line.trim().length > 0);
@@ -169,7 +174,7 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
                 console.log(JSON.stringify(result));
             }
             else {
-                console.error('Error in metrics calculation with one of the URLs.');
+                (0, logging_1.log)('Error in metrics calculation with one of the URLs.', 1);
                 process.exit(1);
             }
         });
@@ -178,6 +183,6 @@ const main = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 // Execute the main function
 main().catch(error => {
-    console.error('Error:', error);
+    (0, logging_1.log)(`Error: ${error}`, 1);
     process.exit(1);
 });
