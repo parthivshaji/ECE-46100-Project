@@ -1,5 +1,5 @@
 import nock from 'nock';
-import { calculateGitHubCorrectness, calculateNpmCorrectness } from '../src/correctnessMetric'; // Adjust path as needed
+import { calculateGitHubCorrectness, calculateNpmCorrectness } from '../correctnessMetric'; // Adjust path as needed
 
 // Mock GitHub and npm API URLs
 const GITHUB_API_URL = 'https://api.github.com';
