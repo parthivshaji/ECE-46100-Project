@@ -7,6 +7,7 @@ import * as path from 'path';
 import * as url from 'url';
 import * as cm from './correctnessMetric'
 import { calculateGitHubLicenseMetric, calculateNpmLicenseMetric } from './License_Check';
+import { log } from './logging'
 
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name: string, start: number): { score: number, latency: number } => {
@@ -22,10 +23,11 @@ const parseUrl = (urlString: string) => {
     try {
         parsedUrl = new URL(urlString);
     } catch (error) {
-        console.error(`Invalid URL: ${urlString}.`);
+        log(`Invalid URL: ${urlString}`, 1); // Info level
         return { type: 'invalid', url: urlString };
     }
     
+    log(`Processing URL: ${urlString}`, 1); // Info level
     // Check if it's an npm URL
     if (parsedUrl.hostname === 'www.npmjs.com' || parsedUrl.hostname === 'npmjs.com') {
         const parts = parsedUrl.pathname.split('/').filter(Boolean); // Split by `/` and remove empty parts
@@ -44,6 +46,7 @@ const parseUrl = (urlString: string) => {
         }
     }
 
+    log(`Unknown URL format: ${urlString}`, 1); // Info level
     // If URL doesn't match either pattern
     return { type: 'unknown', url: urlString };
 };
@@ -76,12 +79,13 @@ const processUrl = async (url: string) => {
         licenseScore = licenseResult.score;
         licenseLatency = licenseResult.latency;
     } else {
-        console.error(`Unknown URL format: ${url}`);
+        log(`Unknown URL format: ${url}`, 1); // Info level
         return null;
     }
 
     if (correctness == -1) {
         console.log("Error in correctness metric calculation");
+        log(`Error in correctness metric calculation: ${url}`, 1); // Info level
         return null;
     }
 
@@ -93,6 +97,8 @@ const processUrl = async (url: string) => {
         License: { score: licenseScore, latency: licenseLatency },
         CorrectnessLatency: correctness_latency,
     };
+
+     log(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
 
     // Calculate NetScore (weighted sum based on project requirements)
     const NetScore = (
@@ -131,11 +137,11 @@ const main = async () => { // Make main function async
 
     if (command === 'install') {
         // Install dependencies (npm install is handled in the run script)
-        console.log('Installing dependencies...');
+        log('Installing dependencies...', 1);
         process.exit(0);
     } else if (command === 'test') {
         // Run test cases (you would invoke your test suite here)
-        console.log('Running tests...');
+        log('Running tests...', 1);
         const testCasesPassed = 20; // Dummy value
         const totalTestCases = 20; // Dummy value
         const coverage = 85; // Dummy value
@@ -145,7 +151,7 @@ const main = async () => { // Make main function async
         const urlFile = command;
 
         if (!fs.existsSync(urlFile)) {
-            console.error(`File not found: ${urlFile}`);
+            log(`Error: File not found: ${urlFile}`, 1);
             process.exit(1);
         }
 
@@ -158,7 +164,7 @@ const main = async () => { // Make main function async
             if (result !== null) {
                 console.log(JSON.stringify(result));
             } else {
-                console.error('Error in metrics calculation with one of the URLs.');
+                log('Error in metrics calculation with one of the URLs.', 1);
                 process.exit(1);
             }
         });
@@ -169,6 +175,6 @@ const main = async () => { // Make main function async
 
 // Execute the main function
 main().catch(error => {
-    console.error('Error:', error);
+    log(`Error: ${error}`, 1);
     process.exit(1);
 });

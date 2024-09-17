@@ -1,9 +1,11 @@
 import axios from 'axios';
+import { log } from './logging'
 
 // Function to calculate correctness for GitHub URLs
 export const calculateGitHubCorrectness = async (owner: string, repo: string, githubToken: string): Promise<{ correctness: number; latency: number }> => {
     const start = performance.now(); // Record start time
     try {
+        log(`Fetching GitHub issues for ${owner}/${repo}`, 2); // Debug level logging
         // Fetch all issues labeled as "bug"
         const response = await axios.get(`https://api.github.com/repos/${owner}/${repo}/issues`, {
             headers: { Authorization: `token ${githubToken}` },
@@ -11,6 +13,7 @@ export const calculateGitHubCorrectness = async (owner: string, repo: string, gi
         });
 
         const bugIssuesCount = response.data.length;
+        log(`Found ${bugIssuesCount} bug issues for ${owner}/${repo}`, 2); // Debug
 
         // Popularity is based on stargazers (as a proxy for popularity)
         const repoResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}`, {
@@ -18,9 +21,11 @@ export const calculateGitHubCorrectness = async (owner: string, repo: string, gi
         });
 
         const stargazersCount = repoResponse.data.stargazers_count;
+        log(`${owner}/${repo} has ${stargazersCount} stars (popularity)`, 2); // Debug
 
         // Avoid division by zero
         const correctness = stargazersCount === 0 ? 1 : 1 - (bugIssuesCount / stargazersCount);
+        log(`Calculated correctness for ${owner}/${repo}: ${correctness}`, 1);
 
         const end = performance.now(); // Record end time
         const latency = end - start; // Calculate latency
@@ -32,7 +37,7 @@ export const calculateGitHubCorrectness = async (owner: string, repo: string, gi
         if (error instanceof Error) {
             errorMessage = error.message;
         }
-        console.log(errorMessage);
+        log(`Error calculating GitHub correctness for ${owner}/${repo}: ${errorMessage}`, 1); // Info level logging
         const end = performance.now(); // Record end time in case of error
         const latency = end - start; // Calculate latency
 
@@ -45,16 +50,19 @@ export const calculateGitHubCorrectness = async (owner: string, repo: string, gi
 export const calculateNpmCorrectness = async (packageName: string): Promise<{ correctness: number; latency: number }> => {
     const start = performance.now(); // Record start time
     try {
+        log(`Fetching npm package info for ${packageName}`, 2); // Debug level
         // Fetch download stats from npm
         const response = await axios.get(`https://api.npmjs.org/downloads/point/last-month/${packageName}`);
         const downloadCount = response.data.downloads;
 
+        log(`Fetching GitHub repository URL for ${packageName}`, 2); // Debug level
         // Fetch bugs from the GitHub repository of the npm package if available
         // Assuming the repository is linked in the package.json
         const packageResponse = await axios.get(`https://registry.npmjs.org/${packageName}`);
         const repoUrl = packageResponse.data.repository?.url;
 
         if (repoUrl && repoUrl.includes('github.com')) {
+            log(`Found GitHub repository URL for ${packageName}, calculating correctness for GitHub repository`, 1); // Info
             const [owner, repo] = repoUrl.split('github.com/')[1].split('/');
             const { correctness: githubCorrectness, latency: githubLatency } = await calculateGitHubCorrectness(owner, repo.split('.git')[0], process.env.GITHUB_TOKEN || '');
             
@@ -67,6 +75,7 @@ export const calculateNpmCorrectness = async (packageName: string): Promise<{ co
 
         }
 
+        log(`Could not find GitHub repository URL for ${packageName}, assuming correctness to be 1`, 1); // Info
         const end = performance.now(); // Record end time if no GitHub repo is found
         const latency = end - start; // Calculate latency
         return { correctness: 1, latency }; // If no GitHub repo is found, assume correctness is perfect
@@ -76,7 +85,7 @@ export const calculateNpmCorrectness = async (packageName: string): Promise<{ co
         if (error instanceof Error) {
             errorMessage = error.message;
         }
-        console.log(errorMessage);
+        log(`Error: ${errorMessage}`, 1); // Info
         
         const end = performance.now(); // Record end time in case of error
         const latency = end - start; // Calculate latency
