@@ -51,7 +51,6 @@ const parseUrl = (urlString: string) => {
     return { type: 'unknown', url: urlString };
 };
 
-// Function to process a single URL
 const processUrl = async (url: string) => {
     const start = performance.now();
 
@@ -63,19 +62,25 @@ const processUrl = async (url: string) => {
     let licenseLatency = 0;
 
     if (parsedUrl.type === 'npm') {
-        const result = await cm.calculateNpmCorrectness(parsedUrl.packageName!);
-        correctness = result.correctness;
-        correctness_latency = result.latency;
-        const licenseResult = await calculateNpmLicenseMetric(parsedUrl.packageName!);
+        // Perform correctness and license calculations in parallel
+        const [correctnessResult, licenseResult] = await Promise.all([
+            cm.calculateNpmCorrectness(parsedUrl.packageName!),
+            calculateNpmLicenseMetric(parsedUrl.packageName!)
+        ]);
+
+        correctness = correctnessResult.correctness;
+        correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
         licenseLatency = licenseResult.latency;
     } else if (parsedUrl.type === 'github') {
-        const result = await cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
-        correctness = result.correctness;
-        correctness_latency = result.latency;
-        
-        // Calculate license metric for GitHub repository
-        const licenseResult = await calculateGitHubLicenseMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
+        // Perform correctness and license calculations in parallel
+        const [correctnessResult, licenseResult] = await Promise.all([
+            cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
+            calculateGitHubLicenseMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '')
+        ]);
+
+        correctness = correctnessResult.correctness;
+        correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
         licenseLatency = licenseResult.latency;
     } else {
@@ -98,7 +103,7 @@ const processUrl = async (url: string) => {
         CorrectnessLatency: correctness_latency,
     };
 
-     log(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
+    log(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
 
     // Calculate NetScore (weighted sum based on project requirements)
     const NetScore = (
