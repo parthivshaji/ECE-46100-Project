@@ -2,11 +2,7 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -38,6 +34,8 @@ const fs = __importStar(require("fs"));
 const cm = __importStar(require("./correctnessMetric"));
 const License_Check_1 = require("./License_Check");
 const logging_1 = require("./logging");
+const resp = __importStar(require("./responsivenessMetric"));
+const ramp = __importStar(require("./rampUpMetric"));
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name, start) => {
     const latency = perf_hooks_1.performance.now() - start;
@@ -75,70 +73,6 @@ const parseUrl = (urlString) => {
     // If URL doesn't match either pattern
     return { type: 'unknown', url: urlString };
 };
-// Function to process a single URL
-// const processUrl = async (url: string) => {
-//     const start = performance.now();
-//     const parsedUrl = parseUrl(url);
-//     let correctness: number;
-//     let correctness_latency: number;
-//     let licenseScore = 0;
-//     let licenseLatency = 0;
-//     if (parsedUrl.type === 'npm') {
-//         const result = await cm.calculateNpmCorrectness(parsedUrl.packageName!);
-//         correctness = result.correctness;
-//         correctness_latency = result.latency;
-//         const licenseResult = await calculateNpmLicenseMetric(parsedUrl.packageName!);
-//         licenseScore = licenseResult.score;
-//         licenseLatency = licenseResult.latency;
-//     } else if (parsedUrl.type === 'github') {
-//         const result = await cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
-//         correctness = result.correctness;
-//         correctness_latency = result.latency;
-//         // Calculate license metric for GitHub repository
-//         const licenseResult = await calculateGitHubLicenseMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
-//         licenseScore = licenseResult.score;
-//         licenseLatency = licenseResult.latency;
-//     } else {
-//         log(`Unknown URL format: ${url}`, 1); // Info level
-//         return null;
-//     }
-//     if (correctness == -1) {
-//         console.log("Error in correctness metric calculation");
-//         log(`Error in correctness metric calculation: ${url}`, 1); // Info level
-//         return null;
-//     }
-//     const metrics = {
-//         RampUp: calculateMetric('RampUp', start),
-//         Correctness: correctness,
-//         BusFactor: calculateMetric('BusFactor', start),
-//         ResponsiveMaintainer: calculateMetric('ResponsiveMaintainer', start),
-//         License: { score: licenseScore, latency: licenseLatency },
-//         CorrectnessLatency: correctness_latency,
-//     };
-//      log(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
-//     // Calculate NetScore (weighted sum based on project requirements)
-//     const NetScore = (
-//         0.25 * metrics.RampUp.score +
-//         0.25 * metrics.Correctness +
-//         0.2 * metrics.BusFactor.score +
-//         0.2 * metrics.ResponsiveMaintainer.score +
-//         0.1 * metrics.License.score
-//     );
-//     return {
-//         URL: url,
-//         NetScore,
-//         RampUp: metrics.RampUp.score,
-//         RampUp_Latency: metrics.RampUp.latency,
-//         Correctness: metrics.Correctness,
-//         Correctness_Latency: metrics.CorrectnessLatency,
-//         BusFactor: metrics.BusFactor.score,
-//         BusFactor_Latency: metrics.BusFactor.latency,
-//         ResponsiveMaintainer: metrics.ResponsiveMaintainer.score,
-//         ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer.latency,
-//         License: metrics.License.score,
-//         License_Latency: metrics.License.latency,
-//     };
-// };
 const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     const start = perf_hooks_1.performance.now();
     const parsedUrl = parseUrl(url);
@@ -146,27 +80,43 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     let correctness_latency;
     let licenseScore = 0;
     let licenseLatency = 0;
+    let rampup = 0;
+    let rampupLatency = 0;
+    let responsiveness = 0;
+    let responsivenessLatency = 0;
     if (parsedUrl.type === 'npm') {
         // Perform correctness and license calculations in parallel
-        const [correctnessResult, licenseResult] = yield Promise.all([
+        const [correctnessResult, licenseResult, responsivenessResult, rampUpResult] = yield Promise.all([
             cm.calculateNpmCorrectness(parsedUrl.packageName),
-            (0, License_Check_1.calculateNpmLicenseMetric)(parsedUrl.packageName)
+            (0, License_Check_1.calculateNpmLicenseMetric)(parsedUrl.packageName),
+            resp.calculateNpmResponsiveness(parsedUrl.packageName),
+            ramp.calculateNpmRampUpMetric(parsedUrl.packageName)
         ]);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
         licenseLatency = licenseResult.latency;
+        rampup = rampUpResult.rampup;
+        rampupLatency = rampUpResult.latency;
+        responsiveness = responsivenessResult.responsiveness;
+        responsivenessLatency = responsivenessResult.latency;
     }
     else if (parsedUrl.type === 'github') {
         // Perform correctness and license calculations in parallel
-        const [correctnessResult, licenseResult] = yield Promise.all([
+        const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult] = yield Promise.all([
             cm.calculateGitHubCorrectness(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || ''),
-            (0, License_Check_1.calculateGitHubLicenseMetric)(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || '')
+            (0, License_Check_1.calculateGitHubLicenseMetric)(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || ''),
+            resp.calculateGitResponsiveness(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || ''),
+            ramp.calculateGitRampUpMetric(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB || '')
         ]);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
         licenseLatency = licenseResult.latency;
+        rampup = RampUpResult[0];
+        rampupLatency = RampUpResult[1];
+        responsiveness = ResponsivenessResult[0];
+        responsivenessLatency = ResponsivenessResult[1];
     }
     else {
         (0, logging_1.log)(`Unknown URL format: ${url}`, 1); // Info level
@@ -178,31 +128,33 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         return null;
     }
     const metrics = {
-        RampUp: calculateMetric('RampUp', start),
+        RampUp: rampup,
         Correctness: correctness,
         BusFactor: calculateMetric('BusFactor', start),
-        ResponsiveMaintainer: calculateMetric('ResponsiveMaintainer', start),
+        ResponsiveMaintainer: responsiveness,
+        ResponsiveMaintainer_Latency: responsivenessLatency,
         License: { score: licenseScore, latency: licenseLatency },
         CorrectnessLatency: correctness_latency,
+        RampUp_Latency: rampupLatency,
     };
     (0, logging_1.log)(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
     // Calculate NetScore (weighted sum based on project requirements)
-    const NetScore = (0.25 * metrics.RampUp.score +
+    const NetScore = (0.25 * metrics.RampUp +
         0.25 * metrics.Correctness +
         0.2 * metrics.BusFactor.score +
-        0.2 * metrics.ResponsiveMaintainer.score +
+        0.2 * metrics.ResponsiveMaintainer +
         0.1 * metrics.License.score);
     return {
         URL: url,
         NetScore,
-        RampUp: metrics.RampUp.score,
-        RampUp_Latency: metrics.RampUp.latency,
+        RampUp: metrics.RampUp,
+        RampUp_Latency: metrics.RampUp_Latency,
         Correctness: metrics.Correctness,
         Correctness_Latency: metrics.CorrectnessLatency,
         BusFactor: metrics.BusFactor.score,
         BusFactor_Latency: metrics.BusFactor.latency,
-        ResponsiveMaintainer: metrics.ResponsiveMaintainer.score,
-        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer.latency,
+        ResponsiveMaintainer: metrics.ResponsiveMaintainer,
+        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
         License: metrics.License.score,
         License_Latency: metrics.License.latency,
     };

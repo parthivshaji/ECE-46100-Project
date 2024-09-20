@@ -1,28 +1,116 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import axios from 'axios';
 
+// Define GitHub API base
+const GITHUB_API_BASE = 'https://api.github.com';
 
-// Function to calculate the ramp-up time score
-export function calculateRampUpMetric(repoPath: string): number {
-    // Check if the repository has a README file
-    const readmePath = path.join(repoPath, 'README.md');
-    let rampUpScore = 0;
+// Helper function to download a file from GitHub with enhanced error handling
+async function downloadFile(url: string, token: string): Promise<string> {
+    try {
+        const response = await axios.get(url, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+                Accept: 'application/vnd.github.v3.raw', // Request the raw file content
+            },
+        });
 
-    // Give a score based on the presence and size of the README
-    if (fs.existsSync(readmePath)) {
-        const stats = fs.statSync(readmePath);
-        const fileSizeInKB = stats.size / 1024; // Size in KB
-
-        if (fileSizeInKB > 50) {
-            rampUpScore += 10; // Large README implies good documentation
-        } else if (fileSizeInKB > 20) {
-            rampUpScore += 7; // Medium README
+        return response.data;
+    } catch (error) {
+        if (axios.isAxiosError(error)) {
+            const status = error.response?.status;
+            if (status === 403) {
+                console.error('Access forbidden: You might be rate-limited or lack permission.');
+            } else if (status === 401) {
+                console.error('Unauthorized: Check your GitHub token or permissions.');
+            } else if (status === 404) {
+                console.error('File not found.');
+            } else {
+                console.error('Failed to download file:', error.message);
+            }
         } else {
-            rampUpScore += 3; // Small README
+            console.error('Unexpected error:', error);
         }
-    } else {
-        rampUpScore += 1; // No README, poor documentation
+        return ''; // Return empty string if download fails
     }
-
-    return rampUpScore;
 }
+
+// Function to calculate the ramp-up metric based on README.md
+export async function calculateGitRampUpMetric(owner: string, repo: string, token: string): Promise<[number, number]> {
+    const start = performance.now(); // Start timing
+
+    // Construct URL for the README.md file
+    const readmeUrl = `${GITHUB_API_BASE}/repos/${owner}/${repo}/contents/README.md`;
+
+    try {
+        // Download the README.md file
+        const readmeContent = await downloadFile(readmeUrl, token);
+
+        let rampUpScore = 0;
+
+        // Score based on the README file
+        if (readmeContent.length > 0) {
+            const fileSizeInKB = Buffer.byteLength(readmeContent) / 1024; // Size in KB
+
+            if (fileSizeInKB > 50) {
+                rampUpScore += 10; // Large README implies good documentation
+            } else if (fileSizeInKB > 20) {
+                rampUpScore += 7; // Medium README
+            } else {
+                rampUpScore += 3; // Small README
+            }
+        } else {
+            rampUpScore += 1; // No README, poor documentation
+        }
+
+        const end = performance.now(); // End timing
+        const latency = end - start; // Calculate latency
+
+        return [rampUpScore / 10, latency];
+
+    } catch (error) {
+        console.error('Failed to calculate ramp-up metric:', error);
+        return [0, performance.now() - start]; // Return 0 score and elapsed time in case of error
+    }
+}
+
+// Function to calculate correctness for npm URLs
+export const calculateNpmRampUpMetric = async (packageName: string): Promise<{ rampup: number; latency: number }> => {
+    const start = performance.now(); // Record start time
+    try {
+        // Fetch download stats from npm
+        const response = await axios.get(`https://api.npmjs.org/downloads/point/last-month/${packageName}`);
+        const downloadCount = response.data.downloads;
+
+        // Fetch package metadata from npm registry
+        const packageResponse = await axios.get(`https://registry.npmjs.org/${packageName}`);
+        const repoUrl = packageResponse.data.repository?.url;
+
+        if (repoUrl && repoUrl.includes('github.com')) {
+            // Extract owner and repo from the URL
+            const cleanedRepoUrl = repoUrl.replace(/^git\+/, '').replace(/\.git$/, '');
+            const [owner, repo] = cleanedRepoUrl.split('github.com/')[1].split('/');
+            
+            // Calculate ramp-up using GitHub repository information
+            const result = await calculateGitRampUpMetric(owner, repo, process.env.GITHUB_TOKEN || '');
+            
+            const end = performance.now(); // Record end time
+            const latency = end - start; // Calculate latency
+
+            // Return combined results
+            return { rampup: result[0], latency }; // Add latencies if needed
+        }
+
+        // Handle case where GitHub repository is not found
+        const end = performance.now(); // Record end time if no GitHub repo is found
+        const latency = end - start; // Calculate latency
+        return { rampup: 1, latency }; // Assume perfect ramp-up if no GitHub repo is found
+
+    } catch (error) {
+        console.error("Error calculating ramp-up for npm package:", error);
+
+        const end = performance.now(); // Record end time in case of error
+        const latency = end - start; // Calculate latency
+        
+        // Return default values for ramp-up and latency in case of error
+        return { rampup: -1, latency };
+    }
+};

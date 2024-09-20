@@ -26,7 +26,7 @@ describe('Correctness Metrics', () => {
             // Mock GitHub issues endpoint
             (0, nock_1.default)(GITHUB_API_URL, {
                 reqheaders: {
-                    accept: 'application/json, text/plain, */*', // Only match the essential headers
+                    accept: 'application/json, text/plain, */*',
                     authorization: 'token ' + process.env.GITHUB_TOKEN || '',
                     'user-agent': 'axios/1.7.7',
                     'accept-encoding': 'gzip, compress, deflate, br'
@@ -51,7 +51,7 @@ describe('Correctness Metrics', () => {
             // Mock GitHub issues endpoint
             (0, nock_1.default)(GITHUB_API_URL, {
                 reqheaders: {
-                    accept: 'application/json, text/plain, */*', // Only match the essential headers
+                    accept: 'application/json, text/plain, */*',
                     authorization: 'token ' + process.env.GITHUB_TOKEN || '',
                     'user-agent': 'axios/1.7.7',
                     'accept-encoding': 'gzip, compress, deflate, br'
