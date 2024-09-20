@@ -7,6 +7,9 @@ import * as path from 'path';
 import * as url from 'url';
 import * as cm from './correctnessMetric'
 import { calculateGitHubLicenseMetric, calculateNpmLicenseMetric } from './License_Check';
+import { log } from './logging';
+import * as resp from './responsivenessMetric';
+import * as ramp from './rampUpMetric';
 
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name: string, start: number): { score: number, latency: number } => {
@@ -22,10 +25,11 @@ const parseUrl = (urlString: string) => {
     try {
         parsedUrl = new URL(urlString);
     } catch (error) {
-        console.error(`Invalid URL: ${urlString}.`);
+        log(`Invalid URL: ${urlString}`, 1); // Info level
         return { type: 'invalid', url: urlString };
     }
     
+    log(`Processing URL: ${urlString}`, 1); // Info level
     // Check if it's an npm URL
     if (parsedUrl.hostname === 'www.npmjs.com' || parsedUrl.hostname === 'npmjs.com') {
         const parts = parsedUrl.pathname.split('/').filter(Boolean); // Split by `/` and remove empty parts
@@ -44,11 +48,11 @@ const parseUrl = (urlString: string) => {
         }
     }
 
+    log(`Unknown URL format: ${urlString}`, 1); // Info level
     // If URL doesn't match either pattern
     return { type: 'unknown', url: urlString };
 };
 
-// Function to process a single URL
 const processUrl = async (url: string) => {
     const start = performance.now();
 
@@ -58,62 +62,90 @@ const processUrl = async (url: string) => {
     let correctness_latency: number;
     let licenseScore = 0;
     let licenseLatency = 0;
+    let rampup = 0;
+    let rampupLatency = 0;
+    let responsiveness = 0; 
+    let responsivenessLatency = 0;
 
     if (parsedUrl.type === 'npm') {
-        const result = await cm.calculateNpmCorrectness(parsedUrl.packageName!);
-        correctness = result.correctness;
-        correctness_latency = result.latency;
-        const licenseResult = await calculateNpmLicenseMetric(parsedUrl.packageName!);
+        // Perform correctness and license calculations in parallel
+        const [correctnessResult, licenseResult, responsivenessResult,  rampUpResult] = await Promise.all([
+            cm.calculateNpmCorrectness(parsedUrl.packageName!),
+            calculateNpmLicenseMetric(parsedUrl.packageName!),
+            resp.calculateNpmResponsiveness(parsedUrl.packageName!),
+            ramp.calculateNpmRampUpMetric(parsedUrl.packageName!)
+        ]);
+
+        correctness = correctnessResult.correctness;
+        correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
         licenseLatency = licenseResult.latency;
+        rampup = rampUpResult.rampup; 
+        rampupLatency = rampUpResult.latency;
+        responsiveness = responsivenessResult.responsiveness;
+        responsivenessLatency = responsivenessResult.latency;
+
     } else if (parsedUrl.type === 'github') {
-        const result = await cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
-        correctness = result.correctness;
-        correctness_latency = result.latency;
-        
-        // Calculate license metric for GitHub repository
-        const licenseResult = await calculateGitHubLicenseMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || '');
+        // Perform correctness and license calculations in parallel
+        const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult] = await Promise.all([
+            cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
+            calculateGitHubLicenseMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
+            resp.calculateGitResponsiveness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
+            ramp.calculateGitRampUpMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB || '')
+        ]);
+
+        correctness = correctnessResult.correctness;
+        correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
         licenseLatency = licenseResult.latency;
+        rampup = RampUpResult[0];
+        rampupLatency = RampUpResult[1];
+        responsiveness = ResponsivenessResult[0];
+        responsivenessLatency = ResponsivenessResult[1];
     } else {
-        console.error(`Unknown URL format: ${url}`);
+        log(`Unknown URL format: ${url}`, 1); // Info level
         return null;
     }
 
     if (correctness == -1) {
         console.log("Error in correctness metric calculation");
+        log(`Error in correctness metric calculation: ${url}`, 1); // Info level
         return null;
     }
 
     const metrics = {
-        RampUp: calculateMetric('RampUp', start),
+        RampUp: rampup,
         Correctness: correctness,
         BusFactor: calculateMetric('BusFactor', start),
-        ResponsiveMaintainer: calculateMetric('ResponsiveMaintainer', start),
+        ResponsiveMaintainer:  responsiveness,
+        ResponsiveMaintainer_Latency: responsivenessLatency,
         License: { score: licenseScore, latency: licenseLatency },
         CorrectnessLatency: correctness_latency,
+        RampUp_Latency: rampupLatency,
     };
+
+    log(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
 
     // Calculate NetScore (weighted sum based on project requirements)
     const NetScore = (
-        0.25 * metrics.RampUp.score +
+        0.25 * metrics.RampUp +
         0.25 * metrics.Correctness +
         0.2 * metrics.BusFactor.score +
-        0.2 * metrics.ResponsiveMaintainer.score +
+        0.2 * metrics.ResponsiveMaintainer +
         0.1 * metrics.License.score
     );
 
     return {
         URL: url,
         NetScore,
-        RampUp: metrics.RampUp.score,
-        RampUp_Latency: metrics.RampUp.latency,
+        RampUp: metrics.RampUp,
+        RampUp_Latency: metrics.RampUp_Latency,
         Correctness: metrics.Correctness,
         Correctness_Latency: metrics.CorrectnessLatency,
         BusFactor: metrics.BusFactor.score,
         BusFactor_Latency: metrics.BusFactor.latency,
-        ResponsiveMaintainer: metrics.ResponsiveMaintainer.score,
-        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer.latency,
+        ResponsiveMaintainer: metrics.ResponsiveMaintainer,
+        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
         License: metrics.License.score,
         License_Latency: metrics.License.latency,
     };
@@ -131,11 +163,11 @@ const main = async () => { // Make main function async
 
     if (command === 'install') {
         // Install dependencies (npm install is handled in the run script)
-        console.log('Installing dependencies...');
+        log('Installing dependencies...', 1);
         process.exit(0);
     } else if (command === 'test') {
         // Run test cases (you would invoke your test suite here)
-        console.log('Running tests...');
+        log('Running tests...', 1);
         const testCasesPassed = 20; // Dummy value
         const totalTestCases = 20; // Dummy value
         const coverage = 85; // Dummy value
@@ -145,7 +177,7 @@ const main = async () => { // Make main function async
         const urlFile = command;
 
         if (!fs.existsSync(urlFile)) {
-            console.error(`File not found: ${urlFile}`);
+            log(`Error: File not found: ${urlFile}`, 1);
             process.exit(1);
         }
 
@@ -158,7 +190,7 @@ const main = async () => { // Make main function async
             if (result !== null) {
                 console.log(JSON.stringify(result));
             } else {
-                console.error('Error in metrics calculation with one of the URLs.');
+                log('Error in metrics calculation with one of the URLs.', 1);
                 process.exit(1);
             }
         });
@@ -169,6 +201,6 @@ const main = async () => { // Make main function async
 
 // Execute the main function
 main().catch(error => {
-    console.error('Error:', error);
+    log(`Error: ${error}`, 1);
     process.exit(1);
 });

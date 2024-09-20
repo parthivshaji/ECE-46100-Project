@@ -1,52 +1,127 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculateRampUpMetric = calculateRampUpMetric;
-const fs = __importStar(require("fs"));
-const path = __importStar(require("path"));
-// Function to calculate the ramp-up time score
-function calculateRampUpMetric(repoPath) {
-    // Check if the repository has a README file
-    const readmePath = path.join(repoPath, 'README.md');
-    let rampUpScore = 0;
-    // Give a score based on the presence and size of the README
-    if (fs.existsSync(readmePath)) {
-        const stats = fs.statSync(readmePath);
-        const fileSizeInKB = stats.size / 1024; // Size in KB
-        if (fileSizeInKB > 50) {
-            rampUpScore += 10; // Large README implies good documentation
+exports.calculateNpmRampUpMetric = exports.calculateGitRampUpMetric = void 0;
+const axios_1 = __importDefault(require("axios"));
+// Define GitHub API base
+const GITHUB_API_BASE = 'https://api.github.com';
+// Helper function to download a file from GitHub with enhanced error handling
+function downloadFile(url, token) {
+    var _a;
+    return __awaiter(this, void 0, void 0, function* () {
+        try {
+            const response = yield axios_1.default.get(url, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    Accept: 'application/vnd.github.v3.raw', // Request the raw file content
+                },
+            });
+            return response.data;
         }
-        else if (fileSizeInKB > 20) {
-            rampUpScore += 7; // Medium README
+        catch (error) {
+            if (axios_1.default.isAxiosError(error)) {
+                const status = (_a = error.response) === null || _a === void 0 ? void 0 : _a.status;
+                if (status === 403) {
+                    console.error('Access forbidden: You might be rate-limited or lack permission.');
+                }
+                else if (status === 401) {
+                    console.error('Unauthorized: Check your GitHub token or permissions.');
+                }
+                else if (status === 404) {
+                    console.error('File not found.');
+                }
+                else {
+                    console.error('Failed to download file:', error.message);
+                }
+            }
+            else {
+                console.error('Unexpected error:', error);
+            }
+            return ''; // Return empty string if download fails
         }
-        else {
-            rampUpScore += 3; // Small README
-        }
-    }
-    else {
-        rampUpScore += 1; // No README, poor documentation
-    }
-    return rampUpScore;
+    });
 }
+// Function to calculate the ramp-up metric based on README.md
+function calculateGitRampUpMetric(owner, repo, token) {
+    return __awaiter(this, void 0, void 0, function* () {
+        const start = performance.now(); // Start timing
+        // Construct URL for the README.md file
+        const readmeUrl = `${GITHUB_API_BASE}/repos/${owner}/${repo}/contents/README.md`;
+        try {
+            // Download the README.md file
+            const readmeContent = yield downloadFile(readmeUrl, token);
+            let rampUpScore = 0;
+            // Score based on the README file
+            if (readmeContent.length > 0) {
+                const fileSizeInKB = Buffer.byteLength(readmeContent) / 1024; // Size in KB
+                if (fileSizeInKB > 50) {
+                    rampUpScore += 10; // Large README implies good documentation
+                }
+                else if (fileSizeInKB > 20) {
+                    rampUpScore += 7; // Medium README
+                }
+                else {
+                    rampUpScore += 3; // Small README
+                }
+            }
+            else {
+                rampUpScore += 1; // No README, poor documentation
+            }
+            const end = performance.now(); // End timing
+            const latency = end - start; // Calculate latency
+            return [rampUpScore / 10, latency];
+        }
+        catch (error) {
+            console.error('Failed to calculate ramp-up metric:', error);
+            return [0, performance.now() - start]; // Return 0 score and elapsed time in case of error
+        }
+    });
+}
+exports.calculateGitRampUpMetric = calculateGitRampUpMetric;
+// Function to calculate correctness for npm URLs
+const calculateNpmRampUpMetric = (packageName) => __awaiter(void 0, void 0, void 0, function* () {
+    var _a;
+    const start = performance.now(); // Record start time
+    try {
+        // Fetch download stats from npm
+        const response = yield axios_1.default.get(`https://api.npmjs.org/downloads/point/last-month/${packageName}`);
+        const downloadCount = response.data.downloads;
+        // Fetch package metadata from npm registry
+        const packageResponse = yield axios_1.default.get(`https://registry.npmjs.org/${packageName}`);
+        const repoUrl = (_a = packageResponse.data.repository) === null || _a === void 0 ? void 0 : _a.url;
+        if (repoUrl && repoUrl.includes('github.com')) {
+            // Extract owner and repo from the URL
+            const cleanedRepoUrl = repoUrl.replace(/^git\+/, '').replace(/\.git$/, '');
+            const [owner, repo] = cleanedRepoUrl.split('github.com/')[1].split('/');
+            // Calculate ramp-up using GitHub repository information
+            const result = yield calculateGitRampUpMetric(owner, repo, process.env.GITHUB_TOKEN || '');
+            const end = performance.now(); // Record end time
+            const latency = end - start; // Calculate latency
+            // Return combined results
+            return { rampup: result[0], latency }; // Add latencies if needed
+        }
+        // Handle case where GitHub repository is not found
+        const end = performance.now(); // Record end time if no GitHub repo is found
+        const latency = end - start; // Calculate latency
+        return { rampup: 1, latency }; // Assume perfect ramp-up if no GitHub repo is found
+    }
+    catch (error) {
+        console.error("Error calculating ramp-up for npm package:", error);
+        const end = performance.now(); // Record end time in case of error
+        const latency = end - start; // Calculate latency
+        // Return default values for ramp-up and latency in case of error
+        return { rampup: -1, latency };
+    }
+});
+exports.calculateNpmRampUpMetric = calculateNpmRampUpMetric;
