@@ -84,7 +84,7 @@ function calculateGitRampUpMetric(owner, repo, token) {
                 }
             }
             else {
-                rampUpScore += 1; // No README, poor documentation
+                rampUpScore += 0; // No README, poor documentation
                 (0, logging_1.log)('No README found. Score: 1', 2); // Debug log
             }
             const end = performance.now(); // End timing
