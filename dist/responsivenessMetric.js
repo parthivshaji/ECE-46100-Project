@@ -42,7 +42,7 @@ function getGitIssuesAndPRs() {
     return __awaiter(this, arguments, void 0, function* (state = 'all', owner, repo, token) {
         const issueNumbers = [];
         let page = 1;
-        const perPage = 100;
+        const perPage = 25;
         while (true) {
             const issuesUrl = `${GITHUB_API_BASE}/repos/${owner}/${repo}/issues?state=${state}&per_page=${perPage}&page=${page}`;
             try {
@@ -81,7 +81,8 @@ const calculateGitResponsiveness = function (owner, repo, token) {
                 return [0, latency];
             }
             const averageResponseTime = validResponseTimes.reduce((sum, rt) => sum + rt, 0) / validResponseTimes.length;
-            const maxResponseTime = Math.max(...validResponseTimes);
+            let maxResponseTime = Math.max(...validResponseTimes);
+            maxResponseTime = Math.max(maxResponseTime, 365);
             const responsiveness = 1 - averageResponseTime / maxResponseTime;
             return [responsiveness, latency];
         }
