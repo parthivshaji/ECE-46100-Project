@@ -29,7 +29,7 @@ async function getGitIssueResponseTime(issueNumber: number, owner: string, repo:
 async function getGitIssuesAndPRs(state: string = 'all', owner: string, repo: string, token: string): Promise<number[]> {
     const issueNumbers: number[] = [];
     let page = 1;
-    const perPage = 100;
+    const perPage = 25;
 
     while (true) {
         const issuesUrl = `${GITHUB_API_BASE}/repos/${owner}/${repo}/issues?state=${state}&per_page=${perPage}&page=${page}`;
