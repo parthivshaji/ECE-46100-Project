@@ -24,14 +24,7 @@ describe('License Metrics', () => {
     describe('GitHub License Metric', () => {
         it('should calculate license score for a GitHub repository with compatible license', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock GitHub license endpoint
-            (0, nock_1.default)(GITHUB_API_URL, {
-                reqheaders: {
-                    accept: 'application/json, text/plain, */*',
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                    'accept-encoding': 'gzip, compress, deflate, br'
-                }
-            })
+            (0, nock_1.default)(GITHUB_API_URL)
                 .get('/repos/test-owner/test-repo/license')
                 .reply(200, {
                 license: { spdx_id: 'MIT' }
