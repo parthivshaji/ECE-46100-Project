@@ -9,12 +9,33 @@ Aryan Srivastava
 Purva Grover
 
 Parthiv Shaji
+## Configuration
 
-To install dependencies (if on Linux) run "./run install"
-To build, run "npm run build"
-To run the CLI, either run "./run <url-file>" or "npm run start <url-file>"
+To install the necessary dependencies (for Linux users), run the following command:
+```
+./run install
+```
 
- Project Metrics Calculation
+To build the project, run:
+```
+npm run build
+```
+
+To run the CLI, you can use either of the following commands:
+```
+./run <url-file>
+```
+or
+```
+npm run start <url-file>
+```
+
+---
+
+## Aim
+
+The goal of this project is to calculate a score between 0 and 1 based on various metrics, as described in the documentation, for a given npm or GitHub repository. The repository link is provided through the command-line interface (CLI).
+## Project Metrics Calculation
 
  The formulas used to calculate various metrics for evaluating repositories are outlined here
 
