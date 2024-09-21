@@ -108,7 +108,6 @@ const processUrl = async (url: string) => {
     }
 
     if (correctness == -1) {
-        console.log("Error in correctness metric calculation");
         log(`Error in correctness metric calculation: ${url}`, 1); // Info level
         return null;
     }
