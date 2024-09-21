@@ -99,7 +99,6 @@ function calculateGitRampUpMetric(owner, repo, token) {
         }
     });
 }
-exports.calculateGitRampUpMetric = calculateGitRampUpMetric;
 // Function to calculate ramp-up for npm packages
 const calculateNpmRampUpMetric = (packageName) => __awaiter(void 0, void 0, void 0, function* () {
     var _a;
