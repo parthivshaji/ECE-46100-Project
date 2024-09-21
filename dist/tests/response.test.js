@@ -39,7 +39,7 @@ describe('Responsiveness Metrics', () => {
                 .get('/repos/test-owner/test-repo/issues/2')
                 .reply(200, { created_at: '2022-01-01T00:00:00Z', closed_at: '2022-01-03T00:00:00Z' });
             const result = yield (0, responsivenessMetric_1.calculateGitResponsiveness)('test-owner', 'test-repo', 'fake-github-token');
-            expect(result.responsiveness).toBeCloseTo(0.5); // Responsiveness metric should be 1 - (avg/max response times)
+            expect(result[0]).toBeCloseTo(0.5); // Responsiveness metric should be 1 - (avg/max response times)
         }));
         it('should return 0 when there are no valid response times', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock GitHub issues endpoint but no valid response times
@@ -48,7 +48,7 @@ describe('Responsiveness Metrics', () => {
                 .query({ state: 'all', per_page: 100, page: 1 })
                 .reply(200, []); // No issues
             const result = yield (0, responsivenessMetric_1.calculateGitResponsiveness)('test-owner', 'test-repo', 'fake-github-token');
-            expect(result.responsiveness).toBe(0); // No valid response times
+            expect(result[0]).toBe(0); // No valid response times
         }));
         it('should handle failure when fetching GitHub issues gracefully', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock GitHub issues endpoint to fail
@@ -57,7 +57,7 @@ describe('Responsiveness Metrics', () => {
                 .query({ state: 'all', per_page: 100, page: 1 })
                 .reply(403); // Forbidden error
             const result = yield (0, responsivenessMetric_1.calculateGitResponsiveness)('test-owner', 'test-repo', 'fake-github-token');
-            expect(result.responsiveness).toBe(0); // Responsiveness should be 0 on failure
+            expect(result[0]).toBe(0); // Responsiveness should be 0 on failure
         }));
     });
     describe('npm Responsiveness', () => {

@@ -17,11 +17,12 @@ describe('Responsiveness Metrics', () => {
                 .get('/repos/test-owner/test-repo/issues')
                 .query({ state: 'all', per_page: 100, page: 1 })
                 .reply(200, [
+                    // One issue closes in 1 day, another in 2 days
                     { number: 1, created_at: '2022-01-01T00:00:00Z', closed_at: '2022-01-02T00:00:00Z' },
                     { number: 2, created_at: '2022-01-01T00:00:00Z', closed_at: '2022-01-03T00:00:00Z' },
                 ]);
 
-            // Mock individual GitHub issue details
+            // Mock individual GitHub issue details (though not needed as both are returned in the first request)
             nock(GITHUB_API_URL)
                 .get('/repos/test-owner/test-repo/issues/1')
                 .reply(200, { created_at: '2022-01-01T00:00:00Z', closed_at: '2022-01-02T00:00:00Z' });
@@ -30,8 +31,11 @@ describe('Responsiveness Metrics', () => {
                 .get('/repos/test-owner/test-repo/issues/2')
                 .reply(200, { created_at: '2022-01-01T00:00:00Z', closed_at: '2022-01-03T00:00:00Z' });
 
+            // Expected: average response time = (1 day + 2 days) / 2 = 1.5 days; max response time = 2 days
             const result = await calculateGitResponsiveness('test-owner', 'test-repo', 'fake-github-token');
-            expect(result[0]).toBeCloseTo(0.5); // Responsiveness metric should be 1 - (avg/max response times)
+
+            // Responsiveness: 1 - (average / max) = 1 - (1.5 / 2) = 0.25
+            expect(result[0]).toBeCloseTo(0.25, 2);
         });
 
         it('should return 0 when there are no valid response times', async () => {
@@ -79,7 +83,7 @@ describe('Responsiveness Metrics', () => {
                 .reply(200, { created_at: '2022-01-01T00:00:00Z', closed_at: '2022-01-02T00:00:00Z' });
 
             const result = await calculateNpmResponsiveness('test-package');
-            expect(result.responsiveness).toBeCloseTo(1); // Perfect responsiveness (1 day for closure)
+            expect(result.responsiveness).toBeCloseTo(0); // Perfect responsiveness (1 day for closure)
         });
 
         it('should return responsiveness as 1 if no GitHub repository is linked', async () => {

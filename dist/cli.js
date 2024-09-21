@@ -119,7 +119,8 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         licenseLatency = licenseResult.latency;
         rampup = RampUpResult[0];
         rampupLatency = RampUpResult[1];
-        const [responsiveness, responsivenessLatency] = [ResponsivenessResult.responsiveness, ResponsivenessResult.latency];
+        responsiveness = ResponsivenessResult[0];
+        responsivenessLatency = ResponsivenessResult[1];
     }
     else {
         (0, logging_1.log)(`Unknown URL format: ${url}`, 1); // Info level
