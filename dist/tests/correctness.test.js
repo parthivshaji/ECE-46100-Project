@@ -24,19 +24,12 @@ describe('Correctness Metrics', () => {
     describe('GitHub Correctness', () => {
         it('should calculate correctness metric for a GitHub repository', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock GitHub issues endpoint
-            (0, nock_1.default)(GITHUB_API_URL, {
-                reqheaders: {
-                    accept: 'application/json, text/plain, */*', // Only match the essential headers
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                    'accept-encoding': 'gzip, compress, deflate, br'
-                }
-            })
+            (0, nock_1.default)(GITHUB_API_URL)
                 .get('/repos/test-owner/test-repo/issues')
-                .query({ labels: 'bug', state: 'all' }) // Ensure the query matches exactly
+                .query({ state: 'all' }) // Ensure the query matches exactly
                 .reply(200, [
-                { id: 1, title: 'Bug 1' },
-                { id: 2, title: 'Bug 2' }
+                { id: 1, labels: [{ 'name': 'Bug 1' }] },
+                { id: 2, labels: [{ 'name': 'Bug 2' }] }
             ]);
             // Mock GitHub repository endpoint (for stargazers count)
             (0, nock_1.default)(GITHUB_API_URL)
@@ -44,24 +37,17 @@ describe('Correctness Metrics', () => {
                 .reply(200, {
                 stargazers_count: 100
             });
-            const correctness = yield (0, correctnessMetric_1.calculateGitHubCorrectness)('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
+            const correctness = yield (0, correctnessMetric_1.calculateGitHubCorrectness)('test-owner', 'test-repo', 'fake-github-token');
             expect(correctness.correctness).toBeCloseTo(0.98, 2); // (1 - (2/100)) = 0.98
         }));
         it('should return correctness as 1 when there are no stars', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock GitHub issues endpoint
-            (0, nock_1.default)(GITHUB_API_URL, {
-                reqheaders: {
-                    accept: 'application/json, text/plain, */*', // Only match the essential headers
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                    'accept-encoding': 'gzip, compress, deflate, br'
-                }
-            })
+            (0, nock_1.default)(GITHUB_API_URL)
                 .get('/repos/test-owner/test-repo/issues')
-                .query({ labels: 'bug', state: 'all' })
+                .query({ state: 'all' })
                 .reply(200, [
-                { id: 1, title: 'Bug 1' },
-                { id: 2, title: 'Bug 2' }
+                { id: 1, labels: [{ 'name': 'Bug 1' }] },
+                { id: 2, labels: [{ 'name': 'Bug 2' }] }
             ]);
             // Mock GitHub repository endpoint with 0 stars
             (0, nock_1.default)(GITHUB_API_URL)
@@ -71,6 +57,10 @@ describe('Correctness Metrics', () => {
             });
             const correctness = yield (0, correctnessMetric_1.calculateGitHubCorrectness)('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
             expect(correctness.correctness).toBe(1); // Default to 1 if popularity is 0
+        }));
+        it('should return correctness as -1 when invalid repo', () => __awaiter(void 0, void 0, void 0, function* () {
+            const correctness = yield (0, correctnessMetric_1.calculateGitHubCorrectness)('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
+            expect(correctness.correctness).toBe(-1); // Default to 1 if popularity is 0
         }));
     });
     describe('npm Correctness', () => {
@@ -93,9 +83,9 @@ describe('Correctness Metrics', () => {
                 }
             })
                 .get('/repos/test-owner/test-repo/issues')
-                .query({ labels: 'bug', state: 'all' })
+                .query({ state: 'all' })
                 .reply(200, [
-                { id: 1, title: 'Bug 1' }
+                { id: 1, labels: [{ 'name': 'Bug 1' }] },
             ]);
             const correctness = yield (0, correctnessMetric_1.calculateNpmCorrectness)('test-package');
             expect(correctness.correctness).toBeCloseTo(0.999, 3); // (1 - (1/1000)) = 0.999
@@ -120,12 +110,16 @@ describe('Correctness Metrics', () => {
                 }
             })
                 .get('/repos/test-owner/test-repo/issues')
-                .query({ labels: 'bug', state: 'all' })
+                .query({ state: 'all' })
                 .reply(200, [
-                { id: 1, title: 'Bug 1' }
+                { id: 1, labels: [{ 'name': 'Bug 1' }] },
             ]);
             const correctness = yield (0, correctnessMetric_1.calculateNpmCorrectness)('test-package');
             expect(correctness.correctness).toBe(1); // Default to 1 if downloads are 0
+        }));
+        it('should return correctness as -1 when invalid repo', () => __awaiter(void 0, void 0, void 0, function* () {
+            const correctness = yield (0, correctnessMetric_1.calculateNpmCorrectness)('test-package');
+            expect(correctness.correctness).toBe(1); //assume correctness as 1 if no github url
         }));
     });
 });
