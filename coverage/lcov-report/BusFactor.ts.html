@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">84.61% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>44/52</span>
+                <span class='fraction'>52/52</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76.92% </span>
+                <span class="strong">84.61% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>10/13</span>
+                <span class='fraction'>11/13</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">83.33% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>40/48</span>
+                <span class='fraction'>48/48</span>
             </div>
         
             
@@ -164,31 +164,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -251,19 +251,19 @@ export const calculateBusFactor = async (owner: string, repo: string, githubToke
             params: { anon: 'true' } // Include anonymous contributors
         });
 &nbsp;
-        const contributors = <span class="cstat-no" title="statement not covered" >response.data;</span>
-        const contributorCount = <span class="cstat-no" title="statement not covered" >contributors.length;</span>
+        const contributors = response.data;
+        const contributorCount = contributors.length;
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        log(`Found ${contributorCount} contributors for ${owner}/${repo}`, 2); </span>// Debug
+        log(`Found ${contributorCount} contributors for ${owner}/${repo}`, 2); // Debug
 &nbsp;
         // Calculate Bus Factor
-        const busFactor = <span class="cstat-no" title="statement not covered" >contributorCount &gt; 0 ? 1 / contributorCount : 0;</span>
-<span class="cstat-no" title="statement not covered" >        log(`Calculated Bus Factor for ${owner}/${repo}: ${busFactor}`, 1);</span>
+        const busFactor = contributorCount &gt; 0 ? 1 / contributorCount : 0;
+        log(`Calculated Bus Factor for ${owner}/${repo}: ${busFactor}`, 1);
 &nbsp;
-        const end = <span class="cstat-no" title="statement not covered" >performance.now();</span> // Record end time
-        const latency = <span class="cstat-no" title="statement not covered" >end - start;</span> // Calculate latency
+        const end = performance.now(); // Record end time
+        const latency = end - start; // Calculate latency
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return { busFactor, latency };</span>
+        return { busFactor, latency };
 &nbsp;
     } catch (error) {
         let errorMessage = "Failed to calculate Bus Factor for GitHub repository";
@@ -290,7 +290,7 @@ export const calculateNpmBusFactor = async (packageName: string): Promise&lt;{ b
 &nbsp;
         log(`Fetching GitHub repository URL for ${packageName}`, 2); // Debug level
         // Fetch GitHub repository URL from package.json
-        const repoUrl = packageInfo.repository?.url;
+        const repoUrl = packageInfo.repository<span class="branch-0 cbranch-no" title="branch not covered" >?.u</span>rl;
 &nbsp;
         if (repoUrl &amp;&amp; repoUrl.includes('github.com')) {
             log(`Found GitHub repository URL for ${packageName}, calculating Bus Factor for GitHub repository`, 1); // Info
@@ -331,7 +331,7 @@ export const calculateNpmBusFactor = async (packageName: string): Promise&lt;{ b
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-09-21T19:09:33.625Z
+                at 2024-09-21T21:09:42.605Z
             </div>
         <script src="prettify.js"></script>
         <script>
