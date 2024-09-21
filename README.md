@@ -13,3 +13,63 @@ Parthiv Shaji
 To install dependencies (if on Linux) run "./run install"
 To build, run "npm run build"
 To run the CLI, either run "./run <url-file>" or "npm run start <url-file>"
+
+ Project Metrics Calculation
+
+ The formulas used to calculate various metrics for evaluating repositories are outlined here
+
+## 1. Correctness
+
+- **Formula**:  
+  ```
+  Correctness Score = 1 - (Number of Bug Issues / Number of Downloads)
+  ```
+- **Description**:  
+  The correctness score is calculated based on the number of bug issues in relation to the number of downloads. A lower ratio results in a higher score, indicating better correctness.
+
+---
+
+## 2. Ramp-up
+
+- **Criteria**: The score is based on the size of the README file:
+  - **Formula**:
+    ```
+    if README file size > 50 kb: score = 1.0
+    if README file size > 20 kb and <= 50 kb: score = 0.7
+    if README file size <= 20 kb: score = 0.3
+    if README file not found: score = 0
+    ```
+- **Description**:  
+  Larger README files generally indicate better documentation, which results in a higher score. If no README file is present, the score is 0.
+
+---
+
+## 3. Responsiveness
+
+- **Formula**:
+  ```
+  Responsiveness Score = 1 - (Average Response Time in Days / Max(Response Time in Days, 365))
+  ```
+- **Description**:  
+  This metric evaluates how quickly maintainers respond to issues or pull requests. A lower average response time leads to a higher score. The maximum possible response time is capped at 365 days.
+
+---
+
+## 4. License
+
+- **Formula**:
+  ```
+  if license exists: score = 0
+  if no license exists: score = 1
+  ```
+- **Description**:  
+  A score of 1 is given if no valid license is found, while a score of 0 is assigned if a license is present.
+
+---
+
+## 5. Bus Factor
+
+- **Description**:  
+  The Bus Factor is a measure of project risk, representing the number of key contributors needed to keep the project running. A low Bus Factor indicates that a small number of individuals hold critical knowledge of the project, while a higher Bus Factor suggests that knowledge is spread across multiple contributors.
+
+---
