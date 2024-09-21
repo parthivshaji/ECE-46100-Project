@@ -36,6 +36,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const perf_hooks_1 = require("perf_hooks");
 const fs = __importStar(require("fs"));
 const logging_1 = require("./logging");
+const bm = __importStar(require("./BusFactor"));
 const worker_threads_1 = require("worker_threads");
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name, start) => {
@@ -99,6 +100,8 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     let rampupLatency = 0;
     let responsiveness = 0;
     let responsivenessLatency = 0;
+    let busFactor;
+    let BusFactorLatency;
     if (parsedUrl.type === 'npm') {
         const [correctnessResult, licenseResult, responsivenessResult, rampUpResult] = yield Promise.all([
             runWorker('./src/workers/correctnessWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
@@ -106,6 +109,7 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
             runWorker('./src/workers/responsivenessWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
             runWorker('./src/workers/rampUpWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
         ]);
+        const busFactorResult = yield bm.calculateNpmBusFactor(parsedUrl.packageName);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
@@ -114,6 +118,8 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         rampupLatency = rampUpResult.latency;
         responsiveness = responsivenessResult.responsiveness;
         responsivenessLatency = responsivenessResult.latency;
+        busFactor = busFactorResult.busFactor;
+        BusFactorLatency = busFactorResult.latency;
     }
     else if (parsedUrl.type === 'github') {
         const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult] = yield Promise.all([
@@ -122,6 +128,7 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
             runWorker('./src/workers/responsivenessWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
             runWorker('./src/workers/rampUpWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
         ]);
+        const busFactorResult = yield bm.calculateNpmBusFactor(parsedUrl.packageName);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
@@ -130,6 +137,8 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         rampupLatency = RampUpResult[1];
         responsiveness = ResponsivenessResult[0];
         responsivenessLatency = ResponsivenessResult[1];
+        busFactor = busFactorResult.busFactor;
+        BusFactorLatency = busFactorResult.latency;
     }
     else {
         (0, logging_1.log)(`Unknown URL format: ${url}`, 1);
@@ -142,7 +151,8 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     const metrics = {
         RampUp: rampup,
         Correctness: correctness,
-        BusFactor: calculateMetric('BusFactor', start),
+        BusFactor: busFactor,
+        BusFactorLatency: BusFactorLatency,
         ResponsiveMaintainer: responsiveness,
         ResponsiveMaintainer_Latency: responsivenessLatency,
         License: { score: licenseScore, latency: licenseLatency },
@@ -153,7 +163,7 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     // Calculate NetScore (weighted sum based on project requirements)
     const NetScore = (0.25 * metrics.RampUp +
         0.25 * metrics.Correctness +
-        0.2 * metrics.BusFactor.score +
+        0.2 * metrics.BusFactor +
         0.2 * metrics.ResponsiveMaintainer +
         0.1 * metrics.License.score);
     return {
@@ -163,8 +173,8 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         RampUp_Latency: metrics.RampUp_Latency,
         Correctness: metrics.Correctness,
         Correctness_Latency: metrics.CorrectnessLatency,
-        BusFactor: metrics.BusFactor.score,
-        BusFactor_Latency: metrics.BusFactor.latency,
+        BusFactor: metrics.BusFactor,
+        BusFactor_Latency: metrics.BusFactorLatency,
         ResponsiveMaintainer: metrics.ResponsiveMaintainer,
         ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
         License: metrics.License.score,

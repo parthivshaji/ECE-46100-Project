@@ -10,6 +10,7 @@ import { calculateGitHubLicenseMetric, calculateNpmLicenseMetric } from './Licen
 import { log } from './logging';
 import * as resp from './responsivenessMetric';
 import * as ramp from './rampUpMetric';
+import * as bm from './BusFactor';
 import { Worker, isMainThread, parentPort, workerData } from 'worker_threads';
 
 // Function to calculate metrics (dummy implementations for now)
@@ -79,8 +80,10 @@ const processUrl = async (url: string) => {
     let licenseLatency = 0;
     let rampup = 0;
     let rampupLatency = 0;
-    let responsiveness = 0; 
+    let responsiveness = 0;
     let responsivenessLatency = 0;
+    let busFactor: number;
+    let BusFactorLatency: number;
 
     if (parsedUrl.type === 'npm') {
         const [correctnessResult, licenseResult, responsivenessResult, rampUpResult] = await Promise.all([
@@ -90,6 +93,7 @@ const processUrl = async (url: string) => {
             runWorker('./src/workers/rampUpWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
         ]);
 
+        const busFactorResult = await bm.calculateNpmBusFactor (parsedUrl.packageName!);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
@@ -98,6 +102,8 @@ const processUrl = async (url: string) => {
         rampupLatency = rampUpResult.latency;
         responsiveness = responsivenessResult.responsiveness;
         responsivenessLatency = responsivenessResult.latency;
+        busFactor = busFactorResult.busFactor;
+        BusFactorLatency = busFactorResult.latency;
 
     } else if (parsedUrl.type === 'github') {
         const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult] = await Promise.all([
@@ -107,6 +113,7 @@ const processUrl = async (url: string) => {
             runWorker('./src/workers/rampUpWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
         ]);
 
+        const busFactorResult = await bm.calculateNpmBusFactor (parsedUrl.packageName!);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
@@ -115,6 +122,8 @@ const processUrl = async (url: string) => {
         rampupLatency = RampUpResult[1];
         responsiveness = ResponsivenessResult[0];
         responsivenessLatency = ResponsivenessResult[1];
+        busFactor = busFactorResult.busFactor;
+        BusFactorLatency = busFactorResult.latency;
 
     } else {
         log(`Unknown URL format: ${url}`, 1);
@@ -129,7 +138,8 @@ const processUrl = async (url: string) => {
     const metrics = {
         RampUp: rampup,
         Correctness: correctness,
-        BusFactor: calculateMetric('BusFactor', start),
+        BusFactor: busFactor,
+        BusFactorLatency: BusFactorLatency,
         ResponsiveMaintainer:  responsiveness,
         ResponsiveMaintainer_Latency: responsivenessLatency,
         License: { score: licenseScore, latency: licenseLatency },
@@ -143,7 +153,7 @@ const processUrl = async (url: string) => {
     const NetScore = (
         0.25 * metrics.RampUp +
         0.25 * metrics.Correctness +
-        0.2 * metrics.BusFactor.score +
+        0.2 * metrics.BusFactor +
         0.2 * metrics.ResponsiveMaintainer +
         0.1 * metrics.License.score
     );
@@ -155,8 +165,8 @@ const processUrl = async (url: string) => {
         RampUp_Latency: metrics.RampUp_Latency,
         Correctness: metrics.Correctness,
         Correctness_Latency: metrics.CorrectnessLatency,
-        BusFactor: metrics.BusFactor.score,
-        BusFactor_Latency: metrics.BusFactor.latency,
+        BusFactor: metrics.BusFactor,
+        BusFactor_Latency: metrics.BusFactorLatency,
         ResponsiveMaintainer: metrics.ResponsiveMaintainer,
         ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
         License: metrics.License.score,
