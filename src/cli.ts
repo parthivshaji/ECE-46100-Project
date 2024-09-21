@@ -68,103 +68,6 @@ const parseUrl = (urlString: string) => {
     return { type: 'unknown', url: urlString };
 };
 
-// const processUrl = async (url: string) => {
-//     const start = performance.now();
-
-//     const parsedUrl = parseUrl(url);
-
-//     let correctness: number;
-//     let correctness_latency: number;
-//     let licenseScore = 0;
-//     let licenseLatency = 0;
-//     let rampup = 0;
-//     let rampupLatency = 0;
-//     let responsiveness = 0; 
-//     let responsivenessLatency = 0;
-
-//     if (parsedUrl.type === 'npm') {
-//         // Perform correctness and license calculations in parallel
-//         const [correctnessResult, licenseResult, responsivenessResult,  rampUpResult] = await Promise.all([
-//             cm.calculateNpmCorrectness(parsedUrl.packageName!),
-//             calculateNpmLicenseMetric(parsedUrl.packageName!),
-//             resp.calculateNpmResponsiveness(parsedUrl.packageName!),
-//             ramp.calculateNpmRampUpMetric(parsedUrl.packageName!)
-//         ]);
-
-//         correctness = correctnessResult.correctness;
-//         correctness_latency = correctnessResult.latency;
-//         licenseScore = licenseResult.score;
-//         licenseLatency = licenseResult.latency;
-//         rampup = rampUpResult.rampup; 
-//         rampupLatency = rampUpResult.latency;
-//         responsiveness = responsivenessResult.responsiveness;
-//         responsivenessLatency = responsivenessResult.latency;
-
-//     } else if (parsedUrl.type === 'github') {
-//         // Perform correctness and license calculations in parallel
-//         const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult] = await Promise.all([
-//             cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
-//             calculateGitHubLicenseMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
-//             resp.calculateGitResponsiveness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
-//             ramp.calculateGitRampUpMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB || '')
-//         ]);
-
-//         correctness = correctnessResult.correctness;
-//         correctness_latency = correctnessResult.latency;
-//         licenseScore = licenseResult.score;
-//         licenseLatency = licenseResult.latency;
-//         rampup = RampUpResult[0];
-//         rampupLatency = RampUpResult[1];
-//         responsiveness = ResponsivenessResult[0];
-//         responsivenessLatency = ResponsivenessResult[1];
-//     } else {
-//         log(`Unknown URL format: ${url}`, 1); // Info level
-//         return null;
-//     }
-
-//     if (correctness == -1) {
-//         console.log("Error in correctness metric calculation");
-//         log(`Error in correctness metric calculation: ${url}`, 1); // Info level
-//         return null;
-//     }
-
-//     const metrics = {
-//         RampUp: rampup,
-//         Correctness: correctness,
-//         BusFactor: calculateMetric('BusFactor', start),
-//         ResponsiveMaintainer:  responsiveness,
-//         ResponsiveMaintainer_Latency: responsivenessLatency,
-//         License: { score: licenseScore, latency: licenseLatency },
-//         CorrectnessLatency: correctness_latency,
-//         RampUp_Latency: rampupLatency,
-//     };
-
-//     log(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
-
-//     // Calculate NetScore (weighted sum based on project requirements)
-//     const NetScore = (
-//         0.25 * metrics.RampUp +
-//         0.25 * metrics.Correctness +
-//         0.2 * metrics.BusFactor.score +
-//         0.2 * metrics.ResponsiveMaintainer +
-//         0.1 * metrics.License.score
-//     );
-
-//     return {
-//         URL: url,
-//         NetScore,
-//         RampUp: metrics.RampUp,
-//         RampUp_Latency: metrics.RampUp_Latency,
-//         Correctness: metrics.Correctness,
-//         Correctness_Latency: metrics.CorrectnessLatency,
-//         BusFactor: metrics.BusFactor.score,
-//         BusFactor_Latency: metrics.BusFactor.latency,
-//         ResponsiveMaintainer: metrics.ResponsiveMaintainer,
-//         ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
-//         License: metrics.License.score,
-//         License_Latency: metrics.License.latency,
-//     };
-// };
 // Main function for processing URLs
 const processUrl = async (url: string) => {
     const start = performance.now();
@@ -219,7 +122,6 @@ const processUrl = async (url: string) => {
     }
 
      if (correctness == -1) {
-        console.log("Error in correctness metric calculation");
         log(`Error in correctness metric calculation: ${url}`, 1); // Info level
         return null;
     }
