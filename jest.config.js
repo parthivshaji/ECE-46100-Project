@@ -1,7 +1,7 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'node',
-  testMatch: ['<rootDir>/tests/**/*.test.ts'], // Look for tests in tests/ directory
+  testMatch: ['<rootDir>/src/tests/*/.test.ts'], // Look for tests in tests/ directory
   moduleFileExtensions: ['ts', 'js'],
   moduleDirectories: ['node_modules', 'src'],  // Allow Jest to resolve src/ imports
   moduleNameMapper: {

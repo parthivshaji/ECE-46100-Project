@@ -21,25 +21,27 @@ function getGitIssueResponseTime(issueNumber, owner, repo, token) {
         const issueUrl = `${GITHUB_API_BASE}/repos/${owner}/${repo}/issues/${issueNumber}`;
         try {
             const response = yield axios_1.default.get(issueUrl, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
+                headers: { Authorization: `Bearer ${token}` },
             });
             const issueData = response.data;
             const createdAt = new Date(issueData.created_at).getTime();
             const closedAt = issueData.closed_at ? new Date(issueData.closed_at).getTime() : Date.now();
-            const responseTime = closedAt - createdAt; // Time in milliseconds
-            return responseTime / (1000 * 60 * 60 * 24); // Convert to days
+            return (closedAt - createdAt) / (1000 * 60 * 60 * 24); // Convert to days
         }
-        catch (_a) {
-            // Silent catch to handle errors like 403 without logging or interrupting execution
+        catch (error) {
+            if (axios_1.default.isAxiosError(error)) {
+                console.error(`Error fetching issue ${issueNumber}:`, error.message); // Log the error message
+            }
+            else {
+                console.error(`Unexpected error fetching issue ${issueNumber}:`, error); // Log unexpected errors
+            }
             return 0; // Return 0 for invalid response times
         }
     });
 }
 // Helper function to get all issues and PR numbers from GitHub
-function getGitIssuesAndPRs(state = 'all', owner, repo, token) {
-    return __awaiter(this, void 0, void 0, function* () {
+function getGitIssuesAndPRs() {
+    return __awaiter(this, arguments, void 0, function* (state = 'all', owner, repo, token) {
         const issueNumbers = [];
         let page = 1;
         const perPage = 100;
@@ -57,39 +59,44 @@ function getGitIssuesAndPRs(state = 'all', owner, repo, token) {
                 issueNumbers.push(...issues.map((issue) => issue.number));
                 page++;
             }
-            catch (_a) {
-                // Silent catch to skip over errors and break the loop
+            catch (error) {
+                if (axios_1.default.isAxiosError(error)) {
+                    console.error(`Error fetching issues:`, error.message); // Log the error message
+                }
+                else {
+                    console.error(`Unexpected error fetching issues:`, error); // Log unexpected errors
+                }
                 break; // Exit loop if there's a failure, e.g., 403 Forbidden
             }
         }
         return issueNumbers;
     });
 }
-// Function to calculate responsiveness based on GitHub issues
-const calculateGitResponsiveness = function (owner, repo, token) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const start = performance.now();
-        try {
-            const issuesAndPRs = yield getGitIssuesAndPRs('all', owner, repo, token);
-            // Use Promise.all to fetch response times in parallel
-            const responseTimes = yield Promise.all(issuesAndPRs.map((issueNumber) => getGitIssueResponseTime(issueNumber, owner, repo, token)));
-            // Filter out invalid response times and calculate metrics
-            const validResponseTimes = responseTimes.filter((rt) => rt > 0);
-            const end = performance.now();
-            const latency = end - start;
-            if (validResponseTimes.length === 0) {
-                return [0, latency];
-            }
-            const averageResponseTime = validResponseTimes.reduce((sum, rt) => sum + rt, 0) / validResponseTimes.length;
-            const maxResponseTime = Math.max(...validResponseTimes);
-            const responsiveness = 1 - averageResponseTime / maxResponseTime;
-            return [responsiveness, latency];
+const calculateGitResponsiveness = (owner, repo, token) => __awaiter(void 0, void 0, void 0, function* () {
+    const start = performance.now();
+    try {
+        const issuesAndPRs = yield getGitIssuesAndPRs('all', owner, repo, token);
+        const responseTimes = yield Promise.all(issuesAndPRs.map(issueNumber => getGitIssueResponseTime(issueNumber, owner, repo, token)));
+        const validResponseTimes = responseTimes.filter(rt => rt > 0);
+        const latency = performance.now() - start;
+        if (validResponseTimes.length === 0) {
+            return { responsiveness: 0, latency };
         }
-        catch (_a) {
-            return [0, performance.now() - start];
+        const averageResponseTime = validResponseTimes.reduce((sum, rt) => sum + rt, 0) / validResponseTimes.length;
+        const maxResponseTime = Math.max(...validResponseTimes);
+        const responsiveness = 1 - averageResponseTime / maxResponseTime;
+        return { responsiveness, latency };
+    }
+    catch (error) {
+        if (axios_1.default.isAxiosError(error)) {
+            console.error('Error calculating responsiveness:', error.message);
         }
-    });
-};
+        else {
+            console.error('Unexpected error calculating responsiveness:', error);
+        }
+        return { responsiveness: 0, latency: performance.now() - start };
+    }
+});
 exports.calculateGitResponsiveness = calculateGitResponsiveness;
 // Function to calculate responsiveness for npm packages
 const calculateNpmResponsiveness = (packageName) => __awaiter(void 0, void 0, void 0, function* () {
@@ -106,17 +113,21 @@ const calculateNpmResponsiveness = (packageName) => __awaiter(void 0, void 0, vo
         if (repoUrl && repoUrl.includes('github.com')) {
             const [owner, repo] = repoUrl.split('github.com/')[1].split('/');
             const result = yield (0, exports.calculateGitResponsiveness)(owner, repo.split('.git')[0], process.env.GITHUB_TOKEN || '');
-            // Calculate latency for npm responsiveness
             const end = performance.now(); // Record end time
             const latency = end - start; // Calculate latency
-            // Return combined results
-            return { responsiveness: result[0], latency }; // Add latencies if needed
+            return { responsiveness: result.responsiveness, latency }; // Add latencies if needed
         }
         const end = performance.now(); // Record end time if no GitHub repo is found
         const latency = end - start; // Calculate latency
         return { responsiveness: 1, latency }; // If no GitHub repo is found, assume responsiveness is perfect
     }
-    catch (_b) {
+    catch (error) {
+        if (axios_1.default.isAxiosError(error)) {
+            console.error('Error fetching npm data:', error.message);
+        }
+        else {
+            console.error('Unexpected error fetching npm data:', error);
+        }
         const end = performance.now(); // Record end time in case of error
         const latency = end - start; // Calculate latency
         return { responsiveness: -1, latency }; // Return default values in case of error
