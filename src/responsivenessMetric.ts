@@ -76,8 +76,8 @@ export const calculateGitResponsiveness = async function (owner: string, repo: s
         }
 
         const averageResponseTime = validResponseTimes.reduce((sum, rt) => sum + rt, 0) / validResponseTimes.length;
-        const maxResponseTime = Math.max(...validResponseTimes);
-
+        let maxResponseTime = Math.max(...validResponseTimes);
+        maxResponseTime = Math.max(maxResponseTime, 365);
         const responsiveness = 1 - averageResponseTime / maxResponseTime;
         return [responsiveness, latency];
     } catch {
