@@ -84,7 +84,7 @@ The goal of this project is to calculate a score between 0 and 1 based on variou
   if no license exists: score = 1
   ```
 - **Description**:  
-  A score of 1 is given if no valid license is found, while a score of 0 is assigned if a license is present.
+  A score of 1 is given if no valid license is found, while a score of 0 is assigned if a license is present. License should be from this list: (LGPL-2.1, LGPL-2.1 or later, MIT, BSD-2-Clause, BSD-3-Clause, Apache-2.0, Artistic-2.0)
 
 ---
 
