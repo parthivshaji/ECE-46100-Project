@@ -38,8 +38,8 @@ function getGitIssueResponseTime(issueNumber, owner, repo, token) {
     });
 }
 // Helper function to get all issues and PR numbers from GitHub
-function getGitIssuesAndPRs(state = 'all', owner, repo, token) {
-    return __awaiter(this, void 0, void 0, function* () {
+function getGitIssuesAndPRs() {
+    return __awaiter(this, arguments, void 0, function* (state = 'all', owner, repo, token) {
         const issueNumbers = [];
         let page = 1;
         const perPage = 100;

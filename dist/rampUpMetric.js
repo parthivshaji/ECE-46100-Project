@@ -12,15 +12,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.calculateNpmRampUpMetric = exports.calculateGitRampUpMetric = void 0;
+exports.calculateNpmRampUpMetric = void 0;
+exports.calculateGitRampUpMetric = calculateGitRampUpMetric;
 const axios_1 = __importDefault(require("axios"));
 const logging_1 = require("./logging"); // Assuming the logging module exports a log function
 // Define GitHub API base
 const GITHUB_API_BASE = 'https://api.github.com';
 // Helper function to download a file from GitHub with enhanced error handling
 function downloadFile(url, token) {
-    var _a;
     return __awaiter(this, void 0, void 0, function* () {
+        var _a;
         try {
             (0, logging_1.log)(`Downloading file from URL: ${url}`, 2); // Debug level log
             const response = yield axios_1.default.get(url, {
