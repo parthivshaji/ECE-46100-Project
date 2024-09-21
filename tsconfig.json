@@ -107,7 +107,7 @@
   },
   "include": [
     "src/**/*",                                // Include all files in the src directory
-    "tests/**/*"                               // Include test files from tests directory for type-checking
+    "src/tests/**/*"                               // Include test files from tests directory for type-checking
   ],
   "exclude": [
     "node_modules",                            // Exclude node_modules
