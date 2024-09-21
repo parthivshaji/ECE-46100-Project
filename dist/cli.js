@@ -35,16 +35,26 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const perf_hooks_1 = require("perf_hooks");
 const fs = __importStar(require("fs"));
-const cm = __importStar(require("./correctnessMetric"));
-const License_Check_1 = require("./License_Check");
 const logging_1 = require("./logging");
-const resp = __importStar(require("./responsivenessMetric"));
-const ramp = __importStar(require("./rampUpMetric"));
+const worker_threads_1 = require("worker_threads");
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name, start) => {
     const latency = perf_hooks_1.performance.now() - start;
     const score = Math.random(); // Placeholder for actual score calculation
     return { score, latency };
+};
+// Worker function to run calculations in a separate thread
+const runWorker = (workerFile, data) => {
+    return new Promise((resolve, reject) => {
+        const worker = new worker_threads_1.Worker(workerFile, { workerData: data });
+        worker.on('message', resolve);
+        worker.on('error', reject);
+        worker.on('exit', (code) => {
+            if (code !== 0) {
+                reject(new Error(`Worker stopped with exit code ${code}`));
+            }
+        });
+    });
 };
 // Helper function to identify and parse URLs
 const parseUrl = (urlString) => {
@@ -77,6 +87,93 @@ const parseUrl = (urlString) => {
     // If URL doesn't match either pattern
     return { type: 'unknown', url: urlString };
 };
+// const processUrl = async (url: string) => {
+//     const start = performance.now();
+//     const parsedUrl = parseUrl(url);
+//     let correctness: number;
+//     let correctness_latency: number;
+//     let licenseScore = 0;
+//     let licenseLatency = 0;
+//     let rampup = 0;
+//     let rampupLatency = 0;
+//     let responsiveness = 0; 
+//     let responsivenessLatency = 0;
+//     if (parsedUrl.type === 'npm') {
+//         // Perform correctness and license calculations in parallel
+//         const [correctnessResult, licenseResult, responsivenessResult,  rampUpResult] = await Promise.all([
+//             cm.calculateNpmCorrectness(parsedUrl.packageName!),
+//             calculateNpmLicenseMetric(parsedUrl.packageName!),
+//             resp.calculateNpmResponsiveness(parsedUrl.packageName!),
+//             ramp.calculateNpmRampUpMetric(parsedUrl.packageName!)
+//         ]);
+//         correctness = correctnessResult.correctness;
+//         correctness_latency = correctnessResult.latency;
+//         licenseScore = licenseResult.score;
+//         licenseLatency = licenseResult.latency;
+//         rampup = rampUpResult.rampup; 
+//         rampupLatency = rampUpResult.latency;
+//         responsiveness = responsivenessResult.responsiveness;
+//         responsivenessLatency = responsivenessResult.latency;
+//     } else if (parsedUrl.type === 'github') {
+//         // Perform correctness and license calculations in parallel
+//         const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult] = await Promise.all([
+//             cm.calculateGitHubCorrectness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
+//             calculateGitHubLicenseMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
+//             resp.calculateGitResponsiveness(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB_TOKEN || ''),
+//             ramp.calculateGitRampUpMetric(parsedUrl.owner!, parsedUrl.repo!, process.env.GITHUB || '')
+//         ]);
+//         correctness = correctnessResult.correctness;
+//         correctness_latency = correctnessResult.latency;
+//         licenseScore = licenseResult.score;
+//         licenseLatency = licenseResult.latency;
+//         rampup = RampUpResult[0];
+//         rampupLatency = RampUpResult[1];
+//         responsiveness = ResponsivenessResult[0];
+//         responsivenessLatency = ResponsivenessResult[1];
+//     } else {
+//         log(`Unknown URL format: ${url}`, 1); // Info level
+//         return null;
+//     }
+//     if (correctness == -1) {
+//         console.log("Error in correctness metric calculation");
+//         log(`Error in correctness metric calculation: ${url}`, 1); // Info level
+//         return null;
+//     }
+//     const metrics = {
+//         RampUp: rampup,
+//         Correctness: correctness,
+//         BusFactor: calculateMetric('BusFactor', start),
+//         ResponsiveMaintainer:  responsiveness,
+//         ResponsiveMaintainer_Latency: responsivenessLatency,
+//         License: { score: licenseScore, latency: licenseLatency },
+//         CorrectnessLatency: correctness_latency,
+//         RampUp_Latency: rampupLatency,
+//     };
+//     log(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
+//     // Calculate NetScore (weighted sum based on project requirements)
+//     const NetScore = (
+//         0.25 * metrics.RampUp +
+//         0.25 * metrics.Correctness +
+//         0.2 * metrics.BusFactor.score +
+//         0.2 * metrics.ResponsiveMaintainer +
+//         0.1 * metrics.License.score
+//     );
+//     return {
+//         URL: url,
+//         NetScore,
+//         RampUp: metrics.RampUp,
+//         RampUp_Latency: metrics.RampUp_Latency,
+//         Correctness: metrics.Correctness,
+//         Correctness_Latency: metrics.CorrectnessLatency,
+//         BusFactor: metrics.BusFactor.score,
+//         BusFactor_Latency: metrics.BusFactor.latency,
+//         ResponsiveMaintainer: metrics.ResponsiveMaintainer,
+//         ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
+//         License: metrics.License.score,
+//         License_Latency: metrics.License.latency,
+//     };
+// };
+// Main function for processing URLs
 const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     const start = perf_hooks_1.performance.now();
     const parsedUrl = parseUrl(url);
@@ -89,12 +186,11 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     let responsiveness = 0;
     let responsivenessLatency = 0;
     if (parsedUrl.type === 'npm') {
-        // Perform correctness and license calculations in parallel
         const [correctnessResult, licenseResult, responsivenessResult, rampUpResult] = yield Promise.all([
-            cm.calculateNpmCorrectness(parsedUrl.packageName),
-            (0, License_Check_1.calculateNpmLicenseMetric)(parsedUrl.packageName),
-            resp.calculateNpmResponsiveness(parsedUrl.packageName),
-            ramp.calculateNpmRampUpMetric(parsedUrl.packageName)
+            runWorker('./src/workers/correctnessWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
+            runWorker('./src/workers/licenseWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
+            runWorker('./src/workers/responsivenessWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
+            runWorker('./src/workers/rampUpWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
         ]);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
@@ -106,12 +202,11 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         responsivenessLatency = responsivenessResult.latency;
     }
     else if (parsedUrl.type === 'github') {
-        // Perform correctness and license calculations in parallel
         const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult] = yield Promise.all([
-            cm.calculateGitHubCorrectness(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || ''),
-            (0, License_Check_1.calculateGitHubLicenseMetric)(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || ''),
-            resp.calculateGitResponsiveness(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB_TOKEN || ''),
-            ramp.calculateGitRampUpMetric(parsedUrl.owner, parsedUrl.repo, process.env.GITHUB || '')
+            runWorker('./src/workers/correctnessWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
+            runWorker('./src/workers/licenseWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
+            runWorker('./src/workers/responsivenessWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
+            runWorker('./src/workers/rampUpWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
         ]);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
@@ -123,7 +218,7 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         responsivenessLatency = ResponsivenessResult[1];
     }
     else {
-        (0, logging_1.log)(`Unknown URL format: ${url}`, 1); // Info level
+        (0, logging_1.log)(`Unknown URL format: ${url}`, 1);
         return null;
     }
     if (correctness == -1) {

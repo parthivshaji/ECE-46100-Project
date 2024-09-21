@@ -20,12 +20,14 @@ const calculateGitHubCorrectness = (owner, repo, githubToken) => __awaiter(void 
     const start = performance.now(); // Record start time
     try {
         (0, logging_1.log)(`Fetching GitHub issues for ${owner}/${repo}`, 2); // Debug level logging
-        // Fetch all issues labeled as "bug"
+        // Fetch all issues
         const response = yield axios_1.default.get(`https://api.github.com/repos/${owner}/${repo}/issues`, {
             headers: { Authorization: `token ${githubToken}` },
-            params: { labels: 'bug', state: 'all' }
+            params: { state: 'all' } // Fetch all issues, not filtered by label
         });
-        const bugIssuesCount = response.data.length;
+        // Filter issues where any label contains the word "bug"
+        const bugIssues = response.data.filter((issue) => issue.labels.some((label) => label.name.toLowerCase().includes('bug')));
+        const bugIssuesCount = bugIssues.length;
         (0, logging_1.log)(`Found ${bugIssuesCount} bug issues for ${owner}/${repo}`, 2); // Debug
         // Popularity is based on stargazers (as a proxy for popularity)
         const repoResponse = yield axios_1.default.get(`https://api.github.com/repos/${owner}/${repo}`, {
