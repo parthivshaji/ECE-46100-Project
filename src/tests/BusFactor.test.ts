@@ -1,103 +1,94 @@
-import nock from 'nock';
-import * as bm from '../BusFactor';
-import { calculateBusFactor } from '../BusFactor'; // Adjust path as needed
-// Mock GitHub API URL
-const GITHUB_API_URL = 'https://api.github.com';
+import axios from 'axios';
+import { calculateBusFactor, calculateNpmBusFactor } from '../BusFactor'; // Update with the correct path
 
-describe('Bus Factor Metrics', () => {
+jest.mock('axios');
+
+describe('Bus Factor Calculations', () => {
+    const mockGithubToken = 'fake-github-token';
+
     afterEach(() => {
-        nock.cleanAll(); // Clean any mocks after each test
+        jest.clearAllMocks(); // Clear mocks after each test
     });
 
-    describe('GitHub Bus Factor', () => {
-        it('should calculate Bus Factor for a GitHub repository', async () => {
-            // Mock GitHub contributors endpoint
-            nock(GITHUB_API_URL, {
-                reqheaders: {
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                }
-            })
-            .get('/repos/test-owner/test-repo/contributors')
-            .reply(200, [
-                { login: 'user1' },
-                { login: 'user2' }
-            ]);
+    describe('calculateBusFactor', () => {
+        test('should calculate Bus Factor successfully with contributors', async () => {
+            const mockContributorsResponse = {
+                data: Array(8).fill({}), // Mocking 8 contributors
+            };
+            (axios.get as jest.Mock).mockResolvedValueOnce(mockContributorsResponse);
 
-            const { busFactor } = await calculateBusFactor('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
-            expect(busFactor).toBeCloseTo(0.5, 2); // (1 / 2 contributors) = 0.5
+            const { busFactor, latency } = await calculateBusFactor('owner', 'repo', mockGithubToken);
+
+            expect(busFactor).toBeCloseTo(1 / 8); // Expecting Bus Factor 1/8
+            expect(latency).toBeGreaterThan(0); // Latency should be positive
         });
 
-        it('should return Bus Factor as 0 when there are no contributors', async () => {
-            // Mock GitHub contributors endpoint with no contributors
-            nock(GITHUB_API_URL, {
-                reqheaders: {
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                }
-            })
-            .get('/repos/test-owner/test-repo/contributors')
-            .reply(200, []);
+        test('should return Bus Factor 0 when no contributors are found', async () => {
+            const mockContributorsResponse = {
+                data: [], // No contributors
+            };
+            (axios.get as jest.Mock).mockResolvedValueOnce(mockContributorsResponse);
 
-            const { busFactor } = await calculateBusFactor('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
-            expect(busFactor).toBe(0); // Bus Factor should be 0 if no contributors
+            const { busFactor, latency } = await calculateBusFactor('owner', 'repo', mockGithubToken);
+
+            expect(busFactor).toBe(0); // Bus Factor should be 0 when no contributors
+            expect(latency).toBeGreaterThan(0); // Latency should still be measured
         });
 
-        it('should handle errors gracefully', async () => {
-            // Mock GitHub contributors endpoint to return an error
-            nock(GITHUB_API_URL)
-            .get('/repos/test-owner/test-repo/contributors')
-            .reply(404);
+        test('should handle errors and return Bus Factor -1', async () => {
+            const mockError = new Error('GitHub API error');
+            (axios.get as jest.Mock).mockRejectedValueOnce(mockError);
 
-            const { busFactor } = await calculateBusFactor('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
-            expect(busFactor).toBe(-1); // Should return -1 on error
+            const { busFactor, latency } = await calculateBusFactor('owner', 'repo', mockGithubToken);
+
+            expect(busFactor).toBe(-1); // Bus Factor should be -1 in case of error
+            expect(latency).toBeGreaterThan(0); // Latency should be measured
         });
     });
 
-    describe('npm Bus Factor', () => {
-        it('should calculate Bus Factor for an npm package', async () => {
-            // Mock npm package info endpoint
-            nock('https://registry.npmjs.org')
-            .get('/test-package')
-            .reply(200, {
-                repository: { url: 'https://github.com/test-owner/test-repo' }
-            });
+    describe('calculateNpmBusFactor', () => {
+        test('should calculate NPM Bus Factor successfully with valid GitHub repo', async () => {
+            const mockRepoUrl = 'https://github.com/owner/repo';
+            const mockNpmResponse = {
+                repository: { url: mockRepoUrl },
+            };
+            const mockContributorsResponse = {
+                data: Array(5).fill({}), // Mocking 5 contributors
+            };
 
-            // Mock GitHub contributors endpoint
-            nock(GITHUB_API_URL, {
-                reqheaders: {
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                }
-            })
-            .get('/repos/test-owner/test-repo/contributors')
-            .reply(200, [
-                { login: 'user1' },
-                { login: 'user2' }
-            ]);
+            // Mock the NPM package info response
+            (axios.get as jest.Mock).mockResolvedValueOnce({ data: mockNpmResponse });
+            // Mock the GitHub contributors response
+            (axios.get as jest.Mock).mockResolvedValueOnce(mockContributorsResponse);
 
-            const { busFactor } = await bm.calculateNpmBusFactor('test-package');
-            expect(busFactor).toBeCloseTo(0.5, 2); // (1 / 2 contributors) = 0.5
+            const { busFactor, latency } = await calculateNpmBusFactor('valid-package');
+
+            expect(busFactor).toBeCloseTo(1 / 5); // Expecting Bus Factor 1/5 for 5 contributors
+            expect(latency).toBeGreaterThan(0); // Latency should be positive
         });
 
-        it('should return Bus Factor as 0 when no GitHub repo is found', async () => {
-            // Mock npm package info endpoint without repository
-            nock('https://registry.npmjs.org')
-            .get('/test-package')
-            .reply(200, {});
+        test('should return Bus Factor 0 when no GitHub repository URL is found', async () => {
+            const mockNpmResponse = {
+                repository: { url: 'https://example.com/some-repo' }, // No GitHub URL
+            };
 
-            const { busFactor } = await bm.calculateNpmBusFactor('test-package');
-            expect(busFactor).toBe(0); // Default to 0 if no GitHub repo is found
+            // Mock the NPM package info response
+            (axios.get as jest.Mock).mockResolvedValueOnce({ data: mockNpmResponse });
+
+            const { busFactor, latency } = await calculateNpmBusFactor('package-with-no-github');
+
+            expect(busFactor).toBe(0); // Bus Factor should be 0 when no GitHub URL is found
+            expect(latency).toBeGreaterThan(0); // Latency should be measured
         });
 
-        it('should handle errors gracefully for npm package', async () => {
-            // Mock npm package info endpoint to return an error
-            nock('https://registry.npmjs.org')
-            .get('/test-package')
-            .reply(404);
+        test('should handle errors and return Bus Factor -1 for NPM package', async () => {
+            const mockError = new Error('NPM fetch failed');
+            (axios.get as jest.Mock).mockRejectedValueOnce(mockError);
 
-            const { busFactor } = await bm.calculateNpmBusFactor('test-package');
-            expect(busFactor).toBe(-1); // Should return -1 on error
+            const { busFactor, latency } = await calculateNpmBusFactor('invalid-package');
+
+            expect(busFactor).toBe(-1); // Bus Factor should be -1 in case of error
+            expect(latency).toBeGreaterThan(0); // Latency should be measured
         });
     });
 });
