@@ -9,7 +9,7 @@ if [ "$1" = "install" ]; then
     npm install path
     npm install --save-dev jest nock
 elif [ "$1" = "test" ]; then
-    npm run test
+    npm run test:coverage
 else
     npm run build
     # Pass the arguments to the TypeScript compiled CLI
