@@ -23,9 +23,15 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">87.93% </span>
                 <span class="quiet">Statements</span>
                 <span class='fraction'>51/58</span>
+=======
+                <span class="strong">87.71% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>50/57</span>
+>>>>>>> 5e1d1c26b0c84e3f302cb1a7555d118ef10e7451
             </div>
         
             
@@ -44,9 +50,15 @@
         
             
             <div class='fl pad1y space-right2'>
+<<<<<<< HEAD
                 <span class="strong">86.79% </span>
                 <span class="quiet">Lines</span>
                 <span class='fraction'>46/53</span>
+=======
+                <span class="strong">86.53% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>45/52</span>
+>>>>>>> 5e1d1c26b0c84e3f302cb1a7555d118ef10e7451
             </div>
         
             
@@ -160,10 +172,14 @@
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
 <a name='L97'></a><a href='#L97'>97</a>
+<<<<<<< HEAD
 <a name='L98'></a><a href='#L98'>98</a>
 <a name='L99'></a><a href='#L99'>99</a>
 <a name='L100'></a><a href='#L100'>100</a>
 <a name='L101'></a><a href='#L101'>101</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+=======
+<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+>>>>>>> 5e1d1c26b0c84e3f302cb1a7555d118ef10e7451
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,11 +189,45 @@
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
+<<<<<<< HEAD
+=======
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+>>>>>>> 5e1d1c26b0c84e3f302cb1a7555d118ef10e7451
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<<<<<<< HEAD
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,6 +262,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+=======
+>>>>>>> 5e1d1c26b0c84e3f302cb1a7555d118ef10e7451
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -285,16 +337,13 @@ export const calculateGitHubCorrectness = async (owner: string, repo: string, gi
 &nbsp;
         log(`Found ${bugIssuesCount} bug issues for ${owner}/${repo}`, 2); // Debug
 &nbsp;
-        // Popularity is based on stargazers (as a proxy for popularity)
-        const repoResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}`, {
-            headers: { Authorization: `token ${githubToken}` }
-        });
+        const totalIssuesCount = response.data.length
 &nbsp;
-        const stargazersCount = repoResponse.data.stargazers_count;
-        log(`${owner}/${repo} has ${stargazersCount} stars (popularity)`, 2); // Debug
+        log(`${owner}/${repo} has ${totalIssuesCount} issues `, 2); // Debug
 &nbsp;
         // Avoid division by zero
-        const correctness = stargazersCount === 0 ? 1 : 1 - (bugIssuesCount / stargazersCount);
+        const correctness = totalIssuesCount === 0 ? 1 : 1 - (bugIssuesCount / totalIssuesCount);
+&nbsp;
         log(`Calculated correctness for ${owner}/${repo}: ${correctness}`, 1);
 &nbsp;
         const end = performance.now(); // Record end time
@@ -370,7 +419,11 @@ export const calculateNpmCorrectness = async (packageName: string): Promise&lt;{
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+<<<<<<< HEAD
                 at 2024-09-22T18:30:05.964Z
+=======
+                at 2024-09-22T18:22:38.794Z
+>>>>>>> 5e1d1c26b0c84e3f302cb1a7555d118ef10e7451
             </div>
         <script src="prettify.js"></script>
         <script>

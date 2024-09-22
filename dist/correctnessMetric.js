@@ -29,14 +29,10 @@ const calculateGitHubCorrectness = (owner, repo, githubToken) => __awaiter(void 
         const bugIssues = response.data.filter((issue) => issue.labels.some((label) => label.name.toLowerCase().includes('bug')));
         const bugIssuesCount = bugIssues.length;
         (0, logging_1.log)(`Found ${bugIssuesCount} bug issues for ${owner}/${repo}`, 2); // Debug
-        // Popularity is based on stargazers (as a proxy for popularity)
-        const repoResponse = yield axios_1.default.get(`https://api.github.com/repos/${owner}/${repo}`, {
-            headers: { Authorization: `token ${githubToken}` }
-        });
-        const stargazersCount = repoResponse.data.stargazers_count;
-        (0, logging_1.log)(`${owner}/${repo} has ${stargazersCount} stars (popularity)`, 2); // Debug
+        const totalIssuesCount = response.data.length;
+        (0, logging_1.log)(`${owner}/${repo} has ${totalIssuesCount} issues `, 2); // Debug
         // Avoid division by zero
-        const correctness = stargazersCount === 0 ? 1 : 1 - (bugIssuesCount / stargazersCount);
+        const correctness = totalIssuesCount === 0 ? 1 : 1 - (bugIssuesCount / totalIssuesCount);
         (0, logging_1.log)(`Calculated correctness for ${owner}/${repo}: ${correctness}`, 1);
         const end = performance.now(); // Record end time
         const latency = end - start; // Calculate latency

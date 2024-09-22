@@ -1,0 +1,1663 @@
+2024-09-22T21:30:57.670Z - Processing URL: https://github.com/jonschlinkert/even
+2024-09-22T21:30:57.676Z - Processing URL: https://www.npmjs.com/package/even
+2024-09-22T21:30:57.679Z - Processing URL: https://github.com/node-fetch/node-fetch
+2024-09-22T21:30:57.684Z - Processing URL: https://www.npmjs.com/package/node-fetch
+2024-09-22T21:30:57.689Z - Processing URL: https://github.com/parthivshaji/ECE-46100-Project
+2024-09-22T21:30:57.696Z - Processing URL: https://github.com/NickeManarin/ScreenToGif
+2024-09-22T21:30:57.702Z - Processing URL: https://www.npmjs.com/package/wat4hjs
+2024-09-22T21:30:57.711Z - Processing URL: https://github.com/mrdoob/three.js/
+2024-09-22T21:30:57.713Z - Processing URL: https://www.npmjs.com/package/socket.io
+2024-09-22T21:30:57.718Z - Processing URL: https://github.com/prathameshnetake/libvlc
+2024-09-22T21:30:57.724Z - Processing URL: https://www.npmjs.com/package/react
+2024-09-22T21:30:57.729Z - Processing URL: https://www.npmjs.com/package/unlicensed
+2024-09-22T21:30:58.592Z - Fetching GitHub issues for jonschlinkert/even
+2024-09-22T21:30:58.593Z - Fetching license information for jonschlinkert/even
+2024-09-22T21:30:58.604Z - Calculating GitHub responsiveness for jonschlinkert/even
+2024-09-22T21:30:58.606Z - Fetching issues from jonschlinkert/even, page 1
+2024-09-22T21:30:58.610Z - Fetching GitHub contributors for jonschlinkert/even
+2024-09-22T21:30:58.613Z - Fetching npm package info for even
+2024-09-22T21:30:58.689Z - Fetching download stats for npm package even
+2024-09-22T21:30:58.689Z - Fetching npm package metadata for even
+2024-09-22T21:30:58.695Z - Fetching npm package info for even
+2024-09-22T21:30:58.699Z - Calculating GitHub responsiveness for node-fetch/node-fetch
+2024-09-22T21:30:58.700Z - Fetching issues from node-fetch/node-fetch, page 1
+2024-09-22T21:30:58.702Z - Fetching GitHub issues for node-fetch/node-fetch
+2024-09-22T21:30:58.715Z - Fetching license information for node-fetch/node-fetch
+2024-09-22T21:30:58.914Z - Fetching download stats for npm package node-fetch
+2024-09-22T21:30:58.926Z - Fetching GitHub contributors for node-fetch/node-fetch
+2024-09-22T21:30:58.989Z - Fetching npm package info for node-fetch
+2024-09-22T21:30:58.993Z - Fetching license information for parthivshaji/ECE-46100-Project
+2024-09-22T21:30:58.995Z - Fetching license information for NickeManarin/ScreenToGif
+2024-09-22T21:30:58.996Z - Fetching GitHub issues for parthivshaji/ECE-46100-Project
+2024-09-22T21:30:58.999Z - Fetching GitHub contributors for parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.001Z - Fetching npm package info for node-fetch
+2024-09-22T21:30:59.003Z - Fetching npm package info for wat4hjs
+2024-09-22T21:30:59.007Z - Fetching npm package metadata for node-fetch
+2024-09-22T21:30:59.009Z - Fetching GitHub contributors for NickeManarin/ScreenToGif
+2024-09-22T21:30:59.018Z - Fetching license information for mrdoob/three.js
+2024-09-22T21:30:59.019Z - Calculating GitHub responsiveness for parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.020Z - Calculating GitHub responsiveness for NickeManarin/ScreenToGif
+2024-09-22T21:30:59.021Z - Fetching GitHub issues for mrdoob/three.js
+2024-09-22T21:30:59.021Z - Fetching issues from parthivshaji/ECE-46100-Project, page 1
+2024-09-22T21:30:59.021Z - Fetching issues from NickeManarin/ScreenToGif, page 1
+2024-09-22T21:30:59.088Z - Fetching GitHub issues for NickeManarin/ScreenToGif
+2024-09-22T21:30:59.093Z - Fetching npm package info for socket.io
+2024-09-22T21:30:59.093Z - Fetching GitHub issues for prathameshnetake/libvlc
+2024-09-22T21:30:59.093Z - Calculating ramp-up for npm package: even
+2024-09-22T21:30:59.094Z - Calculating ramp-up metric for GitHub repository jonschlinkert/even
+2024-09-22T21:30:59.094Z - Fetching download stats for npm package wat4hjs
+2024-09-22T21:30:59.094Z - Fetching npm download stats for even
+2024-09-22T21:30:59.095Z - Cloning repository jonschlinkert/even to /tmp/jonschlinkert-even
+2024-09-22T21:30:59.099Z - Fetching npm package info for wat4hjs
+2024-09-22T21:30:59.100Z - Calculating ramp-up metric for GitHub repository node-fetch/node-fetch
+2024-09-22T21:30:59.102Z - Cloning repository node-fetch/node-fetch to /tmp/node-fetch-node-fetch
+2024-09-22T21:30:59.102Z - Fetching npm package metadata for wat4hjs
+2024-09-22T21:30:59.103Z - Calculating GitHub responsiveness for mrdoob/three.js
+2024-09-22T21:30:59.104Z - Fetching issues from mrdoob/three.js, page 1
+2024-09-22T21:30:59.105Z - Calculating GitHub responsiveness for prathameshnetake/libvlc
+2024-09-22T21:30:59.106Z - Fetching GitHub contributors for mrdoob/three.js
+2024-09-22T21:30:59.106Z - Fetching issues from prathameshnetake/libvlc, page 1
+2024-09-22T21:30:59.112Z - Fetching npm package info for unlicensed
+2024-09-22T21:30:59.114Z - Fetching npm package info for react
+2024-09-22T21:30:59.114Z - Fetching GitHub contributors for prathameshnetake/libvlc
+2024-09-22T21:30:59.116Z - Fetching npm package metadata for unlicensed
+2024-09-22T21:30:59.189Z - Fetching license information for prathameshnetake/libvlc
+2024-09-22T21:30:59.189Z - Fetching download stats for npm package react
+2024-09-22T21:30:59.193Z - Fetching npm package info for react
+2024-09-22T21:30:59.194Z - Fetching npm package metadata for socket.io
+2024-09-22T21:30:59.195Z - Found 0 bug issues for jonschlinkert/even
+2024-09-22T21:30:59.196Z - Fetching download stats for npm package socket.io
+2024-09-22T21:30:59.197Z - jonschlinkert/even has 0 issues 
+2024-09-22T21:30:59.197Z - Found 0 issues for jonschlinkert/even
+2024-09-22T21:30:59.197Z - Calculated correctness for jonschlinkert/even: 1
+2024-09-22T21:30:59.198Z - No valid response times found.
+2024-09-22T21:30:59.197Z - Fetching npm package metadata for react
+2024-09-22T21:30:59.201Z - Fetching npm package info for unlicensed
+2024-09-22T21:30:59.202Z - Fetching GitHub repository URL for even
+2024-09-22T21:30:59.205Z - License found for jonschlinkert/even: MIT
+2024-09-22T21:30:59.203Z - Found 1 contributors for jonschlinkert/even
+2024-09-22T21:30:59.203Z - Download count for even: 26
+2024-09-22T21:30:59.205Z - License compatibility score for jonschlinkert/even: 1
+2024-09-22T21:30:59.206Z - Calculated Bus Factor for jonschlinkert/even: 1
+2024-09-22T21:30:59.206Z - Fetching npm package info for socket.io
+2024-09-22T21:30:59.215Z - License found for node-fetch/node-fetch: MIT
+2024-09-22T21:30:59.216Z - License compatibility score for node-fetch/node-fetch: 1
+2024-09-22T21:30:59.224Z - Download count for node-fetch: 224592912
+2024-09-22T21:30:59.301Z - Fetching GitHub repository URL for node-fetch
+2024-09-22T21:30:59.302Z - Fetching GitHub repository URL for wat4hjs
+2024-09-22T21:30:59.304Z - Fetching download stats for npm package unlicensed
+2024-09-22T21:30:59.305Z - Error calculating license metric for parthivshaji/ECE-46100-Project: Request failed with status code 404
+2024-09-22T21:30:59.311Z - Calculating ramp-up metric for GitHub repository NickeManarin/ScreenToGif
+2024-09-22T21:30:59.312Z - Cloning repository NickeManarin/ScreenToGif to /tmp/NickeManarin-ScreenToGif
+2024-09-22T21:30:59.312Z - Calculating ramp-up for npm package: node-fetch
+2024-09-22T21:30:59.313Z - Fetching npm download stats for node-fetch
+2024-09-22T21:30:59.400Z - Calculating ramp-up metric for GitHub repository parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.401Z - Cloning repository parthivshaji/ECE-46100-Project to /tmp/parthivshaji-ECE-46100-Project
+2024-09-22T21:30:59.408Z - Download count for even: 26
+2024-09-22T21:30:59.409Z - Fetching package metadata for even
+2024-09-22T21:30:59.411Z - Calculating ramp-up for npm package: socket.io
+2024-09-22T21:30:59.411Z - Calculating ramp-up metric for GitHub repository prathameshnetake/libvlc
+2024-09-22T21:30:59.412Z - Fetching npm download stats for socket.io
+2024-09-22T21:30:59.413Z - Cloning repository prathameshnetake/libvlc to /tmp/prathameshnetake-libvlc
+2024-09-22T21:30:59.413Z - Found GitHub repository URL for even
+2024-09-22T21:30:59.413Z - Found 10 contributors for parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.413Z - License found for mrdoob/three.js: MIT
+2024-09-22T21:30:59.413Z - Found 30 contributors for NickeManarin/ScreenToGif
+2024-09-22T21:30:59.414Z - Calculated Bus Factor for parthivshaji/ECE-46100-Project: 0.1
+2024-09-22T21:30:59.414Z - Fetching license information for jonschlinkert/even
+2024-09-22T21:30:59.414Z - License compatibility score for mrdoob/three.js: 1
+2024-09-22T21:30:59.414Z - Calculated Bus Factor for NickeManarin/ScreenToGif: 0.03333333333333333
+2024-09-22T21:30:59.414Z - Calculating ramp-up for npm package: wat4hjs
+2024-09-22T21:30:59.415Z - License found for NickeManarin/ScreenToGif: MS-PL
+2024-09-22T21:30:59.415Z - Fetching npm download stats for wat4hjs
+2024-09-22T21:30:59.416Z - License compatibility score for NickeManarin/ScreenToGif: 0
+2024-09-22T21:30:59.421Z - Fetching GitHub repository URL for even
+2024-09-22T21:30:59.422Z - Found GitHub repository URL for even, calculating Bus Factor for GitHub repository
+2024-09-22T21:30:59.424Z - Fetching GitHub contributors for jonschlinkert/even
+2024-09-22T21:30:59.425Z - Calculating ramp-up metric for GitHub repository mrdoob/three.js
+2024-09-22T21:30:59.427Z - Cloning repository mrdoob/three.js to /tmp/mrdoob-three.js
+2024-09-22T21:30:59.427Z - Calculating ramp-up for npm package: react
+2024-09-22T21:30:59.428Z - Fetching npm download stats for react
+2024-09-22T21:30:59.434Z - Calculating ramp-up for npm package: unlicensed
+2024-09-22T21:30:59.435Z - Fetching npm download stats for unlicensed
+2024-09-22T21:30:59.488Z - Found 17 bug issues for node-fetch/node-fetch
+2024-09-22T21:30:59.489Z - node-fetch/node-fetch has 30 issues 
+2024-09-22T21:30:59.488Z - Download count for wat4hjs: 7
+2024-09-22T21:30:59.489Z - Calculated correctness for node-fetch/node-fetch: 0.43333333333333335
+2024-09-22T21:30:59.490Z - Found GitHub repository URL for even: git://github.com/jonschlinkert/even.git
+2024-09-22T21:30:59.489Z - Fetching GitHub repository URL for unlicensed
+2024-09-22T21:30:59.490Z - Fetching GitHub repository URL for react
+2024-09-22T21:30:59.491Z - Found GitHub repository URL for wat4hjs, calculating correctness for GitHub repository
+2024-09-22T21:30:59.491Z - Calculating ramp-up metric for GitHub repository jonschlinkert/even
+2024-09-22T21:30:59.490Z - Fetching GitHub repository URL for socket.io
+2024-09-22T21:30:59.492Z - Fetching GitHub issues for hasansultan92/watch.js
+2024-09-22T21:30:59.490Z - Download count for react: 105203647
+2024-09-22T21:30:59.493Z - Calculating ramp-up metric for GitHub repository jonschlinkert/even
+2024-09-22T21:30:59.490Z - Download count for socket.io: 24264236
+2024-09-22T21:30:59.494Z - Cloning repository jonschlinkert/even to /tmp/jonschlinkert-even
+2024-09-22T21:30:59.496Z - Found 0 bug issues for prathameshnetake/libvlc
+2024-09-22T21:30:59.497Z - prathameshnetake/libvlc has 0 issues 
+2024-09-22T21:30:59.497Z - Calculated correctness for prathameshnetake/libvlc: 1
+2024-09-22T21:30:59.499Z - Found 0 issues for prathameshnetake/libvlc
+2024-09-22T21:30:59.500Z - No valid response times found.
+2024-09-22T21:30:59.511Z - Fetching GitHub repository URL for unlicensed
+2024-09-22T21:30:59.507Z - Found GitHub repository URL for unlicensed
+2024-09-22T21:30:59.509Z - Found 1 contributors for prathameshnetake/libvlc
+2024-09-22T21:30:59.512Z - Found GitHub repository URL for unlicensed, calculating Bus Factor for GitHub repository
+2024-09-22T21:30:59.512Z - Fetching license information for ryanve/unlicensed
+2024-09-22T21:30:59.512Z - Calculated Bus Factor for prathameshnetake/libvlc: 1
+2024-09-22T21:30:59.512Z - Error calculating license metric for prathameshnetake/libvlc: Request failed with status code 404
+2024-09-22T21:30:59.513Z - Fetching GitHub contributors for ryanve/unlicensed
+2024-09-22T21:30:59.513Z - Fetching GitHub repository URL for wat4hjs
+2024-09-22T21:30:59.513Z - Found GitHub repository URL for wat4hjs
+2024-09-22T21:30:59.513Z - Found GitHub repository URL for even, calculating correctness for GitHub repository
+2024-09-22T21:30:59.514Z - Found GitHub repository URL for wat4hjs, calculating Bus Factor for GitHub repository
+2024-09-22T21:30:59.514Z - Fetching license information for hasansultan92/watch.js
+2024-09-22T21:30:59.514Z - Fetching GitHub issues for jonschlinkert/even
+2024-09-22T21:30:59.515Z - Fetching GitHub contributors for hasansultan92/watch.js
+2024-09-22T21:30:59.532Z - Found GitHub repository URL for unlicensed, calculating correctness for GitHub repository
+2024-09-22T21:30:59.532Z - Found 30 contributors for node-fetch/node-fetch
+2024-09-22T21:30:59.532Z - Download count for unlicensed: 24
+2024-09-22T21:30:59.533Z - Fetching GitHub issues for ryanve/unlicensed
+2024-09-22T21:30:59.533Z - Calculated Bus Factor for node-fetch/node-fetch: 0.03333333333333333
+2024-09-22T21:30:59.533Z - Found GitHub repository for wat4hjs: git+https://github.com/hasansultan92/watch.js.git
+2024-09-22T21:30:59.534Z - Calculating GitHub responsiveness for hasansultan92/watch.js
+2024-09-22T21:30:59.535Z - Fetching issues from hasansultan92/watch.js, page 1
+2024-09-22T21:30:59.543Z - Fetching GitHub repository URL for socket.io
+2024-09-22T21:30:59.543Z - Fetching GitHub repository URL for node-fetch
+2024-09-22T21:30:59.543Z - Found GitHub repository URL for socket.io, calculating Bus Factor for GitHub repository
+2024-09-22T21:30:59.544Z - Found GitHub repository URL for node-fetch, calculating Bus Factor for GitHub repository
+2024-09-22T21:30:59.544Z - Found GitHub repository URL for node-fetch
+2024-09-22T21:30:59.545Z - Fetching GitHub contributors for socketio/socket.io
+2024-09-22T21:30:59.545Z - Fetching GitHub contributors for node-fetch/node-fetch
+2024-09-22T21:30:59.545Z - Fetching license information for node-fetch/node-fetch
+2024-09-22T21:30:59.546Z - Found GitHub repository URL for socket.io
+2024-09-22T21:30:59.547Z - Fetching license information for socketio/socket.io
+2024-09-22T21:30:59.548Z - Found GitHub repository for node-fetch: git+https://github.com/node-fetch/node-fetch.git
+2024-09-22T21:30:59.550Z - Calculating GitHub responsiveness for node-fetch/node-fetch
+2024-09-22T21:30:59.551Z - Fetching issues from node-fetch/node-fetch, page 1
+2024-09-22T21:30:59.590Z - Found GitHub repository for unlicensed: git+https://github.com/ryanve/unlicensed.git
+2024-09-22T21:30:59.591Z - Calculating GitHub responsiveness for ryanve/unlicensed
+2024-09-22T21:30:59.592Z - Found GitHub repository for even: git://github.com/jonschlinkert/even.git
+2024-09-22T21:30:59.592Z - Found GitHub repository URL for node-fetch, calculating correctness for GitHub repository
+2024-09-22T21:30:59.592Z - Fetching issues from ryanve/unlicensed, page 1
+2024-09-22T21:30:59.593Z - Fetching GitHub issues for node-fetch/node-fetch
+2024-09-22T21:30:59.593Z - Calculating GitHub responsiveness for jonschlinkert/even
+2024-09-22T21:30:59.594Z - Fetching issues from jonschlinkert/even, page 1
+2024-09-22T21:30:59.597Z - Download count for node-fetch: 224592912
+2024-09-22T21:30:59.598Z - Fetching package metadata for node-fetch
+2024-09-22T21:30:59.598Z - Download count for socket.io: 24264236
+2024-09-22T21:30:59.598Z - Found GitHub repository for socket.io: git+https://github.com/socketio/socket.io.git
+2024-09-22T21:30:59.598Z - Found 30 contributors for mrdoob/three.js
+2024-09-22T21:30:59.598Z - Download count for wat4hjs: 7
+2024-09-22T21:30:59.598Z - Fetching package metadata for socket.io
+2024-09-22T21:30:59.598Z - Found 0 bug issues for parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.599Z - Download count for unlicensed: 24
+2024-09-22T21:30:59.599Z - Fetching package metadata for wat4hjs
+2024-09-22T21:30:59.599Z - Calculating GitHub responsiveness for socketio/socket.io
+2024-09-22T21:30:59.599Z - parthivshaji/ECE-46100-Project has 25 issues 
+2024-09-22T21:30:59.599Z - Calculated Bus Factor for mrdoob/three.js: 0.03333333333333333
+2024-09-22T21:30:59.599Z - Fetching package metadata for unlicensed
+2024-09-22T21:30:59.600Z - Calculated correctness for parthivshaji/ECE-46100-Project: 1
+2024-09-22T21:30:59.600Z - Fetching issues from socketio/socket.io, page 1
+2024-09-22T21:30:59.600Z - Found 25 issues for parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.601Z - Fetching issue 25 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.606Z - Found GitHub repository URL for socket.io, calculating correctness for GitHub repository
+2024-09-22T21:30:59.607Z - Fetching GitHub issues for socketio/socket.io
+2024-09-22T21:30:59.610Z - Fetching issue 24 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.611Z - Found 13 bug issues for NickeManarin/ScreenToGif
+2024-09-22T21:30:59.611Z - NickeManarin/ScreenToGif has 30 issues 
+2024-09-22T21:30:59.612Z - Fetching issue 23 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.612Z - Calculated correctness for NickeManarin/ScreenToGif: 0.5666666666666667
+2024-09-22T21:30:59.613Z - Fetching issue 22 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.614Z - Repository cloned successfully to /tmp/jonschlinkert-even
+2024-09-22T21:30:59.616Z - README.md found in the cloned repository
+2024-09-22T21:30:59.616Z - Fetching issue 21 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.617Z - README file size: 0.8955078125 KB
+2024-09-22T21:30:59.617Z - Download count for react: 105203647
+2024-09-22T21:30:59.617Z - Small README. Score: 3
+2024-09-22T21:30:59.617Z - Fetching package metadata for react
+2024-09-22T21:30:59.618Z - Ramp-up metric calculation completed for jonschlinkert/even. Score: 0.3, Latency: 524.4421172142029
+2024-09-22T21:30:59.618Z - Fetching issue 20 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.621Z - Fetching issue 19 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.621Z - Removed cloned repository directory: /tmp/jonschlinkert-even
+2024-09-22T21:30:59.622Z - Metrics calculated for https://github.com/jonschlinkert/even: {"RampUp":0.3,"Correctness":1,"ResponsiveMaintainer":0,"ResponsiveMaintainer_Latency":593.4026622772217,"License":{"score":1,"latency":612.3841619491577},"CorrectnessLatency":606.3598580360413,"RampUp_Latency":524.4421172142029}
+2024-09-22T21:30:59.625Z - Fetching issue 18 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.637Z - Fetching issue 17 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.637Z - Found 1 contributors for jonschlinkert/even
+2024-09-22T21:30:59.638Z - Calculated Bus Factor for jonschlinkert/even: 1
+2024-09-22T21:30:59.640Z - Found GitHub repository URL for wat4hjs: git+https://github.com/hasansultan92/watch.js.git
+2024-09-22T21:30:59.641Z - Calculating ramp-up metric for GitHub repository hasansultan92/watch.js
+2024-09-22T21:30:59.642Z - Calculating ramp-up metric for GitHub repository hasansultan92/watch.js
+2024-09-22T21:30:59.643Z - Cloning repository hasansultan92/watch.js to /tmp/hasansultan92-watch.js
+2024-09-22T21:30:59.645Z - Fetching issue 16 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.646Z - Found 0 bug issues for hasansultan92/watch.js
+2024-09-22T21:30:59.646Z - hasansultan92/watch.js has 1 issues 
+2024-09-22T21:30:59.647Z - Calculated correctness for hasansultan92/watch.js: 1
+2024-09-22T21:30:59.648Z - Found GitHub repository URL for unlicensed: git+https://github.com/ryanve/unlicensed.git
+2024-09-22T21:30:59.649Z - Fetching issue 15 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.649Z - Calculating ramp-up metric for GitHub repository ryanve/unlicensed
+2024-09-22T21:30:59.650Z - Calculating ramp-up metric for GitHub repository ryanve/unlicensed
+2024-09-22T21:30:59.651Z - Cloning repository ryanve/unlicensed to /tmp/ryanve-unlicensed
+2024-09-22T21:30:59.653Z - Fetching issue 14 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.654Z - Fetching issue 13 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.656Z - Fetching issue 12 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.657Z - Found 0 bug issues for jonschlinkert/even
+2024-09-22T21:30:59.657Z - Found GitHub repository URL for socket.io: git+https://github.com/socketio/socket.io.git
+2024-09-22T21:30:59.657Z - jonschlinkert/even has 0 issues 
+2024-09-22T21:30:59.658Z - Calculated correctness for jonschlinkert/even: 1
+2024-09-22T21:30:59.686Z - Calculating ramp-up metric for GitHub repository socketio/socket.io
+2024-09-22T21:30:59.688Z - Calculating ramp-up metric for GitHub repository socketio/socket.io
+2024-09-22T21:30:59.689Z - Cloning repository socketio/socket.io to /tmp/socketio-socket.io
+2024-09-22T21:30:59.689Z - License found for ryanve/unlicensed: NOASSERTION
+2024-09-22T21:30:59.690Z - Found 1 contributors for ryanve/unlicensed
+2024-09-22T21:30:59.690Z - Calculated Bus Factor for ryanve/unlicensed: 1
+2024-09-22T21:30:59.690Z - License compatibility score for ryanve/unlicensed: 0
+2024-09-22T21:30:59.691Z - License found for hasansultan92/watch.js: MIT
+2024-09-22T21:30:59.691Z - License score for npm package unlicensed: 0
+2024-09-22T21:30:59.691Z - License compatibility score for hasansultan92/watch.js: 1
+2024-09-22T21:30:59.692Z - License found for jonschlinkert/even: MIT
+2024-09-22T21:30:59.692Z - License score for npm package wat4hjs: 1
+2024-09-22T21:30:59.692Z - License compatibility score for jonschlinkert/even: 1
+2024-09-22T21:30:59.693Z - License score for npm package even: 1
+2024-09-22T21:30:59.692Z - Fetching issue 11 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.703Z - Fetching issue 10 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.704Z - Found 1 contributors for hasansultan92/watch.js
+2024-09-22T21:30:59.704Z - Calculated Bus Factor for hasansultan92/watch.js: 1
+2024-09-22T21:30:59.705Z - Fetching issue 9 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.705Z - Found GitHub repository URL for node-fetch: git+https://github.com/node-fetch/node-fetch.git
+2024-09-22T21:30:59.706Z - Calculating ramp-up metric for GitHub repository node-fetch/node-fetch
+2024-09-22T21:30:59.707Z - Fetching issue 8 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.707Z - Calculating ramp-up metric for GitHub repository node-fetch/node-fetch
+2024-09-22T21:30:59.708Z - Cloning repository node-fetch/node-fetch to /tmp/node-fetch-node-fetch
+2024-09-22T21:30:59.708Z - Fetching issue 7 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.710Z - Found 0 issues for ryanve/unlicensed
+2024-09-22T21:30:59.710Z - Fetching issue 6 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.711Z - No valid response times found.
+2024-09-22T21:30:59.712Z - Responsiveness for npm package unlicensed: 0
+2024-09-22T21:30:59.716Z - Error cloning repository: Could not find a fetch refspec for remote "origin". Make sure the config file has an entry like the following:
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
+2024-09-22T21:30:59.716Z - License found for socketio/socket.io: MIT
+2024-09-22T21:30:59.716Z - Failed to calculate ramp-up metric for jonschlinkert/even: NoRefspecError: Could not find a fetch refspec for remote "origin". Make sure the config file has an entry like the following:
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
+2024-09-22T21:30:59.717Z - License compatibility score for socketio/socket.io: 1
+2024-09-22T21:30:59.717Z - Fetching issue 5 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.717Z - Removed cloned repository directory: /tmp/jonschlinkert-even
+2024-09-22T21:30:59.718Z - License score for npm package socket.io: 1
+2024-09-22T21:30:59.718Z - Ramp-up metric for npm package even completed. Score: 0, Latency: 625.0693159103394
+2024-09-22T21:30:59.719Z - License found for node-fetch/node-fetch: MIT
+2024-09-22T21:30:59.719Z - Fetching issue 4 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.720Z - License compatibility score for node-fetch/node-fetch: 1
+2024-09-22T21:30:59.721Z - License score for npm package node-fetch: 1
+2024-09-22T21:30:59.721Z - Fetching issue 3 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.723Z - Fetching issue 2 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.725Z - Fetching issue 1 from parthivshaji/ECE-46100-Project
+2024-09-22T21:30:59.734Z - Found 0 bug issues for ryanve/unlicensed
+2024-09-22T21:30:59.735Z - ryanve/unlicensed has 0 issues 
+2024-09-22T21:30:59.735Z - Calculated correctness for ryanve/unlicensed: 1
+2024-09-22T21:30:59.742Z - Found 1 issues for hasansultan92/watch.js
+2024-09-22T21:30:59.743Z - Fetching issue 1 from hasansultan92/watch.js
+2024-09-22T21:30:59.748Z - Found 0 issues for jonschlinkert/even
+2024-09-22T21:30:59.749Z - No valid response times found.
+2024-09-22T21:30:59.750Z - Responsiveness for npm package even: 0
+2024-09-22T21:30:59.751Z - Metrics calculated for https://www.npmjs.com/package/even: {"RampUp":0,"Correctness":1,"ResponsiveMaintainer":0,"ResponsiveMaintainer_Latency":1060.768551826477,"License":{"score":1,"latency":1282.0020456314087},"CorrectnessLatency":1189.3326225280762,"RampUp_Latency":625.0693159103394}
+2024-09-22T21:30:59.751Z - Fetching GitHub repository URL for react
+2024-09-22T21:30:59.751Z - Found GitHub repository URL for react, calculating Bus Factor for GitHub repository
+2024-09-22T21:30:59.752Z - Found GitHub repository URL for react
+2024-09-22T21:30:59.752Z - Fetching GitHub contributors for facebook/react
+2024-09-22T21:30:59.753Z - Fetching license information for facebook/react
+2024-09-22T21:30:59.761Z - Found GitHub repository for react: git+https://github.com/facebook/react.git
+2024-09-22T21:30:59.762Z - Calculating GitHub responsiveness for facebook/react
+2024-09-22T21:30:59.763Z - Fetching issues from facebook/react, page 1
+2024-09-22T21:30:59.766Z - Found 30 contributors for socketio/socket.io
+2024-09-22T21:30:59.787Z - Calculated Bus Factor for socketio/socket.io: 0.03333333333333333
+2024-09-22T21:30:59.789Z - Found 30 contributors for node-fetch/node-fetch
+2024-09-22T21:30:59.790Z - Calculated Bus Factor for node-fetch/node-fetch: 0.03333333333333333
+2024-09-22T21:30:59.790Z - Found GitHub repository URL for react, calculating correctness for GitHub repository
+2024-09-22T21:30:59.791Z - Fetching GitHub issues for facebook/react
+2024-09-22T21:30:59.795Z - Repository cloned successfully to /tmp/prathameshnetake-libvlc
+2024-09-22T21:30:59.796Z - No README.md found in the cloned repository
+2024-09-22T21:30:59.796Z - No README found. Score: o
+2024-09-22T21:30:59.797Z - Ramp-up metric calculation completed for prathameshnetake/libvlc. Score: 0, Latency: 385.65979623794556
+2024-09-22T21:30:59.800Z - Removed cloned repository directory: /tmp/prathameshnetake-libvlc
+2024-09-22T21:30:59.800Z - Metrics calculated for https://github.com/prathameshnetake/libvlc: {"RampUp":0,"Correctness":1,"ResponsiveMaintainer":0,"ResponsiveMaintainer_Latency":395.0400128364563,"License":{"score":0,"latency":324.59034967422485},"CorrectnessLatency":405.1733350753784,"RampUp_Latency":385.65979623794556}
+2024-09-22T21:30:59.812Z - Found GitHub repository URL for react: git+https://github.com/facebook/react.git
+2024-09-22T21:30:59.813Z - Calculating ramp-up metric for GitHub repository facebook/react
+2024-09-22T21:30:59.814Z - Calculating ramp-up metric for GitHub repository facebook/react
+2024-09-22T21:30:59.815Z - Cloning repository facebook/react to /tmp/facebook-react
+2024-09-22T21:30:59.822Z - Repository cloned successfully to /tmp/node-fetch-node-fetch
+2024-09-22T21:30:59.824Z - README.md found in the cloned repository
+2024-09-22T21:30:59.824Z - README file size: 28.4267578125 KB
+2024-09-22T21:30:59.825Z - Medium README. Score: 7
+2024-09-22T21:30:59.825Z - Ramp-up metric calculation completed for node-fetch/node-fetch. Score: 0.7, Latency: 725.1063680648804
+2024-09-22T21:30:59.829Z - Removed cloned repository directory: /tmp/node-fetch-node-fetch
+2024-09-22T21:30:59.871Z - Response time for issue 24: 0.00008101851851851852 days
+2024-09-22T21:30:59.872Z - Response time for issue 22: 0.002199074074074074 days
+2024-09-22T21:30:59.875Z - Found 100 issues for node-fetch/node-fetch
+2024-09-22T21:30:59.876Z - Found 2 bug issues for mrdoob/three.js
+2024-09-22T21:30:59.876Z - Fetching issue 1826 from node-fetch/node-fetch
+2024-09-22T21:30:59.876Z - mrdoob/three.js has 30 issues 
+2024-09-22T21:30:59.877Z - Calculated correctness for mrdoob/three.js: 0.9333333333333333
+2024-09-22T21:30:59.879Z - Fetching issue 1825 from node-fetch/node-fetch
+2024-09-22T21:30:59.881Z - Fetching issue 1823 from node-fetch/node-fetch
+2024-09-22T21:30:59.882Z - Fetching issue 1822 from node-fetch/node-fetch
+2024-09-22T21:30:59.884Z - Response time for issue 1: 0.012210648148148148 days
+2024-09-22T21:30:59.884Z - Fetching issue 1821 from node-fetch/node-fetch
+2024-09-22T21:30:59.885Z - Response time for issue 16: 0.000462962962962963 days
+2024-09-22T21:30:59.885Z - Responsiveness for hasansultan92/watch.js: 0.9999665461694571
+2024-09-22T21:30:59.887Z - Responsiveness for npm package wat4hjs: 0.9999665461694571
+2024-09-22T21:30:59.890Z - Fetching issue 1818 from node-fetch/node-fetch
+2024-09-22T21:30:59.893Z - Fetching issue 1817 from node-fetch/node-fetch
+2024-09-22T21:30:59.893Z - Response time for issue 17: 0.0002546296296296296 days
+2024-09-22T21:30:59.894Z - Response time for issue 4: 10.081145833333334 days
+2024-09-22T21:30:59.894Z - Fetching issue 1816 from node-fetch/node-fetch
+2024-09-22T21:30:59.895Z - Response time for issue 19: 0.0023148148148148147 days
+2024-09-22T21:30:59.896Z - Repository cloned successfully to /tmp/ryanve-unlicensed
+2024-09-22T21:30:59.896Z - Fetching issue 1810 from node-fetch/node-fetch
+2024-09-22T21:30:59.896Z - Response time for issue 21: 0.00018518518518518518 days
+2024-09-22T21:30:59.897Z - README.md found in the cloned repository
+2024-09-22T21:30:59.897Z - README file size: 0.1201171875 KB
+2024-09-22T21:30:59.898Z - Small README. Score: 3
+2024-09-22T21:30:59.898Z - Fetching issue 1809 from node-fetch/node-fetch
+2024-09-22T21:30:59.898Z - Ramp-up metric calculation completed for ryanve/unlicensed. Score: 0.3, Latency: 248.02094411849976
+2024-09-22T21:30:59.900Z - Fetching issue 1808 from node-fetch/node-fetch
+2024-09-22T21:30:59.901Z - Removed cloned repository directory: /tmp/ryanve-unlicensed
+2024-09-22T21:30:59.901Z - Fetching issue 1807 from node-fetch/node-fetch
+2024-09-22T21:30:59.902Z - Ramp-up metric for npm package unlicensed completed. Score: 0.3, Latency: 467.60722303390503
+2024-09-22T21:30:59.902Z - License found for facebook/react: MIT
+2024-09-22T21:30:59.902Z - Metrics calculated for https://www.npmjs.com/package/unlicensed: {"RampUp":0.3,"Correctness":1,"ResponsiveMaintainer":0,"ResponsiveMaintainer_Latency":407.57913303375244,"License":{"score":0,"latency":752.9300355911255},"CorrectnessLatency":738.0387568473816,"RampUp_Latency":467.60722303390503}
+2024-09-22T21:30:59.902Z - Response time for issue 11: 0.000625 days
+2024-09-22T21:30:59.902Z - License compatibility score for facebook/react: 1
+2024-09-22T21:30:59.903Z - License score for npm package react: 1
+2024-09-22T21:30:59.904Z - Error cloning repository: Could not find a fetch refspec for remote "origin". Make sure the config file has an entry like the following:
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
+2024-09-22T21:30:59.905Z - Failed to calculate ramp-up metric for node-fetch/node-fetch: NoRefspecError: Could not find a fetch refspec for remote "origin". Make sure the config file has an entry like the following:
+[remote "origin"]
+	fetch = +refs/heads/*:refs/remotes/origin/*
+
+2024-09-22T21:30:59.906Z - Removed cloned repository directory: /tmp/node-fetch-node-fetch
+2024-09-22T21:30:59.907Z - Ramp-up metric for npm package node-fetch completed. Score: 0, Latency: 594.9646162986755
+2024-09-22T21:30:59.909Z - Fetching issue 1801 from node-fetch/node-fetch
+2024-09-22T21:30:59.911Z - Fetching issue 1800 from node-fetch/node-fetch
+2024-09-22T21:30:59.912Z - Response time for issue 13: 0.006458333333333333 days
+2024-09-22T21:30:59.912Z - Response time for issue 25: 0.0024652777777777776 days
+2024-09-22T21:30:59.913Z - Fetching issue 1799 from node-fetch/node-fetch
+2024-09-22T21:30:59.915Z - Fetching issue 1798 from node-fetch/node-fetch
+2024-09-22T21:30:59.917Z - Fetching issue 1797 from node-fetch/node-fetch
+2024-09-22T21:30:59.918Z - Response time for issue 20: 0.00042824074074074075 days
+2024-09-22T21:30:59.918Z - Response time for issue 9: 0.00045138888888888887 days
+2024-09-22T21:30:59.919Z - Fetching issue 1796 from node-fetch/node-fetch
+2024-09-22T21:30:59.919Z - Response time for issue 10: 0.0011574074074074073 days
+2024-09-22T21:30:59.920Z - Repository cloned successfully to /tmp/hasansultan92-watch.js
+2024-09-22T21:30:59.920Z - Fetching issue 1795 from node-fetch/node-fetch
+2024-09-22T21:30:59.921Z - Response time for issue 8: 0.007256944444444444 days
+2024-09-22T21:30:59.921Z - README.md found in the cloned repository
+2024-09-22T21:30:59.921Z - Response time for issue 15: 0.046875 days
+2024-09-22T21:30:59.922Z - README file size: 2.7509765625 KB
+2024-09-22T21:30:59.922Z - Fetching issue 1794 from node-fetch/node-fetch
+2024-09-22T21:30:59.922Z - Response time for issue 14: 0.00030092592592592595 days
+2024-09-22T21:30:59.922Z - Small README. Score: 3
+2024-09-22T21:30:59.923Z - Ramp-up metric calculation completed for hasansultan92/watch.js. Score: 0.3, Latency: 280.5227961540222
+2024-09-22T21:30:59.923Z - Fetching issue 1793 from node-fetch/node-fetch
+2024-09-22T21:30:59.924Z - Response time for issue 18: 0.0025810185185185185 days
+2024-09-22T21:30:59.925Z - Fetching issue 1792 from node-fetch/node-fetch
+2024-09-22T21:30:59.926Z - Removed cloned repository directory: /tmp/hasansultan92-watch.js
+2024-09-22T21:30:59.926Z - Response time for issue 7: 0.00037037037037037035 days
+2024-09-22T21:30:59.926Z - Ramp-up metric for npm package wat4hjs completed. Score: 0.3, Latency: 511.8134980201721
+2024-09-22T21:30:59.927Z - Fetching issue 1791 from node-fetch/node-fetch
+2024-09-22T21:30:59.927Z - Metrics calculated for https://www.npmjs.com/package/wat4hjs: {"RampUp":0.3,"Correctness":1,"ResponsiveMaintainer":0.9999665461694571,"ResponsiveMaintainer_Latency":793.517481803894,"License":{"score":1,"latency":767.1598796844482},"CorrectnessLatency":800.1903347969055,"RampUp_Latency":511.8134980201721}
+2024-09-22T21:30:59.928Z - Fetching issue 1790 from node-fetch/node-fetch
+2024-09-22T21:30:59.930Z - Fetching issue 1788 from node-fetch/node-fetch
+2024-09-22T21:30:59.931Z - Fetching issue 1787 from node-fetch/node-fetch
+2024-09-22T21:30:59.933Z - Fetching issue 1786 from node-fetch/node-fetch
+2024-09-22T21:30:59.935Z - Fetching issue 1785 from node-fetch/node-fetch
+2024-09-22T21:30:59.936Z - Fetching issue 1784 from node-fetch/node-fetch
+2024-09-22T21:30:59.938Z - Fetching issue 1782 from node-fetch/node-fetch
+2024-09-22T21:30:59.941Z - Fetching issue 1781 from node-fetch/node-fetch
+2024-09-22T21:30:59.942Z - Response time for issue 1: 10.607974537037038 days
+2024-09-22T21:30:59.942Z - Fetching issue 1780 from node-fetch/node-fetch
+2024-09-22T21:30:59.942Z - Response time for issue 12: 0.0008449074074074074 days
+2024-09-22T21:30:59.943Z - Found 2 bug issues for socketio/socket.io
+2024-09-22T21:30:59.943Z - Response time for issue 5: 0.0009606481481481482 days
+2024-09-22T21:30:59.944Z - Fetching issue 1779 from node-fetch/node-fetch
+2024-09-22T21:30:59.944Z - socketio/socket.io has 30 issues 
+2024-09-22T21:30:59.944Z - Found 30 contributors for facebook/react
+2024-09-22T21:30:59.944Z - Calculated correctness for socketio/socket.io: 0.9333333333333333
+2024-09-22T21:30:59.945Z - Calculated Bus Factor for facebook/react: 0.03333333333333333
+2024-09-22T21:30:59.945Z - Response time for issue 6: 10.047256944444445 days
+2024-09-22T21:30:59.945Z - Fetching issue 1777 from node-fetch/node-fetch
+2024-09-22T21:30:59.951Z - Response time for issue 2: 0.00619212962962963 days
+2024-09-22T21:30:59.955Z - Fetching issue 1776 from node-fetch/node-fetch
+2024-09-22T21:30:59.957Z - Fetching issue 1775 from node-fetch/node-fetch
+2024-09-22T21:30:59.957Z - Response time for issue 3: 0.0035300925925925925 days
+2024-09-22T21:30:59.959Z - Fetching issue 1774 from node-fetch/node-fetch
+2024-09-22T21:30:59.961Z - Fetching issue 1771 from node-fetch/node-fetch
+2024-09-22T21:30:59.962Z - Fetching issue 1770 from node-fetch/node-fetch
+2024-09-22T21:30:59.964Z - Fetching issue 1769 from node-fetch/node-fetch
+2024-09-22T21:30:59.966Z - Fetching issue 1768 from node-fetch/node-fetch
+2024-09-22T21:30:59.968Z - Fetching issue 1767 from node-fetch/node-fetch
+2024-09-22T21:30:59.970Z - Fetching issue 1765 from node-fetch/node-fetch
+2024-09-22T21:30:59.971Z - Fetching issue 1764 from node-fetch/node-fetch
+2024-09-22T21:30:59.973Z - Fetching issue 1763 from node-fetch/node-fetch
+2024-09-22T21:30:59.974Z - Fetching issue 1762 from node-fetch/node-fetch
+2024-09-22T21:30:59.976Z - Fetching issue 1759 from node-fetch/node-fetch
+2024-09-22T21:30:59.978Z - Fetching issue 1758 from node-fetch/node-fetch
+2024-09-22T21:30:59.979Z - Fetching issue 1757 from node-fetch/node-fetch
+2024-09-22T21:30:59.981Z - Fetching issue 1756 from node-fetch/node-fetch
+2024-09-22T21:30:59.982Z - Fetching issue 1749 from node-fetch/node-fetch
+2024-09-22T21:30:59.984Z - Fetching issue 1748 from node-fetch/node-fetch
+2024-09-22T21:30:59.985Z - Fetching issue 1747 from node-fetch/node-fetch
+2024-09-22T21:30:59.987Z - Fetching issue 1744 from node-fetch/node-fetch
+2024-09-22T21:30:59.988Z - Fetching issue 1743 from node-fetch/node-fetch
+2024-09-22T21:30:59.990Z - Fetching issue 1742 from node-fetch/node-fetch
+2024-09-22T21:30:59.992Z - Fetching issue 1741 from node-fetch/node-fetch
+2024-09-22T21:30:59.993Z - Fetching issue 1739 from node-fetch/node-fetch
+2024-09-22T21:30:59.995Z - Fetching issue 1738 from node-fetch/node-fetch
+2024-09-22T21:30:59.996Z - Fetching issue 1737 from node-fetch/node-fetch
+2024-09-22T21:30:59.998Z - Fetching issue 1736 from node-fetch/node-fetch
+2024-09-22T21:31:00.000Z - Fetching issue 1735 from node-fetch/node-fetch
+2024-09-22T21:31:00.001Z - Fetching issue 1734 from node-fetch/node-fetch
+2024-09-22T21:31:00.003Z - Fetching issue 1731 from node-fetch/node-fetch
+2024-09-22T21:31:00.004Z - Fetching issue 1729 from node-fetch/node-fetch
+2024-09-22T21:31:00.008Z - Fetching issue 1728 from node-fetch/node-fetch
+2024-09-22T21:31:00.009Z - Fetching issue 1727 from node-fetch/node-fetch
+2024-09-22T21:31:00.011Z - Fetching issue 1726 from node-fetch/node-fetch
+2024-09-22T21:31:00.012Z - Fetching issue 1725 from node-fetch/node-fetch
+2024-09-22T21:31:00.013Z - Response time for issue 23: 0.0001388888888888889 days
+2024-09-22T21:31:00.013Z - Responsiveness for parthivshaji/ECE-46100-Project: 0.9966221905124303
+2024-09-22T21:31:00.014Z - Fetching issue 1724 from node-fetch/node-fetch
+2024-09-22T21:31:00.016Z - Fetching issue 1723 from node-fetch/node-fetch
+2024-09-22T21:31:00.018Z - Fetching issue 1722 from node-fetch/node-fetch
+2024-09-22T21:31:00.020Z - Fetching issue 1721 from node-fetch/node-fetch
+2024-09-22T21:31:00.021Z - Fetching issue 1719 from node-fetch/node-fetch
+2024-09-22T21:31:00.023Z - Fetching issue 1718 from node-fetch/node-fetch
+2024-09-22T21:31:00.025Z - Fetching issue 1717 from node-fetch/node-fetch
+2024-09-22T21:31:00.026Z - Fetching issue 1716 from node-fetch/node-fetch
+2024-09-22T21:31:00.028Z - Fetching issue 1715 from node-fetch/node-fetch
+2024-09-22T21:31:00.029Z - Fetching issue 1713 from node-fetch/node-fetch
+2024-09-22T21:31:00.031Z - Fetching issue 1710 from node-fetch/node-fetch
+2024-09-22T21:31:00.032Z - Fetching issue 1707 from node-fetch/node-fetch
+2024-09-22T21:31:00.034Z - Fetching issue 1706 from node-fetch/node-fetch
+2024-09-22T21:31:00.036Z - Fetching issue 1705 from node-fetch/node-fetch
+2024-09-22T21:31:00.037Z - Fetching issue 1704 from node-fetch/node-fetch
+2024-09-22T21:31:00.038Z - Fetching issue 1701 from node-fetch/node-fetch
+2024-09-22T21:31:00.039Z - Found 100 issues for NickeManarin/ScreenToGif
+2024-09-22T21:31:00.040Z - Fetching issue 1700 from node-fetch/node-fetch
+2024-09-22T21:31:00.040Z - Fetching issue 1341 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.041Z - Fetching issue 1699 from node-fetch/node-fetch
+2024-09-22T21:31:00.043Z - Fetching issue 1697 from node-fetch/node-fetch
+2024-09-22T21:31:00.044Z - Fetching issue 1340 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.045Z - Fetching issue 1696 from node-fetch/node-fetch
+2024-09-22T21:31:00.045Z - Fetching issue 1339 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.046Z - Fetching issue 1695 from node-fetch/node-fetch
+2024-09-22T21:31:00.047Z - Fetching issue 1338 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.048Z - Fetching issue 1694 from node-fetch/node-fetch
+2024-09-22T21:31:00.049Z - Fetching issue 1337 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.049Z - Fetching issue 1693 from node-fetch/node-fetch
+2024-09-22T21:31:00.051Z - Fetching issue 1336 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.051Z - Fetching issue 1690 from node-fetch/node-fetch
+2024-09-22T21:31:00.053Z - Fetching issue 1688 from node-fetch/node-fetch
+2024-09-22T21:31:00.053Z - Fetching issue 1335 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.054Z - Fetching issue 1687 from node-fetch/node-fetch
+2024-09-22T21:31:00.055Z - Fetching issue 1333 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.056Z - Fetching issue 1686 from node-fetch/node-fetch
+2024-09-22T21:31:00.057Z - Fetching issue 1332 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.057Z - Fetching issue 1685 from node-fetch/node-fetch
+2024-09-22T21:31:00.059Z - Fetching issue 1684 from node-fetch/node-fetch
+2024-09-22T21:31:00.059Z - Fetching issue 1330 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.060Z - Fetching issue 1683 from node-fetch/node-fetch
+2024-09-22T21:31:00.062Z - Fetching issue 1679 from node-fetch/node-fetch
+2024-09-22T21:31:00.063Z - Fetching issue 1329 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.065Z - Fetching issue 1328 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.067Z - Fetching issue 1327 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.069Z - Fetching issue 1326 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.070Z - Fetching issue 1325 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.072Z - Fetching issue 1324 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.074Z - Fetching issue 1322 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.075Z - Fetching issue 1321 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.077Z - Fetching issue 1320 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.079Z - Fetching issue 1319 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.081Z - Fetching issue 1318 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.083Z - Fetching issue 1317 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.084Z - Fetching issue 1316 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.086Z - Fetching issue 1315 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.087Z - Fetching issue 1314 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.089Z - Fetching issue 1313 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.091Z - Fetching issue 1312 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.092Z - Fetching issue 1311 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.094Z - Fetching issue 1310 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.096Z - Fetching issue 1309 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.097Z - Fetching issue 1307 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.099Z - Fetching issue 1306 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.100Z - Fetching issue 1305 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.102Z - Fetching issue 1304 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.103Z - Fetching issue 1303 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.105Z - Fetching issue 1302 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.107Z - Fetching issue 1300 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.109Z - Fetching issue 1299 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.111Z - Fetching issue 1298 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.112Z - Fetching issue 1297 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.114Z - Fetching issue 1296 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.116Z - Fetching issue 1295 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.117Z - Fetching issue 1293 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.119Z - Fetching issue 1292 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.121Z - Fetching issue 1291 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.122Z - Fetching issue 1289 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.124Z - Fetching issue 1288 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.126Z - Fetching issue 1287 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.127Z - Fetching issue 1286 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.129Z - Fetching issue 1284 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.131Z - Fetching issue 1283 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.132Z - Fetching issue 1282 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.134Z - Fetching issue 1279 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.136Z - Fetching issue 1278 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.138Z - Fetching issue 1277 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.139Z - Fetching issue 1276 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.141Z - Fetching issue 1275 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.143Z - Fetching issue 1274 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.145Z - Fetching issue 1273 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.146Z - Fetching issue 1271 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.148Z - Fetching issue 1270 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.150Z - Fetching issue 1268 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.152Z - Fetching issue 1267 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.156Z - Fetching issue 1266 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.157Z - Fetching issue 1265 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.159Z - Fetching issue 1264 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.161Z - Fetching issue 1263 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.163Z - Fetching issue 1262 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.164Z - Fetching issue 1261 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.166Z - Fetching issue 1260 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.167Z - Fetching issue 1259 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.168Z - Found 17 bug issues for node-fetch/node-fetch
+2024-09-22T21:31:00.169Z - Fetching issue 1258 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.169Z - node-fetch/node-fetch has 30 issues 
+2024-09-22T21:31:00.169Z - Calculated correctness for node-fetch/node-fetch: 0.43333333333333335
+2024-09-22T21:31:00.170Z - Fetching issue 1256 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.172Z - Fetching issue 1255 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.173Z - Fetching issue 1252 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.175Z - Fetching issue 1251 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.177Z - Fetching issue 1250 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.178Z - Fetching issue 1249 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.180Z - Fetching issue 1248 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.182Z - Fetching issue 1247 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.183Z - Fetching issue 1246 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.185Z - Fetching issue 1244 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.187Z - Fetching issue 1243 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.189Z - Fetching issue 1242 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.191Z - Fetching issue 1241 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.192Z - Fetching issue 1240 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.194Z - Fetching issue 1239 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.196Z - Fetching issue 1238 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.197Z - Fetching issue 1237 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.199Z - Fetching issue 1235 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.201Z - Fetching issue 1233 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.203Z - Fetching issue 1232 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.204Z - Fetching issue 1231 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.206Z - Fetching issue 1229 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.208Z - Fetching issue 1228 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.209Z - Fetching issue 1226 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.211Z - Fetching issue 1225 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.212Z - Fetching issue 1224 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.214Z - Fetching issue 1223 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.216Z - Fetching issue 1221 from NickeManarin/ScreenToGif
+2024-09-22T21:31:00.272Z - Found 100 issues for mrdoob/three.js
+2024-09-22T21:31:00.273Z - Fetching issue 29469 from mrdoob/three.js
+2024-09-22T21:31:00.276Z - Fetching issue 29468 from mrdoob/three.js
+2024-09-22T21:31:00.278Z - Fetching issue 29467 from mrdoob/three.js
+2024-09-22T21:31:00.280Z - Fetching issue 29466 from mrdoob/three.js
+2024-09-22T21:31:00.282Z - Fetching issue 29465 from mrdoob/three.js
+2024-09-22T21:31:00.287Z - Fetching issue 29464 from mrdoob/three.js
+2024-09-22T21:31:00.290Z - Fetching issue 29463 from mrdoob/three.js
+2024-09-22T21:31:00.291Z - Fetching issue 29462 from mrdoob/three.js
+2024-09-22T21:31:00.294Z - Fetching issue 29461 from mrdoob/three.js
+2024-09-22T21:31:00.297Z - Fetching issue 29460 from mrdoob/three.js
+2024-09-22T21:31:00.299Z - Fetching issue 29459 from mrdoob/three.js
+2024-09-22T21:31:00.301Z - Fetching issue 29458 from mrdoob/three.js
+2024-09-22T21:31:00.303Z - Fetching issue 29457 from mrdoob/three.js
+2024-09-22T21:31:00.306Z - Fetching issue 29456 from mrdoob/three.js
+2024-09-22T21:31:00.308Z - Fetching issue 29455 from mrdoob/three.js
+2024-09-22T21:31:00.310Z - Fetching issue 29454 from mrdoob/three.js
+2024-09-22T21:31:00.312Z - Fetching issue 29453 from mrdoob/three.js
+2024-09-22T21:31:00.314Z - Fetching issue 29452 from mrdoob/three.js
+2024-09-22T21:31:00.316Z - Fetching issue 29451 from mrdoob/three.js
+2024-09-22T21:31:00.318Z - Fetching issue 29450 from mrdoob/three.js
+2024-09-22T21:31:00.321Z - Fetching issue 29449 from mrdoob/three.js
+2024-09-22T21:31:00.324Z - Fetching issue 29448 from mrdoob/three.js
+2024-09-22T21:31:00.325Z - Fetching issue 29447 from mrdoob/three.js
+2024-09-22T21:31:00.327Z - Fetching issue 29445 from mrdoob/three.js
+2024-09-22T21:31:00.329Z - Fetching issue 29444 from mrdoob/three.js
+2024-09-22T21:31:00.331Z - Fetching issue 29443 from mrdoob/three.js
+2024-09-22T21:31:00.332Z - Fetching issue 29442 from mrdoob/three.js
+2024-09-22T21:31:00.334Z - Fetching issue 29441 from mrdoob/three.js
+2024-09-22T21:31:00.336Z - Fetching issue 29440 from mrdoob/three.js
+2024-09-22T21:31:00.338Z - Fetching issue 29439 from mrdoob/three.js
+2024-09-22T21:31:00.339Z - Fetching issue 29438 from mrdoob/three.js
+2024-09-22T21:31:00.341Z - Fetching issue 29437 from mrdoob/three.js
+2024-09-22T21:31:00.343Z - Fetching issue 29436 from mrdoob/three.js
+2024-09-22T21:31:00.348Z - Fetching issue 29435 from mrdoob/three.js
+2024-09-22T21:31:00.350Z - Fetching issue 29434 from mrdoob/three.js
+2024-09-22T21:31:00.352Z - Fetching issue 29433 from mrdoob/three.js
+2024-09-22T21:31:00.354Z - Fetching issue 29432 from mrdoob/three.js
+2024-09-22T21:31:00.356Z - Fetching issue 29431 from mrdoob/three.js
+2024-09-22T21:31:00.358Z - Fetching issue 29430 from mrdoob/three.js
+2024-09-22T21:31:00.359Z - Fetching issue 29429 from mrdoob/three.js
+2024-09-22T21:31:00.361Z - Fetching issue 29428 from mrdoob/three.js
+2024-09-22T21:31:00.363Z - Fetching issue 29427 from mrdoob/three.js
+2024-09-22T21:31:00.365Z - Fetching issue 29426 from mrdoob/three.js
+2024-09-22T21:31:00.367Z - Fetching issue 29425 from mrdoob/three.js
+2024-09-22T21:31:00.367Z - Found 100 issues for socketio/socket.io
+2024-09-22T21:31:00.369Z - Fetching issue 5194 from socketio/socket.io
+2024-09-22T21:31:00.369Z - Fetching issue 29424 from mrdoob/three.js
+2024-09-22T21:31:00.371Z - Fetching issue 29423 from mrdoob/three.js
+2024-09-22T21:31:00.372Z - Fetching issue 5193 from socketio/socket.io
+2024-09-22T21:31:00.372Z - Fetching issue 29422 from mrdoob/three.js
+2024-09-22T21:31:00.375Z - Fetching issue 29421 from mrdoob/three.js
+2024-09-22T21:31:00.375Z - Fetching issue 5191 from socketio/socket.io
+2024-09-22T21:31:00.377Z - Fetching issue 29420 from mrdoob/three.js
+2024-09-22T21:31:00.378Z - Fetching issue 5188 from socketio/socket.io
+2024-09-22T21:31:00.379Z - Fetching issue 29419 from mrdoob/three.js
+2024-09-22T21:31:00.380Z - Fetching issue 5187 from socketio/socket.io
+2024-09-22T21:31:00.381Z - Fetching issue 29418 from mrdoob/three.js
+2024-09-22T21:31:00.383Z - Fetching issue 5182 from socketio/socket.io
+2024-09-22T21:31:00.383Z - Fetching issue 29417 from mrdoob/three.js
+2024-09-22T21:31:00.386Z - Fetching issue 29416 from mrdoob/three.js
+2024-09-22T21:31:00.386Z - Fetching issue 5179 from socketio/socket.io
+2024-09-22T21:31:00.388Z - Fetching issue 29415 from mrdoob/three.js
+2024-09-22T21:31:00.388Z - Fetching issue 5174 from socketio/socket.io
+2024-09-22T21:31:00.390Z - Fetching issue 29414 from mrdoob/three.js
+2024-09-22T21:31:00.390Z - Fetching issue 5172 from socketio/socket.io
+2024-09-22T21:31:00.392Z - Fetching issue 29413 from mrdoob/three.js
+2024-09-22T21:31:00.393Z - Fetching issue 5177 from socketio/socket.io
+2024-09-22T21:31:00.394Z - Fetching issue 29412 from mrdoob/three.js
+2024-09-22T21:31:00.395Z - Fetching issue 5169 from socketio/socket.io
+2024-09-22T21:31:00.395Z - Response time for issue 1807: 200.3378402199074 days
+2024-09-22T21:31:00.395Z - Fetching issue 29411 from mrdoob/three.js
+2024-09-22T21:31:00.396Z - Response time for issue 1822: 0.00037037037037037035 days
+2024-09-22T21:31:00.397Z - Response time for issue 1799: 185.69518518518518 days
+2024-09-22T21:31:00.397Z - Fetching issue 29410 from mrdoob/three.js
+2024-09-22T21:31:00.397Z - Fetching issue 5168 from socketio/socket.io
+2024-09-22T21:31:00.398Z - Response time for issue 1796: 0.0002199074074074074 days
+2024-09-22T21:31:00.399Z - Response time for issue 1788: 316.1092175810185 days
+2024-09-22T21:31:00.400Z - Response time for issue 1795: 0.01695601851851852 days
+2024-09-22T21:31:00.400Z - Fetching issue 29409 from mrdoob/three.js
+2024-09-22T21:31:00.400Z - Fetching issue 5167 from socketio/socket.io
+2024-09-22T21:31:00.400Z - Response time for issue 1808: 199.07007407407409 days
+2024-09-22T21:31:00.402Z - Response time for issue 1781: 349.465039375 days
+2024-09-22T21:31:00.402Z - Fetching issue 29408 from mrdoob/three.js
+2024-09-22T21:31:00.403Z - Response time for issue 1777: 363.3293912384259 days
+2024-09-22T21:31:00.403Z - Fetching issue 5166 from socketio/socket.io
+2024-09-22T21:31:00.403Z - Response time for issue 1771: 393.90593059027776 days
+2024-09-22T21:31:00.404Z - Fetching issue 29407 from mrdoob/three.js
+2024-09-22T21:31:00.405Z - Response time for issue 1823: 39.968025520833336 days
+2024-09-22T21:31:00.405Z - Fetching issue 5164 from socketio/socket.io
+2024-09-22T21:31:00.405Z - Response time for issue 1817: 120.38537505787038 days
+2024-09-22T21:31:00.406Z - Response time for issue 1826: 6.309460717592593 days
+2024-09-22T21:31:00.407Z - Fetching issue 5161 from socketio/socket.io
+2024-09-22T21:31:00.407Z - Response time for issue 1821: 0.00020833333333333335 days
+2024-09-22T21:31:00.408Z - Response time for issue 1818: 118.61811814814814 days
+2024-09-22T21:31:00.409Z - Response time for issue 1790: 311.3226436226852 days
+2024-09-22T21:31:00.409Z - Fetching issue 29406 from mrdoob/three.js
+2024-09-22T21:31:00.410Z - Response time for issue 1764: 0.0008680555555555555 days
+2024-09-22T21:31:00.410Z - Fetching issue 5160 from socketio/socket.io
+2024-09-22T21:31:00.410Z - Response time for issue 1749: 486.25087280092595 days
+2024-09-22T21:31:00.411Z - Fetching issue 29405 from mrdoob/three.js
+2024-09-22T21:31:00.411Z - Response time for issue 1748: 486.2710579976852 days
+2024-09-22T21:31:00.412Z - Fetching issue 5159 from socketio/socket.io
+2024-09-22T21:31:00.412Z - Response time for issue 1785: 331.69097699074075 days
+2024-09-22T21:31:00.412Z - Fetching issue 29404 from mrdoob/three.js
+2024-09-22T21:31:00.413Z - Response time for issue 1741: 0.24662037037037038 days
+2024-09-22T21:31:00.414Z - Response time for issue 1779: 358.4756992361111 days
+2024-09-22T21:31:00.414Z - Fetching issue 5158 from socketio/socket.io
+2024-09-22T21:31:00.414Z - Fetching issue 29403 from mrdoob/three.js
+2024-09-22T21:31:00.414Z - Response time for issue 1731: 538.5574353472222 days
+2024-09-22T21:31:00.415Z - Response time for issue 1756: 464.6152131365741 days
+2024-09-22T21:31:00.416Z - Response time for issue 1738: 0.022118055555555554 days
+2024-09-22T21:31:00.416Z - Fetching issue 29402 from mrdoob/three.js
+2024-09-22T21:31:00.416Z - Fetching issue 5155 from socketio/socket.io
+2024-09-22T21:31:00.418Z - Fetching issue 29401 from mrdoob/three.js
+2024-09-22T21:31:00.419Z - Fetching issue 5148 from socketio/socket.io
+2024-09-22T21:31:00.420Z - Fetching issue 29400 from mrdoob/three.js
+2024-09-22T21:31:00.420Z - Fetching issue 5146 from socketio/socket.io
+2024-09-22T21:31:00.421Z - Fetching issue 29399 from mrdoob/three.js
+2024-09-22T21:31:00.423Z - Fetching issue 5145 from socketio/socket.io
+2024-09-22T21:31:00.423Z - Fetching issue 29398 from mrdoob/three.js
+2024-09-22T21:31:00.423Z - Response time for issue 1809: 159.4886275810185 days
+2024-09-22T21:31:00.423Z - Found 100 issues for node-fetch/node-fetch
+2024-09-22T21:31:00.424Z - Fetching issue 1826 from node-fetch/node-fetch
+2024-09-22T21:31:00.425Z - Response time for issue 1801: 243.87374333333332 days
+2024-09-22T21:31:00.425Z - Fetching issue 5143 from socketio/socket.io
+2024-09-22T21:31:00.425Z - Fetching issue 29397 from mrdoob/three.js
+2024-09-22T21:31:00.425Z - Response time for issue 1798: 261.205548900463 days
+2024-09-22T21:31:00.426Z - Response time for issue 1816: 130.5529794675926 days
+2024-09-22T21:31:00.427Z - Response time for issue 1810: 159.48844244212964 days
+2024-09-22T21:31:00.428Z - Response time for issue 1793: 0.3647337962962963 days
+2024-09-22T21:31:00.428Z - Fetching issue 5142 from socketio/socket.io
+2024-09-22T21:31:00.428Z - Fetching issue 29396 from mrdoob/three.js
+2024-09-22T21:31:00.428Z - Response time for issue 1797: 278.21811837962963 days
+2024-09-22T21:31:00.429Z - Fetching issue 1825 from node-fetch/node-fetch
+2024-09-22T21:31:00.429Z - Response time for issue 1800: 248.7308845949074 days
+2024-09-22T21:31:00.429Z - Found 1 bug issues for facebook/react
+2024-09-22T21:31:00.430Z - Response time for issue 1782: 0.03758101851851852 days
+2024-09-22T21:31:00.430Z - facebook/react has 30 issues 
+2024-09-22T21:31:00.430Z - Response time for issue 1791: 0.12145833333333333 days
+2024-09-22T21:31:00.431Z - Calculated correctness for facebook/react: 0.9666666666666667
+2024-09-22T21:31:00.431Z - Response time for issue 1794: 0.008263888888888888 days
+2024-09-22T21:31:00.431Z - Fetching issue 5141 from socketio/socket.io
+2024-09-22T21:31:00.432Z - Fetching issue 29395 from mrdoob/three.js
+2024-09-22T21:31:00.432Z - Response time for issue 1784: 342.2008961921296 days
+2024-09-22T21:31:00.432Z - Fetching issue 1823 from node-fetch/node-fetch
+2024-09-22T21:31:00.432Z - Response time for issue 1787: 317.22938 days
+2024-09-22T21:31:00.433Z - Response time for issue 1770: 396.48689158564815 days
+2024-09-22T21:31:00.433Z - Response time for issue 1768: 408.58407908564817 days
+2024-09-22T21:31:00.434Z - Response time for issue 1762: 452.02566474537036 days
+2024-09-22T21:31:00.435Z - Fetching issue 5140 from socketio/socket.io
+2024-09-22T21:31:00.435Z - Fetching issue 29394 from mrdoob/three.js
+2024-09-22T21:31:00.435Z - Response time for issue 1758: 460.61753975694444 days
+2024-09-22T21:31:00.435Z - Fetching issue 1822 from node-fetch/node-fetch
+2024-09-22T21:31:00.436Z - Response time for issue 1825: 9.27558375 days
+2024-09-22T21:31:00.436Z - Response time for issue 1786: 200.37983796296297 days
+2024-09-22T21:31:00.437Z - Fetching issue 5139 from socketio/socket.io
+2024-09-22T21:31:00.437Z - Fetching issue 29393 from mrdoob/three.js
+2024-09-22T21:31:00.437Z - Response time for issue 1765: 22.405266203703704 days
+2024-09-22T21:31:00.438Z - Response time for issue 1775: 380.70175275462964 days
+2024-09-22T21:31:00.438Z - Fetching issue 1821 from node-fetch/node-fetch
+2024-09-22T21:31:00.438Z - Response time for issue 1792: 0.04212962962962963 days
+2024-09-22T21:31:00.439Z - Response time for issue 1757: 0.02883101851851852 days
+2024-09-22T21:31:00.439Z - Fetching issue 29392 from mrdoob/three.js
+2024-09-22T21:31:00.440Z - Fetching issue 5136 from socketio/socket.io
+2024-09-22T21:31:00.440Z - Response time for issue 1774: 381.5686972222222 days
+2024-09-22T21:31:00.440Z - Response time for issue 1776: 378.66640555555557 days
+2024-09-22T21:31:00.441Z - Fetching issue 1818 from node-fetch/node-fetch
+2024-09-22T21:31:00.441Z - Response time for issue 1780: 349.46554908564815 days
+2024-09-22T21:31:00.441Z - Fetching issue 29391 from mrdoob/three.js
+2024-09-22T21:31:00.442Z - Fetching issue 5135 from socketio/socket.io
+2024-09-22T21:31:00.442Z - Response time for issue 1744: 99.30651620370371 days
+2024-09-22T21:31:00.444Z - Response time for issue 1747: 486.51836162037034 days
+2024-09-22T21:31:00.444Z - Fetching issue 1817 from node-fetch/node-fetch
+2024-09-22T21:31:00.444Z - Fetching issue 29390 from mrdoob/three.js
+2024-09-22T21:31:00.445Z - Fetching issue 5134 from socketio/socket.io
+2024-09-22T21:31:00.445Z - Response time for issue 1767: 416.1196695023148 days
+2024-09-22T21:31:00.446Z - Response time for issue 1769: 401.0091255324074 days
+2024-09-22T21:31:00.447Z - Response time for issue 1759: 459.1464866550926 days
+2024-09-22T21:31:00.448Z - Response time for issue 1737: 3.0551041666666667 days
+2024-09-22T21:31:00.449Z - Response time for issue 1734: 530.3496001041667 days
+2024-09-22T21:31:00.450Z - Fetching issue 29389 from mrdoob/three.js
+2024-09-22T21:31:00.450Z - Fetching issue 5131 from socketio/socket.io
+2024-09-22T21:31:00.450Z - Response time for issue 1729: 5.989421296296296 days
+2024-09-22T21:31:00.450Z - Fetching issue 1816 from node-fetch/node-fetch
+2024-09-22T21:31:00.451Z - Response time for issue 1739: 7.056435185185185 days
+2024-09-22T21:31:00.451Z - Response time for issue 1743: 497.25273670138887 days
+2024-09-22T21:31:00.452Z - Response time for issue 1716: 20.32003472222222 days
+2024-09-22T21:31:00.453Z - Fetching issue 5061 from socketio/socket.io
+2024-09-22T21:31:00.454Z - Fetching issue 29388 from mrdoob/three.js
+2024-09-22T21:31:00.454Z - Response time for issue 1710: 0.08603009259259259 days
+2024-09-22T21:31:00.454Z - Fetching issue 1810 from node-fetch/node-fetch
+2024-09-22T21:31:00.455Z - Response time for issue 1727: 1.1143171296296297 days
+2024-09-22T21:31:00.456Z - Fetching issue 5066 from socketio/socket.io
+2024-09-22T21:31:00.457Z - Fetching issue 29387 from mrdoob/three.js
+2024-09-22T21:31:00.460Z - Fetching issue 5058 from socketio/socket.io
+2024-09-22T21:31:00.460Z - Fetching issue 1809 from node-fetch/node-fetch
+2024-09-22T21:31:00.460Z - Fetching issue 29386 from mrdoob/three.js
+2024-09-22T21:31:00.462Z - Response time for issue 1721: 576.2105146064815 days
+2024-09-22T21:31:00.462Z - Fetching issue 5057 from socketio/socket.io
+2024-09-22T21:31:00.463Z - Response time for issue 1728: 543.4250979513889 days
+2024-09-22T21:31:00.463Z - Fetching issue 1808 from node-fetch/node-fetch
+2024-09-22T21:31:00.463Z - Fetching issue 29385 from mrdoob/three.js
+2024-09-22T21:31:00.464Z - Response time for issue 1723: 564.6882576851851 days
+2024-09-22T21:31:00.464Z - Response time for issue 1722: 1.9972916666666667 days
+2024-09-22T21:31:00.465Z - Fetching issue 5054 from socketio/socket.io
+2024-09-22T21:31:00.465Z - Response time for issue 1717: 579.2083618634259 days
+2024-09-22T21:31:00.466Z - Fetching issue 29384 from mrdoob/three.js
+2024-09-22T21:31:00.466Z - Fetching issue 1807 from node-fetch/node-fetch
+2024-09-22T21:31:00.466Z - Response time for issue 1724: 556.3913827083334 days
+2024-09-22T21:31:00.467Z - Response time for issue 1763: 0.22412037037037036 days
+2024-09-22T21:31:00.467Z - Fetching issue 5065 from socketio/socket.io
+2024-09-22T21:31:00.467Z - Response time for issue 1742: 497.8365447569444 days
+2024-09-22T21:31:00.468Z - Fetching issue 29383 from mrdoob/three.js
+2024-09-22T21:31:00.469Z - Fetching issue 1801 from node-fetch/node-fetch
+2024-09-22T21:31:00.469Z - Fetching issue 5052 from socketio/socket.io
+2024-09-22T21:31:00.470Z - Fetching issue 29382 from mrdoob/three.js
+2024-09-22T21:31:00.473Z - Fetching issue 5051 from socketio/socket.io
+2024-09-22T21:31:00.473Z - Fetching issue 1800 from node-fetch/node-fetch
+2024-09-22T21:31:00.473Z - Fetching issue 29381 from mrdoob/three.js
+2024-09-22T21:31:00.473Z - Response time for issue 1726: 104.2737962962963 days
+2024-09-22T21:31:00.475Z - Fetching issue 5050 from socketio/socket.io
+2024-09-22T21:31:00.476Z - Response time for issue 1713: 0.23604166666666668 days
+2024-09-22T21:31:00.476Z - Fetching issue 1799 from node-fetch/node-fetch
+2024-09-22T21:31:00.476Z - Fetching issue 29380 from mrdoob/three.js
+2024-09-22T21:31:00.476Z - Response time for issue 1736: 95.34616898148148 days
+2024-09-22T21:31:00.477Z - Fetching issue 5049 from socketio/socket.io
+2024-09-22T21:31:00.487Z - Response time for issue 1700: 15.498993055555555 days
+2024-09-22T21:31:00.488Z - Response time for issue 1694: 637.6766491666667 days
+2024-09-22T21:31:00.489Z - Response time for issue 1697: 0.674849537037037 days
+2024-09-22T21:31:00.490Z - Fetching issue 29379 from mrdoob/three.js
+2024-09-22T21:31:00.490Z - Fetching issue 1798 from node-fetch/node-fetch
+2024-09-22T21:31:00.490Z - Fetching issue 5048 from socketio/socket.io
+2024-09-22T21:31:00.490Z - Response time for issue 1718: 577.0288829861111 days
+2024-09-22T21:31:00.491Z - Response time for issue 1725: 104.28085648148148 days
+2024-09-22T21:31:00.492Z - Response time for issue 1699: 7.2914814814814815 days
+2024-09-22T21:31:00.493Z - Response time for issue 1719: 576.8928066319445 days
+2024-09-22T21:31:00.494Z - Fetching issue 29378 from mrdoob/three.js
+2024-09-22T21:31:00.494Z - Fetching issue 5040 from socketio/socket.io
+2024-09-22T21:31:00.494Z - Fetching issue 1797 from node-fetch/node-fetch
+2024-09-22T21:31:00.494Z - Response time for issue 1688: 654.5507233101852 days
+2024-09-22T21:31:00.495Z - Response time for issue 1705: 20.040972222222223 days
+2024-09-22T21:31:00.496Z - Response time for issue 1685: 661.2796585185185 days
+2024-09-22T21:31:00.496Z - Response time for issue 1687: 657.1437325925926 days
+2024-09-22T21:31:00.497Z - Response time for issue 1707: 1.5090162037037036 days
+2024-09-22T21:31:00.497Z - Fetching issue 29377 from mrdoob/three.js
+2024-09-22T21:31:00.497Z - Fetching issue 5038 from socketio/socket.io
+2024-09-22T21:31:00.498Z - Fetching issue 1796 from node-fetch/node-fetch
+2024-09-22T21:31:00.498Z - Fetching issue 29376 from mrdoob/three.js
+2024-09-22T21:31:00.499Z - Response time for issue 1679: 671.7210358680555 days
+2024-09-22T21:31:00.500Z - Response time for issue 1683: 96.04150462962963 days
+2024-09-22T21:31:00.500Z - Fetching issue 1795 from node-fetch/node-fetch
+2024-09-22T21:31:00.500Z - Response time for issue 1701: 15.487835648148149 days
+2024-09-22T21:31:00.501Z - Fetching issue 29375 from mrdoob/three.js
+2024-09-22T21:31:00.502Z - Fetching issue 5035 from socketio/socket.io
+2024-09-22T21:31:00.503Z - Fetching issue 1794 from node-fetch/node-fetch
+2024-09-22T21:31:00.503Z - Fetching issue 29374 from mrdoob/three.js
+2024-09-22T21:31:00.504Z - Response time for issue 1690: 650.7260937962963 days
+2024-09-22T21:31:00.505Z - Fetching issue 5034 from socketio/socket.io
+2024-09-22T21:31:00.505Z - Response time for issue 1696: 4.6471875 days
+2024-09-22T21:31:00.506Z - Response time for issue 1695: 0.8787268518518518 days
+2024-09-22T21:31:00.506Z - Fetching issue 1793 from node-fetch/node-fetch
+2024-09-22T21:31:00.506Z - Fetching issue 29373 from mrdoob/three.js
+2024-09-22T21:31:00.507Z - Response time for issue 1735: 96.72804398148148 days
+2024-09-22T21:31:00.507Z - Fetching issue 5033 from socketio/socket.io
+2024-09-22T21:31:00.508Z - Fetching issue 1792 from node-fetch/node-fetch
+2024-09-22T21:31:00.509Z - Fetching issue 29372 from mrdoob/three.js
+2024-09-22T21:31:00.509Z - Response time for issue 1706: 606.5382813541667 days
+2024-09-22T21:31:00.510Z - Fetching issue 5027 from socketio/socket.io
+2024-09-22T21:31:00.510Z - Fetching issue 1791 from node-fetch/node-fetch
+2024-09-22T21:31:00.511Z - Fetching issue 29371 from mrdoob/three.js
+2024-09-22T21:31:00.511Z - Response time for issue 1715: 587.6847165625 days
+2024-09-22T21:31:00.512Z - Fetching issue 5083 from socketio/socket.io
+2024-09-22T21:31:00.513Z - Fetching issue 1790 from node-fetch/node-fetch
+2024-09-22T21:31:00.513Z - Fetching issue 29370 from mrdoob/three.js
+2024-09-22T21:31:00.516Z - Fetching issue 5024 from socketio/socket.io
+2024-09-22T21:31:00.517Z - Fetching issue 1788 from node-fetch/node-fetch
+2024-09-22T21:31:00.517Z - Fetching issue 29369 from mrdoob/three.js
+2024-09-22T21:31:00.520Z - Fetching issue 5127 from socketio/socket.io
+2024-09-22T21:31:00.520Z - Fetching issue 1787 from node-fetch/node-fetch
+2024-09-22T21:31:00.522Z - Fetching issue 5020 from socketio/socket.io
+2024-09-22T21:31:00.522Z - Fetching issue 1786 from node-fetch/node-fetch
+2024-09-22T21:31:00.525Z - Fetching issue 5017 from socketio/socket.io
+2024-09-22T21:31:00.525Z - Fetching issue 1785 from node-fetch/node-fetch
+2024-09-22T21:31:00.526Z - Response time for issue 1684: 661.2997861805555 days
+2024-09-22T21:31:00.528Z - Fetching issue 5014 from socketio/socket.io
+2024-09-22T21:31:00.528Z - Fetching issue 1784 from node-fetch/node-fetch
+2024-09-22T21:31:00.530Z - Fetching issue 5012 from socketio/socket.io
+2024-09-22T21:31:00.530Z - Fetching issue 1782 from node-fetch/node-fetch
+2024-09-22T21:31:00.533Z - Fetching issue 5011 from socketio/socket.io
+2024-09-22T21:31:00.533Z - Fetching issue 1781 from node-fetch/node-fetch
+2024-09-22T21:31:00.535Z - Fetching issue 5010 from socketio/socket.io
+2024-09-22T21:31:00.536Z - Fetching issue 1780 from node-fetch/node-fetch
+2024-09-22T21:31:00.536Z - Response time for issue 1693: 639.3702724074074 days
+2024-09-22T21:31:00.537Z - Fetching issue 5009 from socketio/socket.io
+2024-09-22T21:31:00.537Z - Fetching issue 1779 from node-fetch/node-fetch
+2024-09-22T21:31:00.539Z - Fetching issue 5008 from socketio/socket.io
+2024-09-22T21:31:00.541Z - Fetching issue 5004 from socketio/socket.io
+2024-09-22T21:31:00.541Z - Fetching issue 1777 from node-fetch/node-fetch
+2024-09-22T21:31:00.542Z - Fetching issue 5003 from socketio/socket.io
+2024-09-22T21:31:00.543Z - Fetching issue 1776 from node-fetch/node-fetch
+2024-09-22T21:31:00.544Z - Fetching issue 4995 from socketio/socket.io
+2024-09-22T21:31:00.544Z - Fetching issue 1775 from node-fetch/node-fetch
+2024-09-22T21:31:00.546Z - Fetching issue 4988 from socketio/socket.io
+2024-09-22T21:31:00.547Z - Fetching issue 1774 from node-fetch/node-fetch
+2024-09-22T21:31:00.548Z - Fetching issue 5128 from socketio/socket.io
+2024-09-22T21:31:00.548Z - Fetching issue 1771 from node-fetch/node-fetch
+2024-09-22T21:31:00.550Z - Fetching issue 4985 from socketio/socket.io
+2024-09-22T21:31:00.550Z - Fetching issue 1770 from node-fetch/node-fetch
+2024-09-22T21:31:00.552Z - Fetching issue 4984 from socketio/socket.io
+2024-09-22T21:31:00.553Z - Fetching issue 1769 from node-fetch/node-fetch
+2024-09-22T21:31:00.554Z - Fetching issue 4980 from socketio/socket.io
+2024-09-22T21:31:00.554Z - Fetching issue 1768 from node-fetch/node-fetch
+2024-09-22T21:31:00.556Z - Fetching issue 4972 from socketio/socket.io
+2024-09-22T21:31:00.557Z - Fetching issue 1767 from node-fetch/node-fetch
+2024-09-22T21:31:00.558Z - Fetching issue 4971 from socketio/socket.io
+2024-09-22T21:31:00.558Z - Response time for issue 1686: 660.2652726620371 days
+2024-09-22T21:31:00.559Z - Fetching issue 1765 from node-fetch/node-fetch
+2024-09-22T21:31:00.560Z - Fetching issue 5126 from socketio/socket.io
+2024-09-22T21:31:00.560Z - Fetching issue 1764 from node-fetch/node-fetch
+2024-09-22T21:31:00.562Z - Fetching issue 4969 from socketio/socket.io
+2024-09-22T21:31:00.562Z - Fetching issue 1763 from node-fetch/node-fetch
+2024-09-22T21:31:00.565Z - Fetching issue 4968 from socketio/socket.io
+2024-09-22T21:31:00.565Z - Fetching issue 1762 from node-fetch/node-fetch
+2024-09-22T21:31:00.568Z - Fetching issue 1759 from node-fetch/node-fetch
+2024-09-22T21:31:00.568Z - Fetching issue 4967 from socketio/socket.io
+2024-09-22T21:31:00.571Z - Fetching issue 1758 from node-fetch/node-fetch
+2024-09-22T21:31:00.571Z - Fetching issue 4964 from socketio/socket.io
+2024-09-22T21:31:00.573Z - Fetching issue 1757 from node-fetch/node-fetch
+2024-09-22T21:31:00.574Z - Fetching issue 4963 from socketio/socket.io
+2024-09-22T21:31:00.576Z - Fetching issue 1756 from node-fetch/node-fetch
+2024-09-22T21:31:00.576Z - Fetching issue 4962 from socketio/socket.io
+2024-09-22T21:31:00.579Z - Fetching issue 1749 from node-fetch/node-fetch
+2024-09-22T21:31:00.579Z - Fetching issue 4955 from socketio/socket.io
+2024-09-22T21:31:00.581Z - Response time for issue 1704: 11.92980324074074 days
+2024-09-22T21:31:00.581Z - Fetching issue 1748 from node-fetch/node-fetch
+2024-09-22T21:31:00.582Z - Fetching issue 4954 from socketio/socket.io
+2024-09-22T21:31:00.582Z - Responsiveness for node-fetch/node-fetch: 0.6141734288389544
+2024-09-22T21:31:00.584Z - Fetching issue 1747 from node-fetch/node-fetch
+2024-09-22T21:31:00.587Z - Metrics calculated for https://github.com/node-fetch/node-fetch: {"RampUp":0.7,"Correctness":0.43333333333333335,"ResponsiveMaintainer":0.6141734288389544,"ResponsiveMaintainer_Latency":1883.3107771873474,"License":{"score":1,"latency":501.63185596466064},"CorrectnessLatency":788.7380766868591,"RampUp_Latency":725.1063680648804}
+2024-09-22T21:31:00.588Z - Fetching issue 4950 from socketio/socket.io
+2024-09-22T21:31:00.588Z - Fetching issue 1744 from node-fetch/node-fetch
+2024-09-22T21:31:00.590Z - Fetching issue 4949 from socketio/socket.io
+2024-09-22T21:31:00.590Z - Fetching issue 1743 from node-fetch/node-fetch
+2024-09-22T21:31:00.592Z - Fetching issue 5067 from socketio/socket.io
+2024-09-22T21:31:00.592Z - Fetching issue 1742 from node-fetch/node-fetch
+2024-09-22T21:31:00.595Z - Fetching issue 4946 from socketio/socket.io
+2024-09-22T21:31:00.596Z - Fetching issue 1741 from node-fetch/node-fetch
+2024-09-22T21:31:00.601Z - Fetching issue 5125 from socketio/socket.io
+2024-09-22T21:31:00.602Z - Fetching issue 1739 from node-fetch/node-fetch
+2024-09-22T21:31:00.603Z - Fetching issue 4944 from socketio/socket.io
+2024-09-22T21:31:00.604Z - Fetching issue 1738 from node-fetch/node-fetch
+2024-09-22T21:31:00.604Z - Fetching issue 5068 from socketio/socket.io
+2024-09-22T21:31:00.606Z - Fetching issue 1737 from node-fetch/node-fetch
+2024-09-22T21:31:00.606Z - Fetching issue 4937 from socketio/socket.io
+2024-09-22T21:31:00.608Z - Fetching issue 1736 from node-fetch/node-fetch
+2024-09-22T21:31:00.608Z - Fetching issue 4931 from socketio/socket.io
+2024-09-22T21:31:00.609Z - Fetching issue 1735 from node-fetch/node-fetch
+2024-09-22T21:31:00.610Z - Fetching issue 4925 from socketio/socket.io
+2024-09-22T21:31:00.611Z - Fetching issue 1734 from node-fetch/node-fetch
+2024-09-22T21:31:00.612Z - Fetching issue 4923 from socketio/socket.io
+2024-09-22T21:31:00.613Z - Fetching issue 1731 from node-fetch/node-fetch
+2024-09-22T21:31:00.615Z - Fetching issue 4922 from socketio/socket.io
+2024-09-22T21:31:00.615Z - Fetching issue 1729 from node-fetch/node-fetch
+2024-09-22T21:31:00.616Z - Fetching issue 4919 from socketio/socket.io
+2024-09-22T21:31:00.617Z - Fetching issue 1728 from node-fetch/node-fetch
+2024-09-22T21:31:00.619Z - Fetching issue 4917 from socketio/socket.io
+2024-09-22T21:31:00.619Z - Fetching issue 1727 from node-fetch/node-fetch
+2024-09-22T21:31:00.620Z - Fetching issue 4916 from socketio/socket.io
+2024-09-22T21:31:00.621Z - Fetching issue 1726 from node-fetch/node-fetch
+2024-09-22T21:31:00.622Z - Fetching issue 4915 from socketio/socket.io
+2024-09-22T21:31:00.623Z - Fetching issue 1725 from node-fetch/node-fetch
+2024-09-22T21:31:00.624Z - Fetching issue 4914 from socketio/socket.io
+2024-09-22T21:31:00.624Z - Fetching issue 1724 from node-fetch/node-fetch
+2024-09-22T21:31:00.626Z - Fetching issue 4910 from socketio/socket.io
+2024-09-22T21:31:00.626Z - Fetching issue 1723 from node-fetch/node-fetch
+2024-09-22T21:31:00.627Z - Fetching issue 5124 from socketio/socket.io
+2024-09-22T21:31:00.628Z - Fetching issue 1722 from node-fetch/node-fetch
+2024-09-22T21:31:00.629Z - Fetching issue 4907 from socketio/socket.io
+2024-09-22T21:31:00.630Z - Fetching issue 1721 from node-fetch/node-fetch
+2024-09-22T21:31:00.631Z - Fetching issue 4906 from socketio/socket.io
+2024-09-22T21:31:00.631Z - Fetching issue 1719 from node-fetch/node-fetch
+2024-09-22T21:31:00.633Z - Fetching issue 1718 from node-fetch/node-fetch
+2024-09-22T21:31:00.635Z - Fetching issue 1717 from node-fetch/node-fetch
+2024-09-22T21:31:00.637Z - Fetching issue 1716 from node-fetch/node-fetch
+2024-09-22T21:31:00.639Z - Fetching issue 1715 from node-fetch/node-fetch
+2024-09-22T21:31:00.641Z - Fetching issue 1713 from node-fetch/node-fetch
+2024-09-22T21:31:00.645Z - Response time for issue 1314: 89.69936342592592 days
+2024-09-22T21:31:00.646Z - Fetching issue 1710 from node-fetch/node-fetch
+2024-09-22T21:31:00.646Z - Response time for issue 1313: 97.27730324074074 days
+2024-09-22T21:31:00.648Z - Fetching issue 1707 from node-fetch/node-fetch
+2024-09-22T21:31:00.648Z - Response time for issue 1283: 37.69090277777778 days
+2024-09-22T21:31:00.649Z - Response time for issue 1298: 165.85112268518517 days
+2024-09-22T21:31:00.649Z - Fetching issue 1706 from node-fetch/node-fetch
+2024-09-22T21:31:00.649Z - Response time for issue 1302: 164.66814408564815 days
+2024-09-22T21:31:00.650Z - Response time for issue 1297: 166.08620370370372 days
+2024-09-22T21:31:00.651Z - Fetching issue 1705 from node-fetch/node-fetch
+2024-09-22T21:31:00.651Z - Response time for issue 1303: 164.26530846064816 days
+2024-09-22T21:31:00.651Z - Response time for issue 1293: 1.2801967592592594 days
+2024-09-22T21:31:00.652Z - Fetching issue 1704 from node-fetch/node-fetch
+2024-09-22T21:31:00.653Z - Response time for issue 1274: 271.83952144675925 days
+2024-09-22T21:31:00.654Z - Fetching issue 1701 from node-fetch/node-fetch
+2024-09-22T21:31:00.654Z - Response time for issue 1271: 275.4170909027778 days
+2024-09-22T21:31:00.655Z - Response time for issue 1266: 2.231377314814815 days
+2024-09-22T21:31:00.655Z - Fetching issue 1700 from node-fetch/node-fetch
+2024-09-22T21:31:00.655Z - Response time for issue 1260: 10.734710648148148 days
+2024-09-22T21:31:00.657Z - Response time for issue 1261: 7.7472916666666665 days
+2024-09-22T21:31:00.657Z - Fetching issue 1699 from node-fetch/node-fetch
+2024-09-22T21:31:00.657Z - Response time for issue 1237: 6.914988425925926 days
+2024-09-22T21:31:00.658Z - Response time for issue 1336: 10.812611782407407 days
+2024-09-22T21:31:00.659Z - Fetching issue 1697 from node-fetch/node-fetch
+2024-09-22T21:31:00.659Z - Response time for issue 1335: 13.364209016203704 days
+2024-09-22T21:31:00.660Z - Fetching issue 1696 from node-fetch/node-fetch
+2024-09-22T21:31:00.661Z - Response time for issue 1341: 7.616824780092593 days
+2024-09-22T21:31:00.662Z - Fetching issue 1695 from node-fetch/node-fetch
+2024-09-22T21:31:00.662Z - Response time for issue 1322: 0.30917824074074074 days
+2024-09-22T21:31:00.663Z - Response time for issue 1337: 10.38801693287037 days
+2024-09-22T21:31:00.663Z - Fetching issue 1694 from node-fetch/node-fetch
+2024-09-22T21:31:00.664Z - Response time for issue 1320: 46.16096064814815 days
+2024-09-22T21:31:00.665Z - Response time for issue 1339: 7.6318132523148146 days
+2024-09-22T21:31:00.665Z - Fetching issue 1693 from node-fetch/node-fetch
+2024-09-22T21:31:00.665Z - Response time for issue 1318: 70.36738038194444 days
+2024-09-22T21:31:00.666Z - Response time for issue 1333: 27.462438263888888 days
+2024-09-22T21:31:00.667Z - Response time for issue 1330: 42.58898920138889 days
+2024-09-22T21:31:00.668Z - Fetching issue 1690 from node-fetch/node-fetch
+2024-09-22T21:31:00.668Z - Response time for issue 1327: 44.390158194444446 days
+2024-09-22T21:31:00.669Z - Response time for issue 1332: 27.473503113425927 days
+2024-09-22T21:31:00.669Z - Response time for issue 1317: 73.37823690972222 days
+2024-09-22T21:31:00.669Z - Fetching issue 1688 from node-fetch/node-fetch
+2024-09-22T21:31:00.670Z - Response time for issue 1319: 61.46447534722222 days
+2024-09-22T21:31:00.671Z - Response time for issue 1321: 58.398410543981484 days
+2024-09-22T21:31:00.671Z - Response time for issue 1324: 29.10974537037037 days
+2024-09-22T21:31:00.671Z - Fetching issue 1687 from node-fetch/node-fetch
+2024-09-22T21:31:00.672Z - Response time for issue 1310: 100.41804398148147 days
+2024-09-22T21:31:00.673Z - Response time for issue 1304: 154.20326010416667 days
+2024-09-22T21:31:00.674Z - Response time for issue 1306: 152.6013619675926 days
+2024-09-22T21:31:00.674Z - Response time for issue 1316: 95.47619993055555 days
+2024-09-22T21:31:00.674Z - Fetching issue 1686 from node-fetch/node-fetch
+2024-09-22T21:31:00.675Z - Response time for issue 1312: 2.898576388888889 days
+2024-09-22T21:31:00.676Z - Response time for issue 1315: 96.17236893518519 days
+2024-09-22T21:31:00.676Z - Response time for issue 1325: 44.40468375 days
+2024-09-22T21:31:00.677Z - Response time for issue 1307: 151.5142786689815 days
+2024-09-22T21:31:00.677Z - Fetching issue 1685 from node-fetch/node-fetch
+2024-09-22T21:31:00.678Z - Response time for issue 1311: 115.59654719907408 days
+2024-09-22T21:31:00.679Z - Response time for issue 1295: 181.97555184027777 days
+2024-09-22T21:31:00.679Z - Response time for issue 1296: 166.16046296296295 days
+2024-09-22T21:31:00.680Z - Response time for issue 1300: 173.6111652777778 days
+2024-09-22T21:31:00.680Z - Fetching issue 1684 from node-fetch/node-fetch
+2024-09-22T21:31:00.681Z - Response time for issue 1291: 185.06867686342594 days
+2024-09-22T21:31:00.681Z - Response time for issue 1284: 215.11857269675926 days
+2024-09-22T21:31:00.682Z - Response time for issue 1305: 154.01159354166666 days
+2024-09-22T21:31:00.683Z - Response time for issue 1309: 5.831759259259259 days
+2024-09-22T21:31:00.684Z - Response time for issue 1279: 46.200439814814814 days
+2024-09-22T21:31:00.684Z - Response time for issue 1277: 249.93076023148149 days
+2024-09-22T21:31:00.685Z - Response time for issue 1287: 194.18062135416668 days
+2024-09-22T21:31:00.686Z - Response time for issue 1273: 274.6538968287037 days
+2024-09-22T21:31:00.687Z - Response time for issue 1292: 2.849409722222222 days
+2024-09-22T21:31:00.688Z - Response time for issue 1299: 1.4517708333333332 days
+2024-09-22T21:31:00.689Z - Response time for issue 1267: 281.95116538194446 days
+2024-09-22T21:31:00.689Z - Fetching issue 1683 from node-fetch/node-fetch
+2024-09-22T21:31:00.689Z - Response time for issue 1289: 190.97026260416666 days
+2024-09-22T21:31:00.689Z - Found 100 issues for facebook/react
+2024-09-22T21:31:00.690Z - Response time for issue 1270: 279.3288505787037 days
+2024-09-22T21:31:00.690Z - Fetching issue 31021 from facebook/react
+2024-09-22T21:31:00.690Z - Response time for issue 1268: 4.510983796296296 days
+2024-09-22T21:31:00.691Z - Fetching issue 1679 from node-fetch/node-fetch
+2024-09-22T21:31:00.691Z - Response time for issue 1278: 1.3912037037037037 days
+2024-09-22T21:31:00.692Z - Response time for issue 1262: 285.9403899537037 days
+2024-09-22T21:31:00.692Z - Response time for issue 1276: 262.65782050925924 days
+2024-09-22T21:31:00.693Z - Response time for issue 1264: 101.31163194444444 days
+2024-09-22T21:31:00.694Z - Fetching issue 31020 from facebook/react
+2024-09-22T21:31:00.694Z - Response time for issue 1286: 3.271724537037037 days
+2024-09-22T21:31:00.695Z - Response time for issue 1259: 220.81255787037037 days
+2024-09-22T21:31:00.695Z - Response time for issue 1275: 268.4637580439815 days
+2024-09-22T21:31:00.696Z - Fetching issue 31019 from facebook/react
+2024-09-22T21:31:00.696Z - Response time for issue 1282: 221.7769525 days
+2024-09-22T21:31:00.697Z - Response time for issue 1288: 191.46620019675925 days
+2024-09-22T21:31:00.698Z - Response time for issue 1250: 313.62364233796296 days
+2024-09-22T21:31:00.698Z - Fetching issue 31018 from facebook/react
+2024-09-22T21:31:00.698Z - Response time for issue 1258: 290.6717557638889 days
+2024-09-22T21:31:00.699Z - Response time for issue 1263: 0.9702083333333333 days
+2024-09-22T21:31:00.700Z - Response time for issue 1265: 283.1138854166667 days
+2024-09-22T21:31:00.700Z - Fetching issue 31017 from facebook/react
+2024-09-22T21:31:00.700Z - Response time for issue 1246: 322.70830671296295 days
+2024-09-22T21:31:00.701Z - Response time for issue 1247: 322.44567940972223 days
+2024-09-22T21:31:00.702Z - Response time for issue 1233: 362.33356136574076 days
+2024-09-22T21:31:00.702Z - Fetching issue 31016 from facebook/react
+2024-09-22T21:31:00.702Z - Response time for issue 1231: 3.3373726851851853 days
+2024-09-22T21:31:00.703Z - Response time for issue 1226: 15.975706018518519 days
+2024-09-22T21:31:00.704Z - Response time for issue 1232: 363.5464896296296 days
+2024-09-22T21:31:00.704Z - Fetching issue 31015 from facebook/react
+2024-09-22T21:31:00.705Z - Response time for issue 1223: 380.5065937962963 days
+2024-09-22T21:31:00.705Z - Response time for issue 1338: 7.650436400462963 days
+2024-09-22T21:31:00.706Z - Response time for issue 1328: 44.36711465277778 days
+2024-09-22T21:31:00.706Z - Fetching issue 31014 from facebook/react
+2024-09-22T21:31:00.707Z - Response time for issue 1329: 42.6064665162037 days
+2024-09-22T21:31:00.707Z - Response time for issue 1326: 29.103506944444444 days
+2024-09-22T21:31:00.708Z - Fetching issue 31013 from facebook/react
+2024-09-22T21:31:00.708Z - Response time for issue 1340: 7.6265822685185185 days
+2024-09-22T21:31:00.709Z - Response time for issue 1243: 348.6022998726852 days
+2024-09-22T21:31:00.710Z - Response time for issue 1252: 59.028622685185184 days
+2024-09-22T21:31:00.710Z - Fetching issue 31012 from facebook/react
+2024-09-22T21:31:00.711Z - Response time for issue 1244: 342.9793600810185 days
+2024-09-22T21:31:00.712Z - Fetching issue 31011 from facebook/react
+2024-09-22T21:31:00.714Z - Fetching issue 31010 from facebook/react
+2024-09-22T21:31:00.716Z - Fetching issue 31009 from facebook/react
+2024-09-22T21:31:00.718Z - Fetching issue 31008 from facebook/react
+2024-09-22T21:31:00.719Z - Response time for issue 1248: 322.08278609953703 days
+2024-09-22T21:31:00.719Z - Response time for issue 1225: 377.2318601736111 days
+2024-09-22T21:31:00.720Z - Response time for issue 1242: 70.27313657407407 days
+2024-09-22T21:31:00.721Z - Fetching issue 31007 from facebook/react
+2024-09-22T21:31:00.721Z - Response time for issue 1240: 75.48334490740741 days
+2024-09-22T21:31:00.722Z - Response time for issue 1255: 293.53605002314816 days
+2024-09-22T21:31:00.723Z - Response time for issue 1229: 0.13608796296296297 days
+2024-09-22T21:31:00.723Z - Fetching issue 31006 from facebook/react
+2024-09-22T21:31:00.723Z - Response time for issue 1228: 0.41055555555555556 days
+2024-09-22T21:31:00.724Z - Response time for issue 1239: 5.017152777777778 days
+2024-09-22T21:31:00.725Z - Response time for issue 1251: 313.48798292824074 days
+2024-09-22T21:31:00.725Z - Fetching issue 31005 from facebook/react
+2024-09-22T21:31:00.726Z - Response time for issue 1224: 379.0598695138889 days
+2024-09-22T21:31:00.726Z - Response time for issue 1241: 350.3854019212963 days
+2024-09-22T21:31:00.727Z - Fetching issue 31003 from facebook/react
+2024-09-22T21:31:00.727Z - Response time for issue 1249: 320.22195285879627 days
+2024-09-22T21:31:00.728Z - Response time for issue 1235: 8.128078703703704 days
+2024-09-22T21:31:00.729Z - Response time for issue 1256: 293.05102694444446 days
+2024-09-22T21:31:00.729Z - Fetching issue 31002 from facebook/react
+2024-09-22T21:31:00.729Z - Response time for issue 1238: 356.9316982523148 days
+2024-09-22T21:31:00.731Z - Fetching issue 31001 from facebook/react
+2024-09-22T21:31:00.734Z - Fetching issue 31000 from facebook/react
+2024-09-22T21:31:00.737Z - Fetching issue 30999 from facebook/react
+2024-09-22T21:31:00.739Z - Fetching issue 30998 from facebook/react
+2024-09-22T21:31:00.741Z - Fetching issue 30997 from facebook/react
+2024-09-22T21:31:00.743Z - Fetching issue 30996 from facebook/react
+2024-09-22T21:31:00.745Z - Fetching issue 30995 from facebook/react
+2024-09-22T21:31:00.747Z - Fetching issue 30994 from facebook/react
+2024-09-22T21:31:00.749Z - Fetching issue 30993 from facebook/react
+2024-09-22T21:31:00.751Z - Fetching issue 30992 from facebook/react
+2024-09-22T21:31:00.753Z - Fetching issue 30991 from facebook/react
+2024-09-22T21:31:00.755Z - Response time for issue 1221: 0.3616666666666667 days
+2024-09-22T21:31:00.756Z - Fetching issue 30990 from facebook/react
+2024-09-22T21:31:00.756Z - Responsiveness for NickeManarin/ScreenToGif: 0.6379090284194431
+2024-09-22T21:31:00.758Z - Fetching issue 30989 from facebook/react
+2024-09-22T21:31:00.761Z - Fetching issue 30988 from facebook/react
+2024-09-22T21:31:00.763Z - Fetching issue 30987 from facebook/react
+2024-09-22T21:31:00.766Z - Fetching issue 30986 from facebook/react
+2024-09-22T21:31:00.768Z - Fetching issue 30985 from facebook/react
+2024-09-22T21:31:00.771Z - Fetching issue 30984 from facebook/react
+2024-09-22T21:31:00.773Z - Fetching issue 30983 from facebook/react
+2024-09-22T21:31:00.775Z - Fetching issue 30982 from facebook/react
+2024-09-22T21:31:00.778Z - Fetching issue 30981 from facebook/react
+2024-09-22T21:31:00.781Z - Fetching issue 30980 from facebook/react
+2024-09-22T21:31:00.782Z - Fetching issue 30979 from facebook/react
+2024-09-22T21:31:00.785Z - Fetching issue 30978 from facebook/react
+2024-09-22T21:31:00.788Z - Fetching issue 30977 from facebook/react
+2024-09-22T21:31:00.790Z - Fetching issue 30976 from facebook/react
+2024-09-22T21:31:00.794Z - Fetching issue 30975 from facebook/react
+2024-09-22T21:31:00.796Z - Fetching issue 30974 from facebook/react
+2024-09-22T21:31:00.798Z - Fetching issue 30973 from facebook/react
+2024-09-22T21:31:00.888Z - Fetching issue 30972 from facebook/react
+2024-09-22T21:31:00.891Z - Fetching issue 30971 from facebook/react
+2024-09-22T21:31:00.894Z - Fetching issue 30970 from facebook/react
+2024-09-22T21:31:00.897Z - Fetching issue 30969 from facebook/react
+2024-09-22T21:31:00.901Z - Fetching issue 30968 from facebook/react
+2024-09-22T21:31:00.904Z - Fetching issue 30967 from facebook/react
+2024-09-22T21:31:00.908Z - Fetching issue 30966 from facebook/react
+2024-09-22T21:31:00.912Z - Fetching issue 30965 from facebook/react
+2024-09-22T21:31:00.915Z - Fetching issue 30964 from facebook/react
+2024-09-22T21:31:00.917Z - Fetching issue 30962 from facebook/react
+2024-09-22T21:31:00.920Z - Fetching issue 30961 from facebook/react
+2024-09-22T21:31:00.922Z - Fetching issue 30960 from facebook/react
+2024-09-22T21:31:00.924Z - Fetching issue 30959 from facebook/react
+2024-09-22T21:31:00.926Z - Fetching issue 30958 from facebook/react
+2024-09-22T21:31:00.928Z - Fetching issue 30957 from facebook/react
+2024-09-22T21:31:00.930Z - Fetching issue 30956 from facebook/react
+2024-09-22T21:31:00.933Z - Fetching issue 30955 from facebook/react
+2024-09-22T21:31:00.935Z - Fetching issue 30954 from facebook/react
+2024-09-22T21:31:00.937Z - Fetching issue 30953 from facebook/react
+2024-09-22T21:31:00.939Z - Fetching issue 30952 from facebook/react
+2024-09-22T21:31:00.941Z - Fetching issue 30951 from facebook/react
+2024-09-22T21:31:00.943Z - Fetching issue 30950 from facebook/react
+2024-09-22T21:31:00.945Z - Fetching issue 30949 from facebook/react
+2024-09-22T21:31:00.947Z - Fetching issue 30948 from facebook/react
+2024-09-22T21:31:00.949Z - Fetching issue 30947 from facebook/react
+2024-09-22T21:31:00.951Z - Fetching issue 30946 from facebook/react
+2024-09-22T21:31:00.952Z - Fetching issue 30945 from facebook/react
+2024-09-22T21:31:00.953Z - Response time for issue 29462: 0.9091776967592593 days
+2024-09-22T21:31:00.954Z - Response time for issue 29459: 0.00010416666666666667 days
+2024-09-22T21:31:00.955Z - Fetching issue 30944 from facebook/react
+2024-09-22T21:31:00.955Z - Response time for issue 29456: 0.00010416666666666667 days
+2024-09-22T21:31:00.956Z - Response time for issue 29444: 0.030185185185185186 days
+2024-09-22T21:31:00.956Z - Fetching issue 30943 from facebook/react
+2024-09-22T21:31:00.957Z - Response time for issue 29460: 0.05511574074074074 days
+2024-09-22T21:31:00.958Z - Response time for issue 29458: 0.004675925925925926 days
+2024-09-22T21:31:00.958Z - Fetching issue 30942 from facebook/react
+2024-09-22T21:31:00.959Z - Response time for issue 29427: 0.009131944444444444 days
+2024-09-22T21:31:00.960Z - Response time for issue 29424: 0.00920138888888889 days
+2024-09-22T21:31:00.961Z - Fetching issue 30941 from facebook/react
+2024-09-22T21:31:00.961Z - Response time for issue 29423: 0.0060879629629629626 days
+2024-09-22T21:31:00.962Z - Response time for issue 29431: 0.005 days
+2024-09-22T21:31:00.962Z - Fetching issue 30940 from facebook/react
+2024-09-22T21:31:00.963Z - Response time for issue 29417: 7.061504201388889 days
+2024-09-22T21:31:00.964Z - Response time for issue 29404: 9.085497268518518 days
+2024-09-22T21:31:00.964Z - Fetching issue 30939 from facebook/react
+2024-09-22T21:31:00.964Z - Response time for issue 29392: 0.017881944444444443 days
+2024-09-22T21:31:00.965Z - Response time for issue 29403: 9.010960648148147 days
+2024-09-22T21:31:00.966Z - Fetching issue 30938 from facebook/react
+2024-09-22T21:31:00.966Z - Response time for issue 29389: 0.003275462962962963 days
+2024-09-22T21:31:00.967Z - Response time for issue 29409: 7.308853784722222 days
+2024-09-22T21:31:00.968Z - Fetching issue 30937 from facebook/react
+2024-09-22T21:31:00.969Z - Response time for issue 29394: 10.44311306712963 days
+2024-09-22T21:31:00.970Z - Fetching issue 30936 from facebook/react
+2024-09-22T21:31:00.970Z - Response time for issue 29388: 0.02096064814814815 days
+2024-09-22T21:31:00.972Z - Response time for issue 29461: 0.04064814814814815 days
+2024-09-22T21:31:00.972Z - Fetching issue 30935 from facebook/react
+2024-09-22T21:31:00.972Z - Response time for issue 29463: 0.42070569444444444 days
+2024-09-22T21:31:00.973Z - Response time for issue 29454: 0.9077430555555556 days
+2024-09-22T21:31:00.974Z - Fetching issue 30934 from facebook/react
+2024-09-22T21:31:00.974Z - Response time for issue 29466: 0.04891203703703704 days
+2024-09-22T21:31:00.975Z - Response time for issue 29469: 0.029096932870370372 days
+2024-09-22T21:31:00.975Z - Fetching issue 30933 from facebook/react
+2024-09-22T21:31:00.975Z - Response time for issue 29453: 2.501724247685185 days
+2024-09-22T21:31:00.987Z - Response time for issue 29465: 0.047789351851851854 days
+2024-09-22T21:31:00.988Z - Response time for issue 29457: 1.9664118981481482 days
+2024-09-22T21:31:00.988Z - Fetching issue 30932 from facebook/react
+2024-09-22T21:31:00.989Z - Response time for issue 29451: 0.9827430555555555 days
+2024-09-22T21:31:00.989Z - Response time for issue 29464: 0.4118864467592593 days
+2024-09-22T21:31:00.990Z - Response time for issue 29448: 0.19145833333333334 days
+2024-09-22T21:31:00.990Z - Fetching issue 30931 from facebook/react
+2024-09-22T21:31:00.991Z - Response time for issue 29445: 1.6987152777777779 days
+2024-09-22T21:31:00.992Z - Response time for issue 29452: 2.5019096296296297 days
+2024-09-22T21:31:00.992Z - Fetching issue 30930 from facebook/react
+2024-09-22T21:31:00.992Z - Response time for issue 29449: 1.2276041666666666 days
+2024-09-22T21:31:00.993Z - Response time for issue 29441: 0.4810763888888889 days
+2024-09-22T21:31:00.994Z - Response time for issue 29455: 0.05572916666666667 days
+2024-09-22T21:31:00.994Z - Fetching issue 30929 from facebook/react
+2024-09-22T21:31:00.994Z - Response time for issue 29447: 2.9914351157407406 days
+2024-09-22T21:31:00.995Z - Response time for issue 29437: 1.2774189814814816 days
+2024-09-22T21:31:00.996Z - Response time for issue 29450: 2.6860416203703705 days
+2024-09-22T21:31:00.996Z - Fetching issue 30927 from facebook/react
+2024-09-22T21:31:00.997Z - Response time for issue 29435: 0.6442476851851852 days
+2024-09-22T21:31:00.997Z - Response time for issue 29467: 0.04920138888888889 days
+2024-09-22T21:31:00.999Z - Fetching issue 30926 from facebook/react
+2024-09-22T21:31:00.998Z - Response time for issue 29438: 0.03121527777777778 days
+2024-09-22T21:31:01.048Z - Response time for issue 29436: 4.817014444444444 days
+2024-09-22T21:31:01.049Z - Fetching issue 30925 from facebook/react
+2024-09-22T21:31:01.049Z - Response time for issue 29443: 0.027604166666666666 days
+2024-09-22T21:31:01.050Z - Response time for issue 29442: 0.020648148148148148 days
+2024-09-22T21:31:01.050Z - Fetching issue 30924 from facebook/react
+2024-09-22T21:31:01.051Z - Response time for issue 29428: 0.028703703703703703 days
+2024-09-22T21:31:01.052Z - Response time for issue 29425: 0.552025462962963 days
+2024-09-22T21:31:01.053Z - Fetching issue 30923 from facebook/react
+2024-09-22T21:31:01.053Z - Response time for issue 29434: 4.804027777777778 days
+2024-09-22T21:31:01.053Z - Response time for issue 29421: 0.38958333333333334 days
+2024-09-22T21:31:01.054Z - Response time for issue 29440: 0.8625810185185185 days
+2024-09-22T21:31:01.054Z - Fetching issue 30922 from facebook/react
+2024-09-22T21:31:01.055Z - Response time for issue 29420: 0.22180555555555556 days
+2024-09-22T21:31:01.055Z - Response time for issue 29426: 2.743576388888889 days
+2024-09-22T21:31:01.056Z - Fetching issue 30921 from facebook/react
+2024-09-22T21:31:01.056Z - Response time for issue 29432: 1.8675347222222223 days
+2024-09-22T21:31:01.057Z - Response time for issue 29430: 0.22734953703703703 days
+2024-09-22T21:31:01.057Z - Response time for issue 29433: 1.8361574074074074 days
+2024-09-22T21:31:01.058Z - Fetching issue 30920 from facebook/react
+2024-09-22T21:31:01.058Z - Response time for issue 29411: 0.06804398148148148 days
+2024-09-22T21:31:01.059Z - Response time for issue 29407: 1.2944560185185185 days
+2024-09-22T21:31:01.059Z - Fetching issue 30919 from facebook/react
+2024-09-22T21:31:01.060Z - Response time for issue 29422: 0.052974537037037035 days
+2024-09-22T21:31:01.060Z - Response time for issue 29408: 0.30127314814814815 days
+2024-09-22T21:31:01.061Z - Response time for issue 29419: 1.118252314814815 days
+2024-09-22T21:31:01.062Z - Response time for issue 29410: 0.15123842592592593 days
+2024-09-22T21:31:01.062Z - Response time for issue 29400: 4.752534722222222 days
+2024-09-22T21:31:01.063Z - Response time for issue 29393: 10.506470636574074 days
+2024-09-22T21:31:01.064Z - Response time for issue 29402: 0.07324074074074075 days
+2024-09-22T21:31:01.065Z - Response time for issue 29429: 5.813854918981481 days
+2024-09-22T21:31:01.065Z - Response time for issue 29385: 6.628946759259259 days
+2024-09-22T21:31:01.066Z - Response time for issue 29386: 2.0358217592592593 days
+2024-09-22T21:31:01.067Z - Response time for issue 29381: 0.2608449074074074 days
+2024-09-22T21:31:01.068Z - Response time for issue 29396: 0.49274305555555553 days
+2024-09-22T21:31:01.069Z - Response time for issue 29406: 0.06138888888888889 days
+2024-09-22T21:31:01.070Z - Response time for issue 29397: 4.73755787037037 days
+2024-09-22T21:31:01.074Z - Response time for issue 29468: 0.005335648148148148 days
+2024-09-22T21:31:01.086Z - Response time for issue 29439: 4.301864421296297 days
+2024-09-22T21:31:01.087Z - Response time for issue 29418: 0.2805324074074074 days
+2024-09-22T21:31:01.088Z - Response time for issue 29416: 0.29765046296296294 days
+2024-09-22T21:31:01.089Z - Response time for issue 29399: 0.010300925925925925 days
+2024-09-22T21:31:01.090Z - Response time for issue 29405: 0.05268518518518518 days
+2024-09-22T21:31:01.090Z - Response time for issue 29401: 9.609503356481481 days
+2024-09-22T21:31:01.097Z - Response time for issue 29372: 13.507535844907407 days
+2024-09-22T21:31:01.098Z - Response time for issue 29398: 0.00008101851851851852 days
+2024-09-22T21:31:01.099Z - Response time for issue 29415: 0.0825 days
+2024-09-22T21:31:01.100Z - Response time for issue 29413: 0.08200231481481482 days
+2024-09-22T21:31:01.101Z - Response time for issue 29412: 0.08255787037037036 days
+2024-09-22T21:31:01.102Z - Response time for issue 29384: 6.842650462962963 days
+2024-09-22T21:31:01.103Z - Repository cloned successfully to /tmp/NickeManarin-ScreenToGif
+2024-09-22T21:31:01.103Z - Response time for issue 29382: 0.0060416666666666665 days
+2024-09-22T21:31:01.104Z - README.md found in the cloned repository
+2024-09-22T21:31:01.104Z - Response time for issue 29377: 0.005601851851851852 days
+2024-09-22T21:31:01.104Z - README file size: 5.8681640625 KB
+2024-09-22T21:31:01.105Z - Response time for issue 29375: 1.6899421296296295 days
+2024-09-22T21:31:01.105Z - Small README. Score: 3
+2024-09-22T21:31:01.105Z - Response time for issue 29378: 2.1284027777777776 days
+2024-09-22T21:31:01.105Z - Ramp-up metric calculation completed for NickeManarin/ScreenToGif. Score: 0.3, Latency: 1794.7459416389465
+2024-09-22T21:31:01.106Z - Response time for issue 29373: 0.00009259259259259259 days
+2024-09-22T21:31:01.107Z - Response time for issue 29390: 0.0017939814814814815 days
+2024-09-22T21:31:01.107Z - Response time for issue 29380: 0.01726851851851852 days
+2024-09-22T21:31:01.108Z - Response time for issue 29383: 0.5990393518518519 days
+2024-09-22T21:31:01.109Z - Response time for issue 29369: 0.00568287037037037 days
+2024-09-22T21:31:01.110Z - Response time for issue 29387: 0.006782407407407407 days
+2024-09-22T21:31:01.114Z - Response time for issue 29414: 0.0825462962962963 days
+2024-09-22T21:31:01.115Z - Response time for issue 29391: 0.6995023148148148 days
+2024-09-22T21:31:01.116Z - Response time for issue 29379: 12.54951523148148 days
+2024-09-22T21:31:01.117Z - Response time for issue 29395: 2.33025462962963 days
+2024-09-22T21:31:01.117Z - Response time for issue 29370: 0.03119212962962963 days
+2024-09-22T21:31:01.118Z - Response time for issue 29374: 13.397489791666667 days
+2024-09-22T21:31:01.119Z - Response time for issue 29371: 0.011620370370370371 days
+2024-09-22T21:31:01.120Z - Response time for issue 29376: 1.674375 days
+2024-09-22T21:31:01.121Z - Response time for issue 5169: 34.70767361111111 days
+2024-09-22T21:31:01.121Z - Responsiveness for mrdoob/three.js: 0.9947310919647387
+2024-09-22T21:31:01.122Z - Response time for issue 5158: 44.86480324074074 days
+2024-09-22T21:31:01.123Z - Response time for issue 5141: 0.6711921296296296 days
+2024-09-22T21:31:01.123Z - Removed cloned repository directory: /tmp/NickeManarin-ScreenToGif
+2024-09-22T21:31:01.124Z - Response time for issue 5058: 90.23369356481481 days
+2024-09-22T21:31:01.124Z - Metrics calculated for https://github.com/NickeManarin/ScreenToGif: {"RampUp":0.3,"Correctness":0.5666666666666667,"ResponsiveMaintainer":0.6379090284194431,"ResponsiveMaintainer_Latency":1736.1282200813293,"License":{"score":0,"latency":420.7258138656616},"CorrectnessLatency":524.1250910758972,"RampUp_Latency":1794.7459416389465}
+2024-09-22T21:31:01.125Z - Response time for issue 5052: 0.06609953703703704 days
+2024-09-22T21:31:01.126Z - Response time for issue 5051: 0.2477777777777778 days
+2024-09-22T21:31:01.127Z - Response time for issue 5049: 0.3086689814814815 days
+2024-09-22T21:31:01.128Z - Response time for issue 5048: 0.20011574074074073 days
+2024-09-22T21:31:01.129Z - Response time for issue 5161: 45.8515871412037 days
+2024-09-22T21:31:01.130Z - Response time for issue 5038: 114.67948067129629 days
+2024-09-22T21:31:01.131Z - Response time for issue 4963: 1.0348958333333333 days
+2024-09-22T21:31:01.133Z - Response time for issue 4949: 3.752025462962963 days
+2024-09-22T21:31:01.134Z - Response time for issue 4969: 197.87267516203704 days
+2024-09-22T21:31:01.135Z - Response time for issue 4955: 43.655335648148146 days
+2024-09-22T21:31:01.135Z - Response time for issue 5131: 0.055914351851851854 days
+2024-09-22T21:31:01.136Z - Response time for issue 4962: 1.0358333333333334 days
+2024-09-22T21:31:01.137Z - Response time for issue 4919: 1.8084259259259259 days
+2024-09-22T21:31:01.138Z - Response time for issue 5008: 150.65480483796296 days
+2024-09-22T21:31:01.139Z - Response time for issue 5177: 35.99420138888889 days
+2024-09-22T21:31:01.141Z - Response time for issue 4916: 261.00217755787037 days
+2024-09-22T21:31:01.142Z - Response time for issue 5194: 0.18632108796296296 days
+2024-09-22T21:31:01.143Z - Response time for issue 5193: 1.4578951736111112 days
+2024-09-22T21:31:01.144Z - Response time for issue 5191: 0.8904513888888889 days
+2024-09-22T21:31:01.144Z - Response time for issue 5168: 11.322106481481482 days
+2024-09-22T21:31:01.145Z - Response time for issue 5187: 10.31386741898148 days
+2024-09-22T21:31:01.147Z - Response time for issue 5179: 23.23636744212963 days
+2024-09-22T21:31:01.148Z - Response time for issue 5160: 45.99826560185185 days
+2024-09-22T21:31:01.149Z - Response time for issue 5166: 41.801031817129626 days
+2024-09-22T21:31:01.150Z - Response time for issue 1826: 6.309469317129629 days
+2024-09-22T21:31:01.154Z - Response time for issue 5159: 0.6399189814814815 days
+2024-09-22T21:31:01.155Z - Response time for issue 1818: 118.61812679398147 days
+2024-09-22T21:31:01.155Z - Response time for issue 5139: 66.46718929398148 days
+2024-09-22T21:31:01.162Z - Response time for issue 5135: 69.29243243055555 days
+2024-09-22T21:31:01.162Z - Response time for issue 1822: 0.00037037037037037035 days
+2024-09-22T21:31:01.163Z - Response time for issue 5145: 0.7416203703703703 days
+2024-09-22T21:31:01.163Z - Response time for issue 1823: 39.96803429398148 days
+2024-09-22T21:31:01.163Z - Response time for issue 5061: 7.789513888888889 days
+2024-09-22T21:31:01.164Z - Response time for issue 1821: 0.00020833333333333335 days
+2024-09-22T21:31:01.164Z - Response time for issue 5172: 39.90005976851852 days
+2024-09-22T21:31:01.165Z - Response time for issue 1796: 0.0002199074074074074 days
+2024-09-22T21:31:01.165Z - Response time for issue 5066: 88.24543015046297 days
+2024-09-22T21:31:01.165Z - Response time for issue 1795: 0.01695601851851852 days
+2024-09-22T21:31:01.166Z - Response time for issue 5054: 92.71824266203704 days
+2024-09-22T21:31:01.166Z - Response time for issue 1788: 316.10922645833335 days
+2024-09-22T21:31:01.166Z - Response time for issue 5142: 2.595810185185185 days
+2024-09-22T21:31:01.167Z - Response time for issue 1799: 185.69518518518518 days
+2024-09-22T21:31:01.167Z - Response time for issue 5050: 92.28131944444445 days
+2024-09-22T21:31:01.167Z - Response time for issue 1790: 311.32265239583336 days
+2024-09-22T21:31:01.168Z - Response time for issue 5136: 68.48665703703703 days
+2024-09-22T21:31:01.168Z - Response time for issue 1808: 199.07008296296297 days
+2024-09-22T21:31:01.168Z - Response time for issue 5035: 3.205023148148148 days
+2024-09-22T21:31:01.169Z - Response time for issue 1779: 358.47570797453704 days
+2024-09-22T21:31:01.169Z - Response time for issue 5057: 28.16457175925926 days
+2024-09-22T21:31:01.169Z - Response time for issue 1781: 349.46504825231483 days
+2024-09-22T21:31:01.170Z - Response time for issue 5146: 55.25222222222222 days
+2024-09-22T21:31:01.170Z - Response time for issue 1764: 0.0008680555555555555 days
+2024-09-22T21:31:01.170Z - Response time for issue 5134: 69.33730520833333 days
+2024-09-22T21:31:01.171Z - Response time for issue 1763: 0.22412037037037036 days
+2024-09-22T21:31:01.171Z - Response time for issue 5040: 2.2491435185185185 days
+2024-09-22T21:31:01.172Z - Response time for issue 1756: 464.61522189814815 days
+2024-09-22T21:31:01.172Z - Response time for issue 5065: 20.46244212962963 days
+2024-09-22T21:31:01.172Z - Response time for issue 1785: 331.69098578703705 days
+2024-09-22T21:31:01.173Z - Response time for issue 5014: 4.038206018518519 days
+2024-09-22T21:31:01.173Z - Response time for issue 1777: 363.32940015046296 days
+2024-09-22T21:31:01.173Z - Response time for issue 5027: 131.63104366898148 days
+2024-09-22T21:31:01.174Z - Response time for issue 1738: 0.022118055555555554 days
+2024-09-22T21:31:01.174Z - Response time for issue 5034: 3.2258912037037035 days
+2024-09-22T21:31:01.175Z - Response time for issue 1741: 0.24662037037037038 days
+2024-09-22T21:31:01.175Z - Response time for issue 5024: 134.23180758101853 days
+2024-09-22T21:31:01.175Z - Response time for issue 1748: 486.2710668402778 days
+2024-09-22T21:31:01.175Z - Response time for issue 5009: 0.914375 days
+2024-09-22T21:31:01.176Z - Response time for issue 1749: 486.25088166666666 days
+2024-09-22T21:31:01.176Z - Response time for issue 5143: 65.3141687037037 days
+2024-09-22T21:31:01.187Z - Response time for issue 1771: 393.9059396643519 days
+2024-09-22T21:31:01.187Z - Response time for issue 5033: 0.45707175925925925 days
+2024-09-22T21:31:01.187Z - Response time for issue 1742: 497.8365530902778 days
+2024-09-22T21:31:01.188Z - Response time for issue 5011: 4.446157407407408 days
+2024-09-22T21:31:01.188Z - Response time for issue 1731: 538.5574443055556 days
+2024-09-22T21:31:01.189Z - Response time for issue 5127: 129.71725694444444 days
+2024-09-22T21:31:01.190Z - Response time for issue 5012: 149.25761793981482 days
+2024-09-22T21:31:01.190Z - Response time for issue 4995: 158.22169201388888 days
+2024-09-22T21:31:01.190Z - Response time for issue 1817: 120.38538414351852 days
+2024-09-22T21:31:01.191Z - Response time for issue 5017: 6.473472222222222 days
+2024-09-22T21:31:01.191Z - Response time for issue 1807: 200.33784943287037 days
+2024-09-22T21:31:01.192Z - Response time for issue 5003: 56.77380787037037 days
+2024-09-22T21:31:01.192Z - Response time for issue 1704: 11.92980324074074 days
+2024-09-22T21:31:01.192Z - Response time for issue 5004: 0.0025694444444444445 days
+2024-09-22T21:31:01.193Z - Response time for issue 4964: 14.194791666666667 days
+2024-09-22T21:31:01.194Z - Response time for issue 4967: 196.09789351851853 days
+2024-09-22T21:31:01.194Z - Response time for issue 4954: 35.82940972222222 days
+2024-09-22T21:31:01.195Z - Response time for issue 4988: 1.9211342592592593 days
+2024-09-22T21:31:01.195Z - Response time for issue 1809: 159.4886365162037 days
+2024-09-22T21:31:01.196Z - Response time for issue 4972: 194.2570161574074 days
+2024-09-22T21:31:01.196Z - Response time for issue 1825: 9.275592546296297 days
+2024-09-22T21:31:01.196Z - Response time for issue 4950: 1.2230439814814815 days
+2024-09-22T21:31:01.197Z - Response time for issue 1816: 130.5529883912037 days
+2024-09-22T21:31:01.197Z - Response time for issue 4937: 231.3787152777778 days
+2024-09-22T21:31:01.197Z - Response time for issue 1797: 278.2181272800926 days
+2024-09-22T21:31:01.198Z - Response time for issue 5126: 196.34361340277778 days
+2024-09-22T21:31:01.198Z - Response time for issue 1793: 0.3647337962962963 days
+2024-09-22T21:31:01.198Z - Response time for issue 4971: 186.61346064814813 days
+2024-09-22T21:31:01.199Z - Response time for issue 1792: 0.04212962962962963 days
+2024-09-22T21:31:01.199Z - Response time for issue 4925: 3.987175925925926 days
+2024-09-22T21:31:01.200Z - Response time for issue 1791: 0.12145833333333333 days
+2024-09-22T21:31:01.200Z - Response time for issue 4968: 7.919965277777778 days
+2024-09-22T21:31:01.200Z - Response time for issue 1801: 243.87375231481482 days
+2024-09-22T21:31:01.201Z - Response time for issue 5010: 6.273958333333334 days
+2024-09-22T21:31:01.201Z - Response time for issue 1782: 0.03758101851851852 days
+2024-09-22T21:31:01.201Z - Response time for issue 5182: 15.324203715277777 days
+2024-09-22T21:31:01.202Z - Response time for issue 1784: 342.20090511574074 days
+2024-09-22T21:31:01.202Z - Response time for issue 5164: 43.338486134259256 days
+2024-09-22T21:31:01.202Z - Response time for issue 1794: 0.008263888888888888 days
+2024-09-22T21:31:01.203Z - Response time for issue 5148: 59.00413429398148 days
+2024-09-22T21:31:01.203Z - Response time for issue 1787: 317.2293889236111 days
+2024-09-22T21:31:01.204Z - Response time for issue 5188: 1.673125 days
+2024-09-22T21:31:01.204Z - Response time for issue 1775: 380.70176162037035 days
+2024-09-22T21:31:01.204Z - Response time for issue 5155: 0.8864930555555556 days
+2024-09-22T21:31:01.205Z - Response time for issue 1786: 200.37983796296297 days
+2024-09-22T21:31:01.205Z - Response time for issue 4980: 187.22376394675925 days
+2024-09-22T21:31:01.205Z - Response time for issue 1767: 416.1196782986111 days
+2024-09-22T21:31:01.206Z - Response time for issue 4985: 30.425706018518518 days
+2024-09-22T21:31:01.206Z - Response time for issue 1776: 378.6664144212963 days
+2024-09-22T21:31:01.207Z - Response time for issue 5128: 178.79089359953704 days
+2024-09-22T21:31:01.207Z - Response time for issue 1768: 408.58408804398147 days
+2024-09-22T21:31:01.207Z - Response time for issue 5125: 227.55856721064814 days
+2024-09-22T21:31:01.208Z - Response time for issue 1780: 349.4655579513889 days
+2024-09-22T21:31:01.208Z - Response time for issue 5068: 233.51877555555555 days
+2024-09-22T21:31:01.208Z - Response time for issue 1747: 486.51837046296293 days
+2024-09-22T21:31:01.209Z - Response time for issue 4944: 48.56325231481482 days
+2024-09-22T21:31:01.209Z - Response time for issue 1774: 381.56870612268517 days
+2024-09-22T21:31:01.209Z - Response time for issue 5067: 223.60280334490741 days
+2024-09-22T21:31:01.210Z - Response time for issue 1769: 401.009134375 days
+2024-09-22T21:31:01.210Z - Response time for issue 1739: 7.056435185185185 days
+2024-09-22T21:31:01.211Z - Response time for issue 1729: 5.989421296296296 days
+2024-09-22T21:31:01.212Z - Response time for issue 1762: 452.02567375 days
+2024-09-22T21:31:01.213Z - Response time for issue 1758: 460.6175487615741 days
+2024-09-22T21:31:01.214Z - Response time for issue 1765: 22.405266203703704 days
+2024-09-22T21:31:01.214Z - Response time for issue 1770: 396.486900625 days
+2024-09-22T21:31:01.215Z - Response time for issue 1759: 459.1464955439815 days
+2024-09-22T21:31:01.216Z - Response time for issue 1743: 497.2527455555556 days
+2024-09-22T21:31:01.217Z - Response time for issue 1734: 530.3496089930555 days
+2024-09-22T21:31:01.218Z - Response time for issue 1757: 0.02883101851851852 days
+2024-09-22T21:31:01.219Z - Response time for issue 1713: 0.23604166666666668 days
+2024-09-22T21:31:01.220Z - Response time for issue 1725: 104.28085648148148 days
+2024-09-22T21:31:01.220Z - Response time for issue 5167: 41.45164606481482 days
+2024-09-22T21:31:01.221Z - Response time for issue 1706: 606.5382895949074 days
+2024-09-22T21:31:01.221Z - Response time for issue 5174: 0.037037037037037035 days
+2024-09-22T21:31:01.221Z - Response time for issue 1717: 579.2083706134259 days
+2024-09-22T21:31:01.222Z - Response time for issue 5020: 138.97963219907408 days
+2024-09-22T21:31:01.222Z - Response time for issue 1736: 95.34616898148148 days
+2024-09-22T21:31:01.223Z - Response time for issue 1701: 15.487835648148149 days
+2024-09-22T21:31:01.224Z - Response time for issue 1724: 556.3913914814815 days
+2024-09-22T21:31:01.224Z - Response time for issue 1737: 3.0551041666666667 days
+2024-09-22T21:31:01.225Z - Response time for issue 1810: 159.48845167824075 days
+2024-09-22T21:31:01.226Z - Response time for issue 1798: 261.2055581712963 days
+2024-09-22T21:31:01.226Z - Response time for issue 1800: 248.73089381944445 days
+2024-09-22T21:31:01.228Z - Response time for issue 5083: 132.59514152777777 days
+2024-09-22T21:31:01.229Z - Response time for issue 4984: 180.63881052083335 days
+2024-09-22T21:31:01.230Z - Response time for issue 4931: 57.3659837962963 days
+2024-09-22T21:31:01.231Z - Response time for issue 5140: 66.44294248842593 days
+2024-09-22T21:31:01.232Z - Response time for issue 4907: 79.68818287037037 days
+2024-09-22T21:31:01.232Z - Response time for issue 4910: 17.18175925925926 days
+2024-09-22T21:31:01.233Z - Response time for issue 4923: 249.43280362268519 days
+2024-09-22T21:31:01.234Z - Response time for issue 4946: 4.257916666666667 days
+2024-09-22T21:31:01.235Z - Response time for issue 4917: 5.641655092592592 days
+2024-09-22T21:31:01.235Z - Response time for issue 1728: 543.4251068865741 days
+2024-09-22T21:31:01.236Z - Response time for issue 4915: 2.4972685185185184 days
+2024-09-22T21:31:01.236Z - Response time for issue 1718: 577.0288916203704 days
+2024-09-22T21:31:01.236Z - Response time for issue 5124: 268.4696786574074 days
+2024-09-22T21:31:01.237Z - Response time for issue 1721: 576.2105235763889 days
+2024-09-22T21:31:01.237Z - Response time for issue 4914: 20.817962962962962 days
+2024-09-22T21:31:01.237Z - Response time for issue 1723: 564.6882666319444 days
+2024-09-22T21:31:01.238Z - Response time for issue 4906: 10.69542824074074 days
+2024-09-22T21:31:01.238Z - Response time for issue 1707: 1.5090162037037036 days
+2024-09-22T21:31:01.239Z - Response time for issue 4922: 249.9088916550926 days
+2024-09-22T21:31:01.239Z - Response time for issue 1727: 1.1143171296296297 days
+2024-09-22T21:31:01.239Z - Responsiveness for socketio/socket.io: 0.820041346525241
+2024-09-22T21:31:01.240Z - Response time for issue 1710: 0.08603009259259259 days
+2024-09-22T21:31:01.240Z - Responsiveness for npm package socket.io: 0.820041346525241
+2024-09-22T21:31:01.247Z - Response time for issue 1696: 4.6471875 days
+2024-09-22T21:31:01.248Z - Response time for issue 1726: 104.2737962962963 days
+2024-09-22T21:31:01.249Z - Response time for issue 1686: 660.2652806597222 days
+2024-09-22T21:31:01.250Z - Response time for issue 1715: 587.6847251157408 days
+2024-09-22T21:31:01.250Z - Response time for issue 1699: 7.2914814814814815 days
+2024-09-22T21:31:01.251Z - Response time for issue 1695: 0.8787268518518518 days
+2024-09-22T21:31:01.252Z - Response time for issue 1716: 20.32003472222222 days
+2024-09-22T21:31:01.253Z - Response time for issue 1687: 657.1437413541667 days
+2024-09-22T21:31:01.254Z - Response time for issue 1744: 99.30651620370371 days
+2024-09-22T21:31:01.254Z - Response time for issue 1705: 20.040972222222223 days
+2024-09-22T21:31:01.255Z - Response time for issue 1688: 654.5507321180555 days
+2024-09-22T21:31:01.256Z - Response time for issue 1694: 637.6766580555555 days
+2024-09-22T21:31:01.257Z - Response time for issue 1719: 576.8928154745371 days
+2024-09-22T21:31:01.258Z - Response time for issue 1685: 661.279667337963 days
+2024-09-22T21:31:01.258Z - Response time for issue 1693: 639.3702807638889 days
+2024-09-22T21:31:01.259Z - Response time for issue 1697: 0.674849537037037 days
+2024-09-22T21:31:01.260Z - Response time for issue 1684: 661.2997946759259 days
+2024-09-22T21:31:01.260Z - Response time for issue 1690: 650.7261025462963 days
+2024-09-22T21:31:01.261Z - Response time for issue 1683: 96.04150462962963 days
+2024-09-22T21:31:01.262Z - Response time for issue 1679: 671.7210446990741 days
+2024-09-22T21:31:01.263Z - Response time for issue 1722: 1.9972916666666667 days
+2024-09-22T21:31:01.264Z - Response time for issue 1700: 15.498993055555555 days
+2024-09-22T21:31:01.291Z - Repository cloned successfully to /tmp/socketio-socket.io
+2024-09-22T21:31:01.292Z - README.md found in the cloned repository
+2024-09-22T21:31:01.293Z - README file size: 1.6103515625 KB
+2024-09-22T21:31:01.294Z - Small README. Score: 3
+2024-09-22T21:31:01.295Z - Ramp-up metric calculation completed for socketio/socket.io. Score: 0.3, Latency: 1606.8378882408142
+2024-09-22T21:31:01.320Z - Removed cloned repository directory: /tmp/socketio-socket.io
+2024-09-22T21:31:01.321Z - Ramp-up metric for npm package socket.io completed. Score: 0.3, Latency: 1909.8674249649048
+2024-09-22T21:31:01.322Z - Metrics calculated for https://www.npmjs.com/package/socket.io: {"RampUp":0.3,"Correctness":0.9333333333333333,"ResponsiveMaintainer":0.820041346525241,"ResponsiveMaintainer_Latency":2044.266851902008,"License":{"score":1,"latency":692.9263606071472},"CorrectnessLatency":1190.2235865592957,"RampUp_Latency":1909.8674249649048}
+2024-09-22T21:31:01.337Z - Response time for issue 1735: 96.72804398148148 days
+2024-09-22T21:31:01.338Z - Responsiveness for node-fetch/node-fetch: 0.614173426019629
+2024-09-22T21:31:01.338Z - Responsiveness for npm package node-fetch: 0.614173426019629
+2024-09-22T21:31:01.339Z - Metrics calculated for https://www.npmjs.com/package/node-fetch: {"RampUp":0,"Correctness":0.43333333333333335,"ResponsiveMaintainer":0.614173426019629,"ResponsiveMaintainer_Latency":2424.8823862075806,"License":{"score":1,"latency":888.557288646698},"CorrectnessLatency":1758.1376776695251,"RampUp_Latency":594.9646162986755}
+2024-09-22T21:31:01.396Z - Response time for issue 30921: 0.6828819444444445 days
+2024-09-22T21:31:01.398Z - Response time for issue 30936: 0.08986111111111111 days
+2024-09-22T21:31:01.399Z - Response time for issue 30935: 1.9681828703703703 days
+2024-09-22T21:31:01.400Z - Response time for issue 31019: 0.6243796296296297 days
+2024-09-22T21:31:01.400Z - Response time for issue 31005: 3.117701388888889 days
+2024-09-22T21:31:01.401Z - Response time for issue 31013: 2.001289363425926 days
+2024-09-22T21:31:01.402Z - Response time for issue 30998: 1.7265162037037036 days
+2024-09-22T21:31:01.403Z - Response time for issue 31006: 0.04443287037037037 days
+2024-09-22T21:31:01.404Z - Response time for issue 31002: 0.004814814814814815 days
+2024-09-22T21:31:01.405Z - Response time for issue 31003: 0.02207175925925926 days
+2024-09-22T21:31:01.406Z - Response time for issue 30991: 0.03771990740740741 days
+2024-09-22T21:31:01.406Z - Response time for issue 30988: 0.017743055555555557 days
+2024-09-22T21:31:01.407Z - Response time for issue 30990: 5.149310266203703 days
+2024-09-22T21:31:01.408Z - Response time for issue 30995: 0.7383912037037037 days
+2024-09-22T21:31:01.409Z - Response time for issue 30971: 0.08385416666666666 days
+2024-09-22T21:31:01.410Z - Response time for issue 30968: 0.16291666666666665 days
+2024-09-22T21:31:01.411Z - Response time for issue 31017: 1.3931644791666666 days
+2024-09-22T21:31:01.412Z - Response time for issue 31011: 0.012951388888888889 days
+2024-09-22T21:31:01.412Z - Response time for issue 31007: 2.8427593981481483 days
+2024-09-22T21:31:01.413Z - Response time for issue 30986: 1.2531018518518517 days
+2024-09-22T21:31:01.414Z - Response time for issue 30958: 0.2129513888888889 days
+2024-09-22T21:31:01.415Z - Response time for issue 30957: 0.3793402777777778 days
+2024-09-22T21:31:01.417Z - Response time for issue 30927: 0.0024421296296296296 days
+2024-09-22T21:31:01.418Z - Response time for issue 30923: 0.017326388888888888 days
+2024-09-22T21:31:01.419Z - Response time for issue 30931: 0.024479166666666666 days
+2024-09-22T21:31:01.419Z - Response time for issue 30919: 0.7159027777777778 days
+2024-09-22T21:31:01.420Z - Response time for issue 31021: 0.2236275462962963 days
+2024-09-22T21:31:01.421Z - Response time for issue 31001: 3.4192409837962963 days
+2024-09-22T21:31:01.421Z - Response time for issue 31009: 2.426393761574074 days
+2024-09-22T21:31:01.422Z - Response time for issue 31012: 2.1937548842592594 days
+2024-09-22T21:31:01.423Z - Response time for issue 31010: 2.374784988425926 days
+2024-09-22T21:31:01.423Z - Response time for issue 30999: 0.0009375 days
+2024-09-22T21:31:01.424Z - Response time for issue 31000: 0.16925925925925925 days
+2024-09-22T21:31:01.425Z - Response time for issue 31014: 1.8863127893518519 days
+2024-09-22T21:31:01.425Z - Response time for issue 30994: 4.318708622685185 days
+2024-09-22T21:31:01.426Z - Response time for issue 30993: 4.534136875 days
+2024-09-22T21:31:01.427Z - Response time for issue 30987: 2.004976851851852 days
+2024-09-22T21:31:01.427Z - Response time for issue 31008: 0.5528125 days
+2024-09-22T21:31:01.428Z - Response time for issue 30996: 0.7284606481481481 days
+2024-09-22T21:31:01.429Z - Response time for issue 30984: 0.6988773148148149 days
+2024-09-22T21:31:01.429Z - Response time for issue 30992: 0.007997685185185186 days
+2024-09-22T21:31:01.430Z - Response time for issue 30982: 1.7349537037037037 days
+2024-09-22T21:31:01.431Z - Response time for issue 30981: 0.8354050925925925 days
+2024-09-22T21:31:01.432Z - Response time for issue 30966: 0.695949074074074 days
+2024-09-22T21:31:01.432Z - Response time for issue 30983: 0.7189814814814814 days
+2024-09-22T21:31:01.433Z - Response time for issue 30975: 6.150005011574074 days
+2024-09-22T21:31:01.434Z - Response time for issue 30967: 0.5143402777777778 days
+2024-09-22T21:31:01.434Z - Response time for issue 30979: 0.9282638888888889 days
+2024-09-22T21:31:01.435Z - Response time for issue 30973: 6.150109201388889 days
+2024-09-22T21:31:01.436Z - Response time for issue 30978: 6.145294398148148 days
+2024-09-22T21:31:01.436Z - Response time for issue 30962: 0.0013541666666666667 days
+2024-09-22T21:31:01.437Z - Response time for issue 31016: 1.8440444097222222 days
+2024-09-22T21:31:01.438Z - Response time for issue 31020: 0.2614518287037037 days
+2024-09-22T21:31:01.439Z - Response time for issue 31015: 1.8682921180555556 days
+2024-09-22T21:31:01.439Z - Response time for issue 31018: 1.3631069328703704 days
+2024-09-22T21:31:01.440Z - Response time for issue 30954: 0.864837962962963 days
+2024-09-22T21:31:01.444Z - Response time for issue 30989: 5.154900972222222 days
+2024-09-22T21:31:01.445Z - Response time for issue 30985: 5.643188020833334 days
+2024-09-22T21:31:01.446Z - Response time for issue 30977: 0.08321759259259259 days
+2024-09-22T21:31:01.451Z - Response time for issue 30964: 7.783303831018518 days
+2024-09-22T21:31:01.452Z - Response time for issue 30955: 0.021979166666666668 days
+2024-09-22T21:31:01.452Z - Response time for issue 30972: 6.150167268518518 days
+2024-09-22T21:31:01.453Z - Response time for issue 30953: 9.956058483796296 days
+2024-09-22T21:31:01.454Z - Response time for issue 30974: 6.150051550925926 days
+2024-09-22T21:31:01.455Z - Response time for issue 30949: 1.1483449074074075 days
+2024-09-22T21:31:01.461Z - Response time for issue 30965: 0.671238425925926 days
+2024-09-22T21:31:01.462Z - Response time for issue 30969: 0.1698726851851852 days
+2024-09-22T21:31:01.463Z - Response time for issue 30959: 0.04793981481481482 days
+2024-09-22T21:31:01.464Z - Response time for issue 30950: 0.5333217592592593 days
+2024-09-22T21:31:01.465Z - Response time for issue 30948: 1.1483680555555555 days
+2024-09-22T21:31:01.465Z - Response time for issue 30976: 6.149947511574074 days
+2024-09-22T21:31:01.466Z - Response time for issue 30947: 0.01800925925925926 days
+2024-09-22T21:31:01.468Z - Response time for issue 30997: 3.9890447685185184 days
+2024-09-22T21:31:01.469Z - Response time for issue 30961: 0.7092824074074074 days
+2024-09-22T21:31:01.470Z - Response time for issue 30956: 9.20995914351852 days
+2024-09-22T21:31:01.470Z - Response time for issue 30970: 0.003275462962962963 days
+2024-09-22T21:31:01.471Z - Response time for issue 30960: 2.694699074074074 days
+2024-09-22T21:31:01.472Z - Response time for issue 30932: 12.229125833333333 days
+2024-09-22T21:31:01.472Z - Response time for issue 30946: 0.9313541666666667 days
+2024-09-22T21:31:01.473Z - Response time for issue 30930: 0.4460648148148148 days
+2024-09-22T21:31:01.474Z - Response time for issue 30952: 0.020243055555555556 days
+2024-09-22T21:31:01.474Z - Response time for issue 30922: 7.717291666666667 days
+2024-09-22T21:31:01.476Z - Response time for issue 30942: 2.6636921296296294 days
+2024-09-22T21:31:01.476Z - Response time for issue 30938: 0.10138888888888889 days
+2024-09-22T21:31:01.477Z - Response time for issue 30929: 0.007696759259259259 days
+2024-09-22T21:31:01.478Z - Response time for issue 30980: 5.948095810185185 days
+2024-09-22T21:31:01.479Z - Response time for issue 30943: 2.029849537037037 days
+2024-09-22T21:31:01.480Z - Response time for issue 30920: 4.842928240740741 days
+2024-09-22T21:31:01.481Z - Response time for issue 30940: 11.9410009375 days
+2024-09-22T21:31:01.482Z - Response time for issue 30934: 0.9270717592592592 days
+2024-09-22T21:31:01.483Z - Response time for issue 30951: 1.4630092592592592 days
+2024-09-22T21:31:01.484Z - Response time for issue 30926: 0.04238425925925926 days
+2024-09-22T21:31:01.485Z - Response time for issue 30924: 13.31726255787037 days
+2024-09-22T21:31:01.486Z - Response time for issue 30945: 0.031921296296296295 days
+2024-09-22T21:31:01.487Z - Response time for issue 30941: 11.940827395833333 days
+2024-09-22T21:31:01.488Z - Response time for issue 30944: 11.379658425925927 days
+2024-09-22T21:31:01.489Z - Response time for issue 30937: 12.041614456018518 days
+2024-09-22T21:31:01.493Z - Response time for issue 30925: 0.01943287037037037 days
+2024-09-22T21:31:01.506Z - Response time for issue 30939: 12.003941041666666 days
+2024-09-22T21:31:01.525Z - Response time for issue 30933: 2.188136574074074 days
+2024-09-22T21:31:01.526Z - Responsiveness for facebook/react: 0.9928599090376078
+2024-09-22T21:31:01.526Z - Responsiveness for npm package react: 0.9928599090376078
+2024-09-22T21:31:03.970Z - Repository cloned successfully to /tmp/parthivshaji-ECE-46100-Project
+2024-09-22T21:31:03.972Z - README.md found in the cloned repository
+2024-09-22T21:31:03.973Z - README file size: 2.8564453125 KB
+2024-09-22T21:31:03.974Z - Small README. Score: 3
+2024-09-22T21:31:03.975Z - Ramp-up metric calculation completed for parthivshaji/ECE-46100-Project. Score: 0.3, Latency: 4574.730843067169
+2024-09-22T21:31:04.184Z - Removed cloned repository directory: /tmp/parthivshaji-ECE-46100-Project
+2024-09-22T21:31:04.186Z - Metrics calculated for https://github.com/parthivshaji/ECE-46100-Project: {"RampUp":0.3,"Correctness":1,"ResponsiveMaintainer":0.9966221905124303,"ResponsiveMaintainer_Latency":993.946722984314,"License":{"score":0,"latency":312.6367988586426},"CorrectnessLatency":603.8227219581604,"RampUp_Latency":4574.730843067169}
+2024-09-22T21:31:04.656Z - Repository cloned successfully to /tmp/facebook-react
+2024-09-22T21:31:04.658Z - README.md found in the cloned repository
+2024-09-22T21:31:04.658Z - README file size: 5.1923828125 KB
+2024-09-22T21:31:04.659Z - Small README. Score: 3
+2024-09-22T21:31:04.660Z - Ramp-up metric calculation completed for facebook/react. Score: 0.3, Latency: 4845.450387001038
+2024-09-22T21:31:04.765Z - Removed cloned repository directory: /tmp/facebook-react
+2024-09-22T21:31:04.766Z - Ramp-up metric for npm package react completed. Score: 0.3, Latency: 5339.150566101074
+2024-09-22T21:31:04.767Z - Metrics calculated for https://www.npmjs.com/package/react: {"RampUp":0.3,"Correctness":0.9666666666666667,"ResponsiveMaintainer":0.9928599090376078,"ResponsiveMaintainer_Latency":2338.0787467956543,"License":{"score":1,"latency":856.2521758079529},"CorrectnessLatency":1879.3247709274292,"RampUp_Latency":5339.150566101074}
+2024-09-22T21:31:27.472Z - Repository cloned successfully to /tmp/mrdoob-three.js
+2024-09-22T21:31:27.474Z - README.md found in the cloned repository
+2024-09-22T21:31:27.475Z - README file size: 2.9296875 KB
+2024-09-22T21:31:27.476Z - Small README. Score: 3
+2024-09-22T21:31:27.476Z - Ramp-up metric calculation completed for mrdoob/three.js. Score: 0.3, Latency: 28051.578511714935
+2024-09-22T21:31:27.580Z - Removed cloned repository directory: /tmp/mrdoob-three.js
+2024-09-22T21:31:27.581Z - Metrics calculated for https://github.com/mrdoob/three.js/: {"RampUp":0.3,"Correctness":0.9333333333333333,"ResponsiveMaintainer":0.9947310919647387,"ResponsiveMaintainer_Latency":2018.7124681472778,"License":{"score":1,"latency":396.15512704849243},"CorrectnessLatency":856.8765788078308,"RampUp_Latency":28051.578511714935}

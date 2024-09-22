@@ -63,13 +63,13 @@ const calculateGitHubLicenseMetric = (owner, repo, githubToken) => __awaiter(voi
 exports.calculateGitHubLicenseMetric = calculateGitHubLicenseMetric;
 // Function to calculate license metric for npm packages, similar to the correctness metric
 const calculateNpmLicenseMetric = (packageName) => __awaiter(void 0, void 0, void 0, function* () {
-    var _a;
+    var _b;
     const start = performance.now(); // Record start time
     try {
         (0, logging_1.log)(`Fetching npm package metadata for ${packageName}`, 2); // Debug level logging
         // Fetch package metadata from the npm registry
         const packageResponse = yield axios_1.default.get(`https://registry.npmjs.org/${packageName}`);
-        const repoUrl = (_a = packageResponse.data.repository) === null || _a === void 0 ? void 0 : _a.url;
+        const repoUrl = (_b = packageResponse.data.repository) === null || _b === void 0 ? void 0 : _b.url;
         if (repoUrl && repoUrl.includes('github.com')) {
             (0, logging_1.log)(`Found GitHub repository URL for ${packageName}`, 2); // Debug level
             // Extract GitHub owner and repository name from the URL

@@ -29,18 +29,12 @@ describe('Correctness Metrics', () => {
                 .query({ state: 'all' }) // Ensure the query matches exactly
                 .reply(200, [
                 { id: 1, labels: [{ 'name': 'Bug 1' }] },
-                { id: 2, labels: [{ 'name': 'Bug 2' }] }
+                { id: 2, labels: [{ 'name': 'Feature 1' }] }
             ]);
-            // Mock GitHub repository endpoint (for stargazers count)
-            (0, nock_1.default)(GITHUB_API_URL)
-                .get('/repos/test-owner/test-repo')
-                .reply(200, {
-                stargazers_count: 100
-            });
             const correctness = yield (0, correctnessMetric_1.calculateGitHubCorrectness)('test-owner', 'test-repo', 'fake-github-token');
-            expect(correctness.correctness).toBeCloseTo(0.98, 2); // (1 - (2/100)) = 0.98
+            expect(correctness.correctness).toBe(0.5);
         }));
-        it('should return correctness as 1 when there are no stars', () => __awaiter(void 0, void 0, void 0, function* () {
+        it('should return correctness as 0 when all issues are bug', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock GitHub issues endpoint
             (0, nock_1.default)(GITHUB_API_URL)
                 .get('/repos/test-owner/test-repo/issues')
@@ -49,14 +43,8 @@ describe('Correctness Metrics', () => {
                 { id: 1, labels: [{ 'name': 'Bug 1' }] },
                 { id: 2, labels: [{ 'name': 'Bug 2' }] }
             ]);
-            // Mock GitHub repository endpoint with 0 stars
-            (0, nock_1.default)(GITHUB_API_URL)
-                .get('/repos/test-owner/test-repo')
-                .reply(200, {
-                stargazers_count: 0
-            });
             const correctness = yield (0, correctnessMetric_1.calculateGitHubCorrectness)('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
-            expect(correctness.correctness).toBe(1); // Default to 1 if popularity is 0
+            expect(correctness.correctness).toBe(0); // Default to 1 if popularity is 0
         }));
         it('should return correctness as -1 when invalid repo', () => __awaiter(void 0, void 0, void 0, function* () {
             const correctness = yield (0, correctnessMetric_1.calculateGitHubCorrectness)('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
@@ -71,11 +59,6 @@ describe('Correctness Metrics', () => {
                 .reply(200, {
                 repository: { url: 'https://github.com/test-owner/test-repo' }
             });
-            (0, nock_1.default)(GITHUB_API_URL)
-                .get('/repos/test-owner/test-repo')
-                .reply(200, {
-                stargazers_count: 1000
-            });
             // Mock GitHub issues for the linked repo
             (0, nock_1.default)(GITHUB_API_URL, {
                 reqheaders: {
@@ -88,20 +71,14 @@ describe('Correctness Metrics', () => {
                 { id: 1, labels: [{ 'name': 'Bug 1' }] },
             ]);
             const correctness = yield (0, correctnessMetric_1.calculateNpmCorrectness)('test-package');
-            expect(correctness.correctness).toBeCloseTo(0.999, 3); // (1 - (1/1000)) = 0.999
+            expect(correctness.correctness).toBe(0);
         }));
-        it('should return correctness as 1 when there are no downloads', () => __awaiter(void 0, void 0, void 0, function* () {
+        it('should return correctness as 1 when there are no sssues', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock npm package details endpoint
             (0, nock_1.default)(NPM_API_URL)
                 .get('/test-package')
                 .reply(200, {
                 repository: { url: 'https://github.com/test-owner/test-repo' }
-            });
-            // Mock GitHub repository endpoint with 0 stars
-            (0, nock_1.default)(GITHUB_API_URL)
-                .get('/repos/test-owner/test-repo')
-                .reply(200, {
-                stargazers_count: 0
             });
             // Mock GitHub issues for the linked repo
             (0, nock_1.default)(GITHUB_API_URL, {
@@ -111,9 +88,7 @@ describe('Correctness Metrics', () => {
             })
                 .get('/repos/test-owner/test-repo/issues')
                 .query({ state: 'all' })
-                .reply(200, [
-                { id: 1, labels: [{ 'name': 'Bug 1' }] },
-            ]);
+                .reply(200, []);
             const correctness = yield (0, correctnessMetric_1.calculateNpmCorrectness)('test-package');
             expect(correctness.correctness).toBe(1); // Default to 1 if downloads are 0
         }));
