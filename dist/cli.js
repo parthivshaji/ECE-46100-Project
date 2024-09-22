@@ -36,7 +36,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const perf_hooks_1 = require("perf_hooks");
 const fs = __importStar(require("fs"));
 const logging_1 = require("./logging");
-const bm = __importStar(require("./BusFactor"));
 const worker_threads_1 = require("worker_threads");
 // Function to calculate metrics (dummy implementations for now)
 const calculateMetric = (name, start) => {
@@ -103,13 +102,14 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
     let busFactor;
     let BusFactorLatency;
     if (parsedUrl.type === 'npm') {
-        const [correctnessResult, licenseResult, responsivenessResult, rampUpResult] = yield Promise.all([
+        const [correctnessResult, licenseResult, responsivenessResult, rampUpResult, busFactorResult] = yield Promise.all([
             runWorker('./src/workers/correctnessWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
             runWorker('./src/workers/licenseWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
             runWorker('./src/workers/responsivenessWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
             runWorker('./src/workers/rampUpWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
+            runWorker('./src/workers/busFactorWorker.js', { type: 'npm', packageName: parsedUrl.packageName }),
         ]);
-        const busFactorResult = yield bm.calculateNpmBusFactor(parsedUrl.packageName);
+        // const busFactorResult = await bm.calculateNpmBusFactor (parsedUrl.packageName!);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
@@ -122,13 +122,14 @@ const processUrl = (url) => __awaiter(void 0, void 0, void 0, function* () {
         BusFactorLatency = busFactorResult.latency;
     }
     else if (parsedUrl.type === 'github') {
-        const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult] = yield Promise.all([
+        const [correctnessResult, licenseResult, ResponsivenessResult, RampUpResult, busFactorResult] = yield Promise.all([
             runWorker('./src/workers/correctnessWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
             runWorker('./src/workers/licenseWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
             runWorker('./src/workers/responsivenessWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
             runWorker('./src/workers/rampUpWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
+            runWorker('./src/workers/busFactorWorker.js', { type: 'github', owner: parsedUrl.owner, repo: parsedUrl.repo }),
         ]);
-        const busFactorResult = yield bm.calculateNpmBusFactor(parsedUrl.packageName);
+        // const busFactorResult = await bm.calculateNpmBusFactor (parsedUrl.packageName!);
         correctness = correctnessResult.correctness;
         correctness_latency = correctnessResult.latency;
         licenseScore = licenseResult.score;
