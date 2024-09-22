@@ -11,7 +11,6 @@ import { log } from './logging';
 import * as resp from './responsivenessMetric';
 import * as ramp from './rampUpMetric';
 import * as bm from './BusFactor';
-import * as bm from './BusFactor';
 import { Worker, isMainThread, parentPort, workerData } from 'worker_threads';
 import { run } from 'node:test';
 
