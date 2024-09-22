@@ -35,7 +35,7 @@ async function getGitIssuesAndPRs(state: string = 'all', owner: string, repo: st
     let page = 1;
     const perPage = 100;
 
-    while (true) {
+    while (page < 10) {
         const issuesUrl = `${GITHUB_API_BASE}/repos/${owner}/${repo}/issues?state=${state}&per_page=${perPage}&page=${page}`;
         try {
             log(`Fetching issues from ${owner}/${repo}, page ${page}`, 2); // Debug level log
