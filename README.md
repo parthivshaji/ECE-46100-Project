@@ -85,6 +85,9 @@ The goal of this project is to calculate a score between 0 and 1 based on variou
 
 - **Description**:  
   The Bus Factor is a measure of project risk, representing the number of key contributors needed to keep the project running. A low Bus Factor indicates that a small number of individuals hold critical knowledge of the project, while a higher Bus Factor suggests that knowledge is spread across multiple contributors.
+  ```
+  busFactor = contributorCount > 0 ? 1 / contributorCount : 0
+  ```
 
 ---
 
