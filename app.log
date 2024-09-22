@@ -1612,3 +1612,918 @@
 2024-09-21T18:58:24.375Z - Fetching npm package info for test-package
 2024-09-21T18:58:24.417Z - Fetching GitHub repository URL for test-package
 2024-09-21T18:58:24.511Z - Could not find GitHub repository URL for test-package, assuming correctness to be 1
+2024-09-21T19:54:15.452Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:54:15.453Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:54:15.455Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:54:15.479Z - License found for test-owner/test-repo: MIT
+2024-09-21T19:54:15.481Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:54:15.482Z - Fetching issues from test-owner/test-repo, page 2
+2024-09-21T19:54:15.489Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:54:15.519Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:54:15.521Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:54:15.524Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:54:15.525Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:54:15.554Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:54:15.575Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:54:15.578Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:54:15.583Z - test-owner/test-repo has 100 stars (popularity)
+2024-09-21T19:54:15.584Z - Calculated correctness for test-owner/test-repo: 0.98
+2024-09-21T19:54:15.591Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:54:15.612Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:54:15.614Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:54:15.614Z - README file size: 60 KB
+2024-09-21T19:54:15.616Z - Large README implies good documentation. Score: 10
+2024-09-21T19:54:15.617Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 42.068200000000616
+2024-09-21T19:54:15.618Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=100&page=2",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:54:15.619Z - Found 2 issues for test-owner/test-repo
+2024-09-21T19:54:15.620Z - Fetching issue 1 from test-owner/test-repo
+2024-09-21T19:54:15.623Z - Fetching issue 2 from test-owner/test-repo
+2024-09-21T19:54:15.623Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:54:15.624Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:54:15.645Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:54:15.645Z - Response time for issue 1: 1 days
+2024-09-21T19:54:15.646Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:54:15.647Z - Response time for issue 2: 2 days
+2024-09-21T19:54:15.648Z - Responsiveness for test-owner/test-repo: 0.9958904109589041
+2024-09-21T19:54:15.649Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:54:15.654Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:54:15.655Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:54:15.659Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:54:15.661Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:54:15.662Z - README file size: 0.01953125 KB
+2024-09-21T19:54:15.662Z - No valid response times found.
+2024-09-21T19:54:15.663Z - Small README. Score: 3
+2024-09-21T19:54:15.664Z - Ramp-up metric calculation completed for owner/repo. Score: 0.3, Latency: 41.12850000000071
+2024-09-21T19:54:15.666Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:54:15.667Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:54:15.667Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:54:15.669Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:54:15.671Z - Error calculating license metric for test-owner/test-repo: Request failed with status code 404
+2024-09-21T19:54:15.674Z - Fetching npm package metadata for test-package
+2024-09-21T19:54:15.693Z - Error fetching issues for test-owner/test-repo: Request failed with status code 403
+2024-09-21T19:54:15.695Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:54:15.696Z - No valid response times found.
+2024-09-21T19:54:15.702Z - Fetching download stats for npm package test-package
+2024-09-21T19:54:15.707Z - Found GitHub repository URL for test-package
+2024-09-21T19:54:15.708Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:54:15.722Z - License found for test-owner/test-repo: Apache-2.0
+2024-09-21T19:54:15.724Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:54:15.725Z - License score for npm package test-package: 1
+2024-09-21T19:54:15.728Z - Fetching npm package metadata for test-package
+2024-09-21T19:54:15.754Z - No GitHub repository found for test-package, assuming no license
+2024-09-21T19:54:15.759Z - Fetching npm package metadata for test-package
+2024-09-21T19:54:15.785Z - Found GitHub repository URL for test-package
+2024-09-21T19:54:15.787Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:54:15.791Z - File not found.
+2024-09-21T19:54:15.792Z - No README found. Score: 1
+2024-09-21T19:54:15.794Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 126.3753999999999
+2024-09-21T19:54:15.797Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:54:15.798Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:54:15.816Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:54:15.816Z - Failed to download file: Request failed with status code 500
+2024-09-21T19:54:15.817Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:54:15.818Z - No README found. Score: 1
+2024-09-21T19:54:15.819Z - License score for npm package test-package: 0
+2024-09-21T19:54:15.820Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 22.436399999999594
+2024-09-21T19:54:15.824Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:54:15.825Z - Fetching npm download stats for test-package
+2024-09-21T19:54:15.847Z - Download count for test-package: 10000
+2024-09-21T19:54:15.848Z - Fetching package metadata for test-package
+2024-09-21T19:54:15.878Z - Found GitHub repository URL for test-package: git+https://github.com/owner/repo.git
+2024-09-21T19:54:15.880Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:54:15.881Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:54:15.882Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:54:15.891Z - Download count for test-package: 125
+2024-09-21T19:54:15.910Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:54:15.911Z - README file size: 60 KB
+2024-09-21T19:54:15.912Z - Large README implies good documentation. Score: 10
+2024-09-21T19:54:15.913Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 32.46439999999984
+2024-09-21T19:54:15.915Z - Ramp-up metric for npm package test-package completed. Score: 1, Latency: 90.72080000000005
+2024-09-21T19:54:15.919Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:54:15.920Z - Fetching npm download stats for test-package
+2024-09-21T19:54:15.925Z - Found GitHub repository for test-package: https://github.com/test-owner/test-repo.git
+2024-09-21T19:54:15.926Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:54:15.928Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:54:15.956Z - Download count for test-package: 10000
+2024-09-21T19:54:15.957Z - Fetching issues from test-owner/test-repo, page 2
+2024-09-21T19:54:15.958Z - Fetching package metadata for test-package
+2024-09-21T19:54:15.961Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=100&page=2",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer ",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:54:15.962Z - Found 1 issues for test-owner/test-repo
+2024-09-21T19:54:15.963Z - Fetching issue 1 from test-owner/test-repo
+2024-09-21T19:54:15.987Z - No GitHub repository found for test-package. Assuming perfect ramp-up score of 1.
+2024-09-21T19:54:15.987Z - Response time for issue 1: 1 days
+2024-09-21T19:54:15.989Z - Responsiveness for test-owner/test-repo: 0.9972602739726028
+2024-09-21T19:54:15.990Z - Responsiveness for npm package test-package: 0.9972602739726028
+2024-09-21T19:54:15.991Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:54:15.992Z - Fetching npm download stats for test-package
+2024-09-21T19:54:15.994Z - Fetching download stats for npm package test-package
+2024-09-21T19:54:16.003Z - Error calculating ramp-up for npm package test-package: AxiosError: Request failed with status code 500
+2024-09-21T19:54:16.028Z - Download count for test-package: 125
+2024-09-21T19:54:16.048Z - No GitHub repository found for test-package, assuming perfect responsiveness
+2024-09-21T19:54:16.052Z - Fetching download stats for npm package test-package
+2024-09-21T19:54:16.065Z - Error calculating GitHub correctness for test-owner/test-repo: Request failed with status code 401
+2024-09-21T19:54:16.078Z - Fetching npm package info for test-package
+2024-09-21T19:54:16.091Z - Download count for test-package: 125
+2024-09-21T19:54:16.131Z - Error calculating npm responsiveness for package test-package: Request failed with status code 500
+2024-09-21T19:54:16.175Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:54:16.190Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:54:16.191Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:54:16.220Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:54:16.251Z - test-owner/test-repo has 1000 stars (popularity)
+2024-09-21T19:54:16.252Z - Calculated correctness for test-owner/test-repo: 0.999
+2024-09-21T19:54:16.256Z - Fetching npm package info for test-package
+2024-09-21T19:54:16.291Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:54:16.313Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:54:16.315Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:54:16.345Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:54:16.376Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:54:16.378Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:54:16.380Z - Fetching npm package info for test-package
+2024-09-21T19:54:16.414Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:54:16.489Z - Could not find GitHub repository URL for test-package, assuming correctness to be 1
+2024-09-21T19:55:10.997Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:11.005Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:11.022Z - License found for test-owner/test-repo: MIT
+2024-09-21T19:55:11.024Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:55:11.031Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:11.042Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:55:11.043Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:55:11.044Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:55:11.047Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:11.058Z - test-owner/test-repo has 100 stars (popularity)
+2024-09-21T19:55:11.057Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:11.060Z - Calculated correctness for test-owner/test-repo: 0.98
+2024-09-21T19:55:11.060Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:11.066Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:11.086Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:11.088Z - README file size: 60 KB
+2024-09-21T19:55:11.089Z - Large README implies good documentation. Score: 10
+2024-09-21T19:55:11.090Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:55:11.091Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 34.35699999999997
+2024-09-21T19:55:11.096Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:11.098Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:11.121Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:55:11.121Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:11.123Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:55:11.123Z - README file size: 0.01953125 KB
+2024-09-21T19:55:11.124Z - Small README. Score: 3
+2024-09-21T19:55:11.125Z - Ramp-up metric calculation completed for owner/repo. Score: 0.3, Latency: 28.653599999999642
+2024-09-21T19:55:11.126Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:11.128Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:11.129Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:11.191Z - Error calculating license metric for test-owner/test-repo: Request failed with status code 404
+2024-09-21T19:55:11.196Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:11.208Z - Found GitHub repository URL for test-package
+2024-09-21T19:55:11.210Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:11.224Z - License found for test-owner/test-repo: Apache-2.0
+2024-09-21T19:55:11.226Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:55:11.227Z - License score for npm package test-package: 1
+2024-09-21T19:55:11.230Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:11.264Z - No GitHub repository found for test-package, assuming no license
+2024-09-21T19:55:11.267Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:11.269Z - File not found.
+2024-09-21T19:55:11.270Z - No README found. Score: 1
+2024-09-21T19:55:11.272Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 143.36879999999928
+2024-09-21T19:55:11.274Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:11.275Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:11.297Z - Found GitHub repository URL for test-package
+2024-09-21T19:55:11.298Z - Failed to download file: Request failed with status code 500
+2024-09-21T19:55:11.299Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:11.299Z - No README found. Score: 1
+2024-09-21T19:55:11.301Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 26.50290000000041
+2024-09-21T19:55:11.307Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:11.308Z - Fetching npm download stats for test-package
+2024-09-21T19:55:11.320Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:55:11.321Z - Download count for test-package: 10000
+2024-09-21T19:55:11.323Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:55:11.323Z - Fetching package metadata for test-package
+2024-09-21T19:55:11.324Z - License score for npm package test-package: 0
+2024-09-21T19:55:11.344Z - Found GitHub repository URL for test-package: git+https://github.com/owner/repo.git
+2024-09-21T19:55:11.345Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:11.347Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:11.348Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:11.363Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:11.364Z - README file size: 60 KB
+2024-09-21T19:55:11.365Z - Large README implies good documentation. Score: 10
+2024-09-21T19:55:11.366Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 19.40479999999934
+2024-09-21T19:55:11.367Z - Ramp-up metric for npm package test-package completed. Score: 1, Latency: 60.157900000000154
+2024-09-21T19:55:11.370Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:11.371Z - Fetching npm download stats for test-package
+2024-09-21T19:55:11.386Z - Download count for test-package: 10000
+2024-09-21T19:55:11.387Z - Fetching package metadata for test-package
+2024-09-21T19:55:11.410Z - No GitHub repository found for test-package. Assuming perfect ramp-up score of 1.
+2024-09-21T19:55:11.428Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:11.429Z - Fetching npm download stats for test-package
+2024-09-21T19:55:11.445Z - Error calculating ramp-up for npm package test-package: AxiosError: Request failed with status code 500
+2024-09-21T19:55:11.557Z - Error calculating GitHub correctness for test-owner/test-repo: Request failed with status code 401
+2024-09-21T19:55:11.561Z - Fetching npm package info for test-package
+2024-09-21T19:55:11.670Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:11.685Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:55:11.686Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:11.695Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:55:11.720Z - test-owner/test-repo has 1000 stars (popularity)
+2024-09-21T19:55:11.721Z - Calculated correctness for test-owner/test-repo: 0.999
+2024-09-21T19:55:11.724Z - Fetching npm package info for test-package
+2024-09-21T19:55:11.765Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:11.800Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:55:11.802Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:11.824Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:55:11.846Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:55:11.848Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:55:11.851Z - Fetching npm package info for test-package
+2024-09-21T19:55:11.895Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:11.976Z - Could not find GitHub repository URL for test-package, assuming correctness to be 1
+2024-09-21T19:55:13.464Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:13.466Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:13.595Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=50&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:13.596Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:13.597Z - No valid response times found.
+2024-09-21T19:55:13.609Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:13.610Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:13.618Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=50&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:13.619Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:13.620Z - No valid response times found.
+2024-09-21T19:55:13.623Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:13.625Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:13.629Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=50&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:13.631Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:13.632Z - No valid response times found.
+2024-09-21T19:55:13.636Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:13.829Z - Download count for test-package: 125
+2024-09-21T19:55:13.838Z - Found GitHub repository for test-package: https://github.com/test-owner/test-repo.git
+2024-09-21T19:55:13.840Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:13.841Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:13.847Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=50&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer ",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:13.848Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:13.849Z - No valid response times found.
+2024-09-21T19:55:13.851Z - Responsiveness for npm package test-package: 0
+2024-09-21T19:55:13.855Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:13.889Z - Download count for test-package: 125
+2024-09-21T19:55:13.914Z - No GitHub repository found for test-package, assuming perfect responsiveness
+2024-09-21T19:55:13.917Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:13.960Z - Download count for test-package: 125
+2024-09-21T19:55:13.995Z - Error calculating npm responsiveness for package test-package: Request failed with status code 500
+2024-09-21T19:55:29.152Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:29.166Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:29.169Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:29.171Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:29.180Z - License found for test-owner/test-repo: MIT
+2024-09-21T19:55:29.182Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:55:29.187Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:29.194Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:55:29.196Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:29.197Z - README file size: 60 KB
+2024-09-21T19:55:29.198Z - Large README implies good documentation. Score: 10
+2024-09-21T19:55:29.200Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 31.47859999999946
+2024-09-21T19:55:29.205Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:29.207Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:29.222Z - test-owner/test-repo has 100 stars (popularity)
+2024-09-21T19:55:29.223Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:55:29.224Z - Calculated correctness for test-owner/test-repo: 0.98
+2024-09-21T19:55:29.225Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:55:29.228Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:29.230Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:29.239Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:29.241Z - README file size: 0.01953125 KB
+2024-09-21T19:55:29.242Z - Small README. Score: 3
+2024-09-21T19:55:29.243Z - Ramp-up metric calculation completed for owner/repo. Score: 0.3, Latency: 38.01730000000043
+2024-09-21T19:55:29.246Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:29.248Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:29.254Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:55:29.286Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:55:29.288Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:55:29.290Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:29.398Z - File not found.
+2024-09-21T19:55:29.400Z - No README found. Score: 1
+2024-09-21T19:55:29.401Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 154.48250000000007
+2024-09-21T19:55:29.405Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:29.406Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:29.414Z - Failed to download file: Request failed with status code 500
+2024-09-21T19:55:29.415Z - Error calculating license metric for test-owner/test-repo: Request failed with status code 404
+2024-09-21T19:55:29.416Z - No README found. Score: 1
+2024-09-21T19:55:29.417Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 12.397699999999531
+2024-09-21T19:55:29.421Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:29.421Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:29.422Z - Fetching npm download stats for test-package
+2024-09-21T19:55:29.429Z - Found GitHub repository URL for test-package
+2024-09-21T19:55:29.430Z - Download count for test-package: 10000
+2024-09-21T19:55:29.431Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:29.432Z - Fetching package metadata for test-package
+2024-09-21T19:55:29.445Z - License found for test-owner/test-repo: Apache-2.0
+2024-09-21T19:55:29.447Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:55:29.448Z - License score for npm package test-package: 1
+2024-09-21T19:55:29.450Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:29.461Z - Found GitHub repository URL for test-package: git+https://github.com/owner/repo.git
+2024-09-21T19:55:29.463Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:29.464Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:29.465Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:29.475Z - No GitHub repository found for test-package, assuming no license
+2024-09-21T19:55:29.479Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:29.492Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:29.493Z - README file size: 60 KB
+2024-09-21T19:55:29.494Z - Large README implies good documentation. Score: 10
+2024-09-21T19:55:29.495Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 31.17410000000018
+2024-09-21T19:55:29.497Z - Ramp-up metric for npm package test-package completed. Score: 1, Latency: 75.44329999999991
+2024-09-21T19:55:29.499Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:29.500Z - Fetching npm download stats for test-package
+2024-09-21T19:55:29.508Z - Found GitHub repository URL for test-package
+2024-09-21T19:55:29.509Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:29.524Z - Download count for test-package: 10000
+2024-09-21T19:55:29.526Z - Fetching package metadata for test-package
+2024-09-21T19:55:29.540Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:55:29.542Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:55:29.544Z - License score for npm package test-package: 0
+2024-09-21T19:55:29.556Z - No GitHub repository found for test-package. Assuming perfect ramp-up score of 1.
+2024-09-21T19:55:29.559Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:29.560Z - Fetching npm download stats for test-package
+2024-09-21T19:55:29.587Z - Error calculating ramp-up for npm package test-package: AxiosError: Request failed with status code 500
+2024-09-21T19:55:29.708Z - Error calculating GitHub correctness for test-owner/test-repo: Request failed with status code 401
+2024-09-21T19:55:29.713Z - Fetching npm package info for test-package
+2024-09-21T19:55:29.814Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:29.840Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:55:29.841Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:29.871Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:55:29.902Z - test-owner/test-repo has 1000 stars (popularity)
+2024-09-21T19:55:29.904Z - Calculated correctness for test-owner/test-repo: 0.999
+2024-09-21T19:55:29.907Z - Fetching npm package info for test-package
+2024-09-21T19:55:29.944Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:29.966Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:55:29.968Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:29.997Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:55:30.028Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:55:30.029Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:55:30.032Z - Fetching npm package info for test-package
+2024-09-21T19:55:30.071Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:30.167Z - Could not find GitHub repository URL for test-package, assuming correctness to be 1
+2024-09-21T19:55:31.468Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:31.471Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:31.644Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=75&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:31.646Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:31.647Z - No valid response times found.
+2024-09-21T19:55:31.660Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:31.661Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:31.666Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=75&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:31.668Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:31.670Z - No valid response times found.
+2024-09-21T19:55:31.673Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:31.674Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:31.679Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=75&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:31.680Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:31.681Z - No valid response times found.
+2024-09-21T19:55:31.685Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:31.873Z - Download count for test-package: 125
+2024-09-21T19:55:31.904Z - Found GitHub repository for test-package: https://github.com/test-owner/test-repo.git
+2024-09-21T19:55:31.905Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:31.906Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:31.911Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=75&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer ",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:31.912Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:31.914Z - No valid response times found.
+2024-09-21T19:55:31.915Z - Responsiveness for npm package test-package: 0
+2024-09-21T19:55:31.921Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:31.970Z - Download count for test-package: 125
+2024-09-21T19:55:31.998Z - No GitHub repository found for test-package, assuming perfect responsiveness
+2024-09-21T19:55:32.001Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:32.035Z - Download count for test-package: 125
+2024-09-21T19:55:32.047Z - Error calculating npm responsiveness for package test-package: Request failed with status code 500
+2024-09-21T19:55:45.329Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:45.347Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:45.350Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:45.361Z - License found for test-owner/test-repo: MIT
+2024-09-21T19:55:45.363Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:55:45.368Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:45.371Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:45.388Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:45.390Z - README file size: 60 KB
+2024-09-21T19:55:45.391Z - Large README implies good documentation. Score: 10
+2024-09-21T19:55:45.393Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 45.84699999999975
+2024-09-21T19:55:45.401Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:45.401Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:55:45.403Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:45.403Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:55:45.406Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:45.407Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:55:45.433Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:45.432Z - test-owner/test-repo has 100 stars (popularity)
+2024-09-21T19:55:45.435Z - README file size: 0.01953125 KB
+2024-09-21T19:55:45.433Z - Calculated correctness for test-owner/test-repo: 0.98
+2024-09-21T19:55:45.437Z - Small README. Score: 3
+2024-09-21T19:55:45.438Z - Ramp-up metric calculation completed for owner/repo. Score: 0.3, Latency: 37.250200000000405
+2024-09-21T19:55:45.442Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:45.441Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:45.444Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:45.479Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:55:45.505Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:55:45.506Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:55:45.510Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:45.561Z - Error calculating license metric for test-owner/test-repo: Request failed with status code 404
+2024-09-21T19:55:45.565Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:45.605Z - File not found.
+2024-09-21T19:55:45.607Z - No README found. Score: 1
+2024-09-21T19:55:45.608Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 166.01720000000023
+2024-09-21T19:55:45.611Z - Found GitHub repository URL for test-package
+2024-09-21T19:55:45.612Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:45.612Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:45.613Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:45.629Z - Failed to download file: Request failed with status code 500
+2024-09-21T19:55:45.631Z - No README found. Score: 1
+2024-09-21T19:55:45.632Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 20.08099999999922
+2024-09-21T19:55:45.635Z - License found for test-owner/test-repo: Apache-2.0
+2024-09-21T19:55:45.637Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:45.637Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:55:45.639Z - Fetching npm download stats for test-package
+2024-09-21T19:55:45.639Z - License score for npm package test-package: 1
+2024-09-21T19:55:45.642Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:45.645Z - Download count for test-package: 10000
+2024-09-21T19:55:45.647Z - Fetching package metadata for test-package
+2024-09-21T19:55:45.677Z - Found GitHub repository URL for test-package: git+https://github.com/owner/repo.git
+2024-09-21T19:55:45.677Z - No GitHub repository found for test-package, assuming no license
+2024-09-21T19:55:45.679Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:45.681Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:55:45.681Z - Fetching npm package metadata for test-package
+2024-09-21T19:55:45.683Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:45.709Z - Found GitHub repository URL for test-package
+2024-09-21T19:55:45.710Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:55:45.711Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:55:45.712Z - README file size: 60 KB
+2024-09-21T19:55:45.713Z - Large README implies good documentation. Score: 10
+2024-09-21T19:55:45.715Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 33.63509999999951
+2024-09-21T19:55:45.716Z - Ramp-up metric for npm package test-package completed. Score: 1, Latency: 78.63639999999941
+2024-09-21T19:55:45.719Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:45.720Z - Fetching npm download stats for test-package
+2024-09-21T19:55:45.742Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:55:45.742Z - Download count for test-package: 10000
+2024-09-21T19:55:45.743Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:55:45.744Z - Fetching package metadata for test-package
+2024-09-21T19:55:45.745Z - License score for npm package test-package: 0
+2024-09-21T19:55:45.768Z - No GitHub repository found for test-package. Assuming perfect ramp-up score of 1.
+2024-09-21T19:55:45.772Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:55:45.774Z - Fetching npm download stats for test-package
+2024-09-21T19:55:45.799Z - Error calculating ramp-up for npm package test-package: AxiosError: Request failed with status code 500
+2024-09-21T19:55:45.885Z - Error calculating GitHub correctness for test-owner/test-repo: Request failed with status code 401
+2024-09-21T19:55:45.889Z - Fetching npm package info for test-package
+2024-09-21T19:55:45.980Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:46.015Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:55:46.016Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:46.028Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:55:46.060Z - test-owner/test-repo has 1000 stars (popularity)
+2024-09-21T19:55:46.061Z - Calculated correctness for test-owner/test-repo: 0.999
+2024-09-21T19:55:46.065Z - Fetching npm package info for test-package
+2024-09-21T19:55:46.099Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:46.109Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:55:46.135Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:55:46.156Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:55:46.178Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:55:46.179Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:55:46.182Z - Fetching npm package info for test-package
+2024-09-21T19:55:46.215Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:55:46.330Z - Could not find GitHub repository URL for test-package, assuming correctness to be 1
+2024-09-21T19:55:47.759Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:47.762Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:47.898Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=99&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:47.900Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:47.901Z - No valid response times found.
+2024-09-21T19:55:47.914Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:47.916Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:47.921Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=99&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:47.923Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:47.924Z - No valid response times found.
+2024-09-21T19:55:47.928Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:47.929Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:47.934Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=99&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:47.935Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:47.936Z - No valid response times found.
+2024-09-21T19:55:47.941Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:48.148Z - Download count for test-package: 125
+2024-09-21T19:55:48.156Z - Found GitHub repository for test-package: https://github.com/test-owner/test-repo.git
+2024-09-21T19:55:48.157Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:55:48.158Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:55:48.163Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=99&page=1",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer ",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:55:48.165Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:55:48.166Z - No valid response times found.
+2024-09-21T19:55:48.167Z - Responsiveness for npm package test-package: 0
+2024-09-21T19:55:48.171Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:48.208Z - Download count for test-package: 125
+2024-09-21T19:55:48.238Z - No GitHub repository found for test-package, assuming perfect responsiveness
+2024-09-21T19:55:48.241Z - Fetching download stats for npm package test-package
+2024-09-21T19:55:48.282Z - Download count for test-package: 125
+2024-09-21T19:55:48.296Z - Error calculating npm responsiveness for package test-package: Request failed with status code 500
+2024-09-21T19:56:30.275Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:56:30.283Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:56:30.285Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:56:30.333Z - License found for test-owner/test-repo: MIT
+2024-09-21T19:56:30.335Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:56:30.341Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:56:30.345Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:56:30.346Z - README file size: 60 KB
+2024-09-21T19:56:30.348Z - Large README implies good documentation. Score: 10
+2024-09-21T19:56:30.349Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 65.8128999999999
+2024-09-21T19:56:30.356Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:56:30.358Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:56:30.360Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:56:30.361Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:56:30.363Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:56:30.366Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:56:30.370Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:56:30.371Z - README file size: 0.01953125 KB
+2024-09-21T19:56:30.373Z - Small README. Score: 3
+2024-09-21T19:56:30.374Z - Ramp-up metric calculation completed for owner/repo. Score: 0.3, Latency: 14.019000000000233
+2024-09-21T19:56:30.377Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:56:30.378Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:56:30.401Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:56:30.433Z - test-owner/test-repo has 100 stars (popularity)
+2024-09-21T19:56:30.435Z - Calculated correctness for test-owner/test-repo: 0.98
+2024-09-21T19:56:30.445Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:56:30.474Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:56:30.485Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:56:30.487Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:56:30.491Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:56:30.520Z - Error calculating license metric for test-owner/test-repo: Request failed with status code 404
+2024-09-21T19:56:30.524Z - Fetching npm package metadata for test-package
+2024-09-21T19:56:30.530Z - File not found.
+2024-09-21T19:56:30.531Z - No README found. Score: 1
+2024-09-21T19:56:30.532Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 155.54120000000057
+2024-09-21T19:56:30.535Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:56:30.536Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:56:30.548Z - Found GitHub repository URL for test-package
+2024-09-21T19:56:30.551Z - Failed to download file: Request failed with status code 500
+2024-09-21T19:56:30.551Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:56:30.553Z - No README found. Score: 1
+2024-09-21T19:56:30.555Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 19.535399999999754
+2024-09-21T19:56:30.558Z - License found for test-owner/test-repo: Apache-2.0
+2024-09-21T19:56:30.559Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:56:30.560Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:56:30.561Z - Fetching npm download stats for test-package
+2024-09-21T19:56:30.561Z - License score for npm package test-package: 1
+2024-09-21T19:56:30.564Z - Fetching npm package metadata for test-package
+2024-09-21T19:56:30.569Z - Download count for test-package: 10000
+2024-09-21T19:56:30.570Z - Fetching package metadata for test-package
+2024-09-21T19:56:30.584Z - No GitHub repository found for test-package, assuming no license
+2024-09-21T19:56:30.588Z - Fetching npm package metadata for test-package
+2024-09-21T19:56:30.601Z - Found GitHub repository URL for test-package: git+https://github.com/owner/repo.git
+2024-09-21T19:56:30.603Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:56:30.605Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:56:30.607Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:56:30.619Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:56:30.619Z - Found GitHub repository URL for test-package
+2024-09-21T19:56:30.621Z - README file size: 60 KB
+2024-09-21T19:56:30.621Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:56:30.623Z - Large README implies good documentation. Score: 10
+2024-09-21T19:56:30.625Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 19.936999999999898
+2024-09-21T19:56:30.626Z - Ramp-up metric for npm package test-package completed. Score: 1, Latency: 66.47580000000016
+2024-09-21T19:56:30.630Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:56:30.632Z - Fetching npm download stats for test-package
+2024-09-21T19:56:30.641Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:56:30.642Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:56:30.644Z - License score for npm package test-package: 0
+2024-09-21T19:56:30.657Z - Download count for test-package: 10000
+2024-09-21T19:56:30.658Z - Fetching package metadata for test-package
+2024-09-21T19:56:30.682Z - No GitHub repository found for test-package. Assuming perfect ramp-up score of 1.
+2024-09-21T19:56:30.686Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:56:30.687Z - Fetching npm download stats for test-package
+2024-09-21T19:56:30.714Z - Error calculating ramp-up for npm package test-package: AxiosError: Request failed with status code 500
+2024-09-21T19:56:30.976Z - Error calculating GitHub correctness for test-owner/test-repo: Request failed with status code 401
+2024-09-21T19:56:30.980Z - Fetching npm package info for test-package
+2024-09-21T19:56:31.090Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:56:31.122Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:56:31.124Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:56:31.138Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:56:31.164Z - test-owner/test-repo has 1000 stars (popularity)
+2024-09-21T19:56:31.167Z - Calculated correctness for test-owner/test-repo: 0.999
+2024-09-21T19:56:31.173Z - Fetching npm package info for test-package
+2024-09-21T19:56:31.214Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:56:31.219Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:56:31.221Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:56:31.243Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:56:31.265Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:56:31.266Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:56:31.269Z - Fetching npm package info for test-package
+2024-09-21T19:56:31.307Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:56:31.403Z - Could not find GitHub repository URL for test-package, assuming correctness to be 1
+2024-09-21T19:56:31.957Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:56:31.960Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:56:31.999Z - Fetching issues from test-owner/test-repo, page 2
+2024-09-21T19:56:32.104Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=100&page=2",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:56:32.105Z - Found 2 issues for test-owner/test-repo
+2024-09-21T19:56:32.106Z - Fetching issue 1 from test-owner/test-repo
+2024-09-21T19:56:32.109Z - Fetching issue 2 from test-owner/test-repo
+2024-09-21T19:56:32.132Z - Response time for issue 1: 1 days
+2024-09-21T19:56:32.134Z - Response time for issue 2: 2 days
+2024-09-21T19:56:32.136Z - Responsiveness for test-owner/test-repo: 0.9958904109589041
+2024-09-21T19:56:32.141Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:56:32.142Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:56:32.163Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:56:32.165Z - No valid response times found.
+2024-09-21T19:56:32.168Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:56:32.169Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:56:32.181Z - Error fetching issues for test-owner/test-repo: Request failed with status code 403
+2024-09-21T19:56:32.183Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:56:32.184Z - No valid response times found.
+2024-09-21T19:56:32.189Z - Fetching download stats for npm package test-package
+2024-09-21T19:56:32.424Z - Download count for test-package: 125
+2024-09-21T19:56:32.486Z - Found GitHub repository for test-package: https://github.com/test-owner/test-repo.git
+2024-09-21T19:56:32.488Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:56:32.490Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:56:32.507Z - Fetching issues from test-owner/test-repo, page 2
+2024-09-21T19:56:32.511Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=100&page=2",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer ",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:56:32.512Z - Found 1 issues for test-owner/test-repo
+2024-09-21T19:56:32.513Z - Fetching issue 1 from test-owner/test-repo
+2024-09-21T19:56:32.524Z - Response time for issue 1: 1 days
+2024-09-21T19:56:32.525Z - Responsiveness for test-owner/test-repo: 0.9972602739726028
+2024-09-21T19:56:32.526Z - Responsiveness for npm package test-package: 0.9972602739726028
+2024-09-21T19:56:32.529Z - Fetching download stats for npm package test-package
+2024-09-21T19:56:32.569Z - Download count for test-package: 125
+2024-09-21T19:56:32.586Z - No GitHub repository found for test-package, assuming perfect responsiveness
+2024-09-21T19:56:32.589Z - Fetching download stats for npm package test-package
+2024-09-21T19:56:32.651Z - Download count for test-package: 125
+2024-09-21T19:56:32.679Z - Error calculating npm responsiveness for package test-package: Request failed with status code 500
+2024-09-21T19:59:29.847Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:59:29.849Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:59:29.892Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:59:29.894Z - README file size: 60 KB
+2024-09-21T19:59:29.896Z - Large README implies good documentation. Score: 10
+2024-09-21T19:59:29.899Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 52.01329999999962
+2024-09-21T19:59:29.906Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:59:29.910Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:59:29.908Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:59:29.913Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:59:29.944Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:59:29.936Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:59:29.940Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:59:29.941Z - README file size: 0.01953125 KB
+2024-09-21T19:59:29.946Z - Fetching issues from test-owner/test-repo, page 2
+2024-09-21T19:59:29.943Z - Small README. Score: 3
+2024-09-21T19:59:29.945Z - Ramp-up metric calculation completed for owner/repo. Score: 0.3, Latency: 38.345400000000154
+2024-09-21T19:59:29.948Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:59:29.950Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:59:29.981Z - License found for test-owner/test-repo: MIT
+2024-09-21T19:59:29.972Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:59:29.983Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:59:29.990Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:59:29.986Z - test-owner/test-repo has 100 stars (popularity)
+2024-09-21T19:59:29.988Z - Calculated correctness for test-owner/test-repo: 0.98
+2024-09-21T19:59:29.997Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:59:30.014Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:59:30.015Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:59:30.019Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:59:30.018Z - Found 2 bug issues for test-owner/test-repo
+2024-09-21T19:59:30.035Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:59:30.037Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:59:30.040Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:59:30.081Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=100&page=2",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer fake-github-token",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:59:30.083Z - Found 2 issues for test-owner/test-repo
+2024-09-21T19:59:30.085Z - Fetching issue 1 from test-owner/test-repo
+2024-09-21T19:59:30.088Z - Fetching issue 2 from test-owner/test-repo
+2024-09-21T19:59:30.108Z - Response time for issue 1: 1 days
+2024-09-21T19:59:30.110Z - Response time for issue 2: 2 days
+2024-09-21T19:59:30.112Z - Responsiveness for test-owner/test-repo: 0.9958904109589041
+2024-09-21T19:59:30.112Z - File not found.
+2024-09-21T19:59:30.114Z - No README found. Score: 1
+2024-09-21T19:59:30.119Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:59:30.115Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 166.95650000000023
+2024-09-21T19:59:30.121Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:59:30.118Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:59:30.120Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:59:30.140Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:59:30.138Z - Failed to download file: Request failed with status code 500
+2024-09-21T19:59:30.142Z - No valid response times found.
+2024-09-21T19:59:30.139Z - No README found. Score: 1
+2024-09-21T19:59:30.140Z - Ramp-up metric calculation completed for owner/repo. Score: 0, Latency: 21.592599999999948
+2024-09-21T19:59:30.145Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:59:30.147Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:59:30.145Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:59:30.146Z - Fetching npm download stats for test-package
+2024-09-21T19:59:30.153Z - Download count for test-package: 10000
+2024-09-21T19:59:30.154Z - Fetching package metadata for test-package
+2024-09-21T19:59:30.178Z - Error calculating license metric for test-owner/test-repo: Request failed with status code 404
+2024-09-21T19:59:30.171Z - Error fetching issues for test-owner/test-repo: Request failed with status code 403
+2024-09-21T19:59:30.173Z - Found 0 issues for test-owner/test-repo
+2024-09-21T19:59:30.174Z - No valid response times found.
+2024-09-21T19:59:30.183Z - Fetching npm package metadata for test-package
+2024-09-21T19:59:30.181Z - Fetching download stats for npm package test-package
+2024-09-21T19:59:30.182Z - Found GitHub repository URL for test-package: git+https://github.com/owner/repo.git
+2024-09-21T19:59:30.193Z - Found GitHub repository URL for test-package
+2024-09-21T19:59:30.185Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:59:30.196Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:59:30.187Z - Calculating ramp-up metric for GitHub repository owner/repo
+2024-09-21T19:59:30.188Z - Downloading file from URL: https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:59:30.216Z - License found for test-owner/test-repo: Apache-2.0
+2024-09-21T19:59:30.218Z - License compatibility score for test-owner/test-repo: 1
+2024-09-21T19:59:30.219Z - License score for npm package test-package: 1
+2024-09-21T19:59:30.222Z - Fetching npm package metadata for test-package
+2024-09-21T19:59:30.221Z - Downloaded file successfully from https://api.github.com/repos/owner/repo/contents/README.md
+2024-09-21T19:59:30.232Z - No GitHub repository found for test-package, assuming no license
+2024-09-21T19:59:30.223Z - README file size: 60 KB
+2024-09-21T19:59:30.224Z - Large README implies good documentation. Score: 10
+2024-09-21T19:59:30.236Z - Fetching npm package metadata for test-package
+2024-09-21T19:59:30.226Z - Ramp-up metric calculation completed for owner/repo. Score: 1, Latency: 39.28699999999935
+2024-09-21T19:59:30.227Z - Ramp-up metric for npm package test-package completed. Score: 1, Latency: 82.14390000000003
+2024-09-21T19:59:30.230Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:59:30.231Z - Fetching npm download stats for test-package
+2024-09-21T19:59:30.253Z - Download count for test-package: 10000
+2024-09-21T19:59:30.265Z - Found GitHub repository URL for test-package
+2024-09-21T19:59:30.255Z - Fetching package metadata for test-package
+2024-09-21T19:59:30.267Z - Fetching license information for test-owner/test-repo
+2024-09-21T19:59:30.289Z - License found for test-owner/test-repo: GPL-3.0
+2024-09-21T19:59:30.279Z - No GitHub repository found for test-package. Assuming perfect ramp-up score of 1.
+2024-09-21T19:59:30.291Z - License compatibility score for test-owner/test-repo: 0
+2024-09-21T19:59:30.292Z - License score for npm package test-package: 0
+2024-09-21T19:59:30.283Z - Calculating ramp-up for npm package: test-package
+2024-09-21T19:59:30.284Z - Fetching npm download stats for test-package
+2024-09-21T19:59:30.306Z - Error calculating ramp-up for npm package test-package: AxiosError: Request failed with status code 500
+2024-09-21T19:59:30.426Z - Download count for test-package: 125
+2024-09-21T19:59:30.425Z - Error calculating GitHub correctness for test-owner/test-repo: Request failed with status code 401
+2024-09-21T19:59:30.429Z - Fetching npm package info for test-package
+2024-09-21T19:59:30.458Z - Found GitHub repository for test-package: https://github.com/test-owner/test-repo.git
+2024-09-21T19:59:30.460Z - Calculating GitHub responsiveness for test-owner/test-repo
+2024-09-21T19:59:30.461Z - Fetching issues from test-owner/test-repo, page 1
+2024-09-21T19:59:30.490Z - Fetching issues from test-owner/test-repo, page 2
+2024-09-21T19:59:30.494Z - Error fetching issues for test-owner/test-repo: Nock: No match for request {
+  "method": "GET",
+  "url": "https://api.github.com/repos/test-owner/test-repo/issues?state=all&per_page=100&page=2",
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "authorization": "Bearer ",
+    "user-agent": "axios/1.7.7",
+    "accept-encoding": "gzip, compress, deflate, br"
+  }
+}
+2024-09-21T19:59:30.495Z - Found 1 issues for test-owner/test-repo
+2024-09-21T19:59:30.496Z - Fetching issue 1 from test-owner/test-repo
+2024-09-21T19:59:30.521Z - Response time for issue 1: 1 days
+2024-09-21T19:59:30.522Z - Responsiveness for test-owner/test-repo: 0.9972602739726028
+2024-09-21T19:59:30.523Z - Responsiveness for npm package test-package: 0.9972602739726028
+2024-09-21T19:59:30.526Z - Fetching download stats for npm package test-package
+2024-09-21T19:59:30.525Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:59:30.541Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:59:30.542Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:59:30.564Z - Download count for test-package: 125
+2024-09-21T19:59:30.565Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:59:30.576Z - No GitHub repository found for test-package, assuming perfect responsiveness
+2024-09-21T19:59:30.580Z - Fetching download stats for npm package test-package
+2024-09-21T19:59:30.581Z - test-owner/test-repo has 1000 stars (popularity)
+2024-09-21T19:59:30.583Z - Calculated correctness for test-owner/test-repo: 0.999
+2024-09-21T19:59:30.586Z - Fetching npm package info for test-package
+2024-09-21T19:59:30.613Z - Download count for test-package: 125
+2024-09-21T19:59:30.632Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:59:30.637Z - Error calculating npm responsiveness for package test-package: Request failed with status code 500
+2024-09-21T19:59:30.652Z - Found GitHub repository URL for test-package, calculating correctness for GitHub repository
+2024-09-21T19:59:30.653Z - Fetching GitHub issues for test-owner/test-repo
+2024-09-21T19:59:30.661Z - Found 1 bug issues for test-owner/test-repo
+2024-09-21T19:59:30.679Z - test-owner/test-repo has 0 stars (popularity)
+2024-09-21T19:59:30.681Z - Calculated correctness for test-owner/test-repo: 1
+2024-09-21T19:59:30.683Z - Fetching npm package info for test-package
+2024-09-21T19:59:30.726Z - Fetching GitHub repository URL for test-package
+2024-09-21T19:59:31.165Z - Could not find GitHub repository URL for test-package, assuming correctness to be 1

@@ -41,8 +41,8 @@ describe('Responsiveness Metrics', () => {
                 .reply(200, { created_at: '2022-01-01T00:00:00Z', closed_at: '2022-01-03T00:00:00Z' });
             // Expected: average response time = (1 day + 2 days) / 2 = 1.5 days; max response time = 2 days
             const result = yield (0, responsivenessMetric_1.calculateGitResponsiveness)('test-owner', 'test-repo', 'fake-github-token');
-            // Responsiveness: 1 - (average / max) = 1 - (1.5 / 2) = 0.25
-            expect(result[0]).toBeCloseTo(0.25, 2);
+            // Responsiveness: 1 - (average / max) = 1 - (1.5 / 365) = 0.25
+            expect(result[0]).toBeCloseTo(0.995, 2);
         }));
         it('should return 0 when there are no valid response times', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock GitHub issues endpoint but no valid response times
@@ -82,7 +82,7 @@ describe('Responsiveness Metrics', () => {
                 .get('/repos/test-owner/test-repo/issues/1')
                 .reply(200, { created_at: '2022-01-01T00:00:00Z', closed_at: '2022-01-02T00:00:00Z' });
             const result = yield (0, responsivenessMetric_1.calculateNpmResponsiveness)('test-package');
-            expect(result.responsiveness).toBeCloseTo(0); // Perfect responsiveness (1 day for closure)
+            expect(result.responsiveness).toBeCloseTo(1); // Perfect responsiveness (1 day for closure)
         }));
         it('should return responsiveness as 1 if no GitHub repository is linked', () => __awaiter(void 0, void 0, void 0, function* () {
             // Mock npm registry metadata without a GitHub repository
