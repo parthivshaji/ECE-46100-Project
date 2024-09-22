@@ -1,27 +1,4 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -35,92 +12,74 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const nock_1 = __importDefault(require("nock"));
-const bm = __importStar(require("../BusFactor"));
-const BusFactor_1 = require("../BusFactor"); // Adjust path as needed
-// Mock GitHub API URL
-const GITHUB_API_URL = 'https://api.github.com';
-describe('Bus Factor Metrics', () => {
+const axios_1 = __importDefault(require("axios"));
+const BusFactor_1 = require("../BusFactor"); // Update with the correct path
+jest.mock('axios');
+describe('Bus Factor Calculations', () => {
+    const mockGithubToken = 'fake-github-token';
     afterEach(() => {
-        nock_1.default.cleanAll(); // Clean any mocks after each test
+        jest.clearAllMocks(); // Clear mocks after each test
     });
-    describe('GitHub Bus Factor', () => {
-        it('should calculate Bus Factor for a GitHub repository', () => __awaiter(void 0, void 0, void 0, function* () {
-            // Mock GitHub contributors endpoint
-            (0, nock_1.default)(GITHUB_API_URL, {
-                reqheaders: {
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                }
-            })
-                .get('/repos/test-owner/test-repo/contributors')
-                .reply(200, [
-                { login: 'user1' },
-                { login: 'user2' }
-            ]);
-            const { busFactor } = yield (0, BusFactor_1.calculateBusFactor)('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
-            expect(busFactor).toBeCloseTo(0.5, 2); // (1 / 2 contributors) = 0.5
+    describe('calculateBusFactor', () => {
+        test('should calculate Bus Factor successfully with contributors', () => __awaiter(void 0, void 0, void 0, function* () {
+            const mockContributorsResponse = {
+                data: Array(8).fill({}), // Mocking 8 contributors
+            };
+            axios_1.default.get.mockResolvedValueOnce(mockContributorsResponse);
+            const { busFactor, latency } = yield (0, BusFactor_1.calculateBusFactor)('owner', 'repo', mockGithubToken);
+            expect(busFactor).toBeCloseTo(1 / 8); // Expecting Bus Factor 1/8
+            expect(latency).toBeGreaterThan(0); // Latency should be positive
         }));
-        it('should return Bus Factor as 0 when there are no contributors', () => __awaiter(void 0, void 0, void 0, function* () {
-            // Mock GitHub contributors endpoint with no contributors
-            (0, nock_1.default)(GITHUB_API_URL, {
-                reqheaders: {
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                }
-            })
-                .get('/repos/test-owner/test-repo/contributors')
-                .reply(200, []);
-            const { busFactor } = yield (0, BusFactor_1.calculateBusFactor)('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
-            expect(busFactor).toBe(0); // Bus Factor should be 0 if no contributors
+        test('should return Bus Factor 0 when no contributors are found', () => __awaiter(void 0, void 0, void 0, function* () {
+            const mockContributorsResponse = {
+                data: [], // No contributors
+            };
+            axios_1.default.get.mockResolvedValueOnce(mockContributorsResponse);
+            const { busFactor, latency } = yield (0, BusFactor_1.calculateBusFactor)('owner', 'repo', mockGithubToken);
+            expect(busFactor).toBe(0); // Bus Factor should be 0 when no contributors
+            expect(latency).toBeGreaterThan(0); // Latency should still be measured
         }));
-        it('should handle errors gracefully', () => __awaiter(void 0, void 0, void 0, function* () {
-            // Mock GitHub contributors endpoint to return an error
-            (0, nock_1.default)(GITHUB_API_URL)
-                .get('/repos/test-owner/test-repo/contributors')
-                .reply(404);
-            const { busFactor } = yield (0, BusFactor_1.calculateBusFactor)('test-owner', 'test-repo', process.env.GITHUB_TOKEN || '');
-            expect(busFactor).toBe(-1); // Should return -1 on error
+        test('should handle errors and return Bus Factor -1', () => __awaiter(void 0, void 0, void 0, function* () {
+            const mockError = new Error('GitHub API error');
+            axios_1.default.get.mockRejectedValueOnce(mockError);
+            const { busFactor, latency } = yield (0, BusFactor_1.calculateBusFactor)('owner', 'repo', mockGithubToken);
+            expect(busFactor).toBe(-1); // Bus Factor should be -1 in case of error
+            expect(latency).toBeGreaterThan(0); // Latency should be measured
         }));
     });
-    describe('npm Bus Factor', () => {
-        it('should calculate Bus Factor for an npm package', () => __awaiter(void 0, void 0, void 0, function* () {
-            // Mock npm package info endpoint
-            (0, nock_1.default)('https://registry.npmjs.org')
-                .get('/test-package')
-                .reply(200, {
-                repository: { url: 'https://github.com/test-owner/test-repo' }
-            });
-            // Mock GitHub contributors endpoint
-            (0, nock_1.default)(GITHUB_API_URL, {
-                reqheaders: {
-                    authorization: 'token ' + process.env.GITHUB_TOKEN || '',
-                    'user-agent': 'axios/1.7.7',
-                }
-            })
-                .get('/repos/test-owner/test-repo/contributors')
-                .reply(200, [
-                { login: 'user1' },
-                { login: 'user2' }
-            ]);
-            const { busFactor } = yield bm.calculateNpmBusFactor('test-package');
-            expect(busFactor).toBeCloseTo(0.5, 2); // (1 / 2 contributors) = 0.5
+    describe('calculateNpmBusFactor', () => {
+        test('should calculate NPM Bus Factor successfully with valid GitHub repo', () => __awaiter(void 0, void 0, void 0, function* () {
+            const mockRepoUrl = 'https://github.com/owner/repo';
+            const mockNpmResponse = {
+                repository: { url: mockRepoUrl },
+            };
+            const mockContributorsResponse = {
+                data: Array(5).fill({}), // Mocking 5 contributors
+            };
+            // Mock the NPM package info response
+            axios_1.default.get.mockResolvedValueOnce({ data: mockNpmResponse });
+            // Mock the GitHub contributors response
+            axios_1.default.get.mockResolvedValueOnce(mockContributorsResponse);
+            const { busFactor, latency } = yield (0, BusFactor_1.calculateNpmBusFactor)('valid-package');
+            expect(busFactor).toBeCloseTo(1 / 5); // Expecting Bus Factor 1/5 for 5 contributors
+            expect(latency).toBeGreaterThan(0); // Latency should be positive
         }));
-        it('should return Bus Factor as 0 when no GitHub repo is found', () => __awaiter(void 0, void 0, void 0, function* () {
-            // Mock npm package info endpoint without repository
-            (0, nock_1.default)('https://registry.npmjs.org')
-                .get('/test-package')
-                .reply(200, {});
-            const { busFactor } = yield bm.calculateNpmBusFactor('test-package');
-            expect(busFactor).toBe(0); // Default to 0 if no GitHub repo is found
+        test('should return Bus Factor 0 when no GitHub repository URL is found', () => __awaiter(void 0, void 0, void 0, function* () {
+            const mockNpmResponse = {
+                repository: { url: 'https://example.com/some-repo' }, // No GitHub URL
+            };
+            // Mock the NPM package info response
+            axios_1.default.get.mockResolvedValueOnce({ data: mockNpmResponse });
+            const { busFactor, latency } = yield (0, BusFactor_1.calculateNpmBusFactor)('package-with-no-github');
+            expect(busFactor).toBe(0); // Bus Factor should be 0 when no GitHub URL is found
+            expect(latency).toBeGreaterThan(0); // Latency should be measured
         }));
-        it('should handle errors gracefully for npm package', () => __awaiter(void 0, void 0, void 0, function* () {
-            // Mock npm package info endpoint to return an error
-            (0, nock_1.default)('https://registry.npmjs.org')
-                .get('/test-package')
-                .reply(404);
-            const { busFactor } = yield bm.calculateNpmBusFactor('test-package');
-            expect(busFactor).toBe(-1); // Should return -1 on error
+        test('should handle errors and return Bus Factor -1 for NPM package', () => __awaiter(void 0, void 0, void 0, function* () {
+            const mockError = new Error('NPM fetch failed');
+            axios_1.default.get.mockRejectedValueOnce(mockError);
+            const { busFactor, latency } = yield (0, BusFactor_1.calculateNpmBusFactor)('invalid-package');
+            expect(busFactor).toBe(-1); // Bus Factor should be -1 in case of error
+            expect(latency).toBeGreaterThan(0); // Latency should be measured
         }));
     });
 });
