@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1727028443249" clover="3.2.0">
-  <project timestamp="1727028443249" name="All files">
+<coverage generated="1727029358829" clover="3.2.0">
+  <project timestamp="1727029358829" name="All files">
     <metrics statements="332" coveredstatements="298" conditionals="96" coveredconditionals="72" methods="32" coveredmethods="31" elements="460" coveredelements="401" complexity="0" loc="332" ncloc="332" packages="1" files="6" classes="6"/>
     <file name="BusFactor.ts" path="/home/shay/a/dsmahesh/Desktop/ece461/copy/ECE-46100-Project/src/BusFactor.ts">
       <metrics statements="48" coveredstatements="48" conditionals="13" coveredconditionals="11" methods="4" coveredmethods="4"/>
