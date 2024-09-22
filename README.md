@@ -36,10 +36,10 @@ The goal of this project is to calculate a score between 0 and 1 based on variou
 
 - **Formula**:  
   ```
-  Correctness Score = 1 - (Number of Bug Issues / Number of Downloads)
+  Correctness Score = 1 - (Number of Bug Issues / Total Number of Issues)
   ```
 - **Description**:  
-  The correctness score is calculated based on the number of bug issues in relation to the number of downloads. A lower ratio results in a higher score, indicating better correctness.
+  The correctness score is calculated based on the number of bug issues in relation to the total number of issues. A lower ratio results in a higher score, indicating better correctness.
 
 ---
 
