@@ -20,16 +20,13 @@ export const calculateGitHubCorrectness = async (owner: string, repo: string, gi
 
         log(`Found ${bugIssuesCount} bug issues for ${owner}/${repo}`, 2); // Debug
 
-        // Popularity is based on stargazers (as a proxy for popularity)
-        const repoResponse = await axios.get(`https://api.github.com/repos/${owner}/${repo}`, {
-            headers: { Authorization: `token ${githubToken}` }
-        });
+        const totalIssuesCount = response.data.length
 
-        const stargazersCount = repoResponse.data.stargazers_count;
-        log(`${owner}/${repo} has ${stargazersCount} stars (popularity)`, 2); // Debug
+        log(`${owner}/${repo} has ${totalIssuesCount} issues `, 2); // Debug
 
         // Avoid division by zero
-        const correctness = stargazersCount === 0 ? 1 : 1 - (bugIssuesCount / stargazersCount);
+        const correctness = totalIssuesCount === 0 ? 1 : 1 - (bugIssuesCount / totalIssuesCount);
+
         log(`Calculated correctness for ${owner}/${repo}: ${correctness}`, 1);
 
         const end = performance.now(); // Record end time
