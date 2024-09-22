@@ -18,12 +18,18 @@ To install the necessary dependencies (for Linux users), run the following comma
 
 To run the CLI and build the project, you can use the following commands:
 ```
+export GITHUB_TOKEN=''
 ./run <url-file>
 ```
 To run the unit tests, run the following command: 
 ```
 ./run test
 ```
+To enable logging at Debug level, run the command:
+```
+export LOG_LEVEL=2
+```
+
 
 ## Aim
 
