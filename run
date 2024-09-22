@@ -8,6 +8,7 @@ if [ "$1" = "install" ]; then
     npm install fs
     npm install path
     npm install --save-dev jest nock
+    npm install isomorphic-git
 elif [ "$1" = "test" ]; then
     npm run test:coverage
 else
