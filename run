@@ -10,9 +10,28 @@ if [ "$1" = "install" ]; then
     npm install --save-dev jest nock
     npm install isomorphic-git
 elif [ "$1" = "test" ]; then
-    npm run test:coverage
+    # Run Jest and capture the output
+    output=$(npx jest --coverage --verbose 2>&1)
+    # echo "$output"
+    # Extract the number of test cases passed and total using grep and sed
+    test_cases_passed=$(echo "$output" | grep "Tests:" | awk '{print $2}')
+    total_tests=$(echo "$output" | grep "Tests:" | sed -E 's/.* ([0-9]+) total.*/\1/')
+
+    # Extract line coverage from the coverage report (looking for the coverage percentage)
+    line_coverage=$(echo "$output" | grep -E "All files.*\|" | awk '{print $(NF-1)}' | tr -d '%')
+
+    # If variables are empty, set them to 0 (in case no tests were run)
+    test_cases_passed=${test_cases_passed:-0}
+    total_tests=${total_tests:-0}
+    line_coverage=${line_coverage:-0}
+    rounded_line_coverage=$(echo "($line_coverage + 0.5)/1" | bc)
+
+    # Format the output to match your desired format
+    echo "$test_cases_passed/$total_tests test cases passed. $rounded_line_coverage% line coverage achieved."
+
 else
-    npm run build
+    npm run build > dummy.txt
     # Pass the arguments to the TypeScript compiled CLI
     node dist/cli.js "$@"
+
 fi
