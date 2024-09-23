@@ -152,18 +152,22 @@ const processUrl = async (url: string) => {
         0.1 * metrics.License.score
     );
 
+    const NetScore_Latency = Math.max(metrics.BusFactorLatency + metrics.ResponsiveMaintainer_Latency + metrics.CorrectnessLatency 
+        + metrics.RampUp_Latency + metrics.License.latency)  ;
+
     return {
         URL: url,
-        NetScore,
+        NetScore: NetScore,
+        NetScore_Latency: NetScore_Latency,
         RampUp: metrics.RampUp,
-        RampUp_Latency: metrics.RampUp_Latency,
         Correctness: metrics.Correctness,
-        Correctness_Latency: metrics.CorrectnessLatency,
         BusFactor: metrics.BusFactor,
-        BusFactor_Latency: metrics.BusFactorLatency,
         ResponsiveMaintainer: metrics.ResponsiveMaintainer,
-        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
         License: metrics.License.score,
+        RampUp_Latency: metrics.RampUp_Latency,
+        Correctness_Latency: metrics.CorrectnessLatency,
+        BusFactor_Latency: metrics.BusFactorLatency,
+        ResponsiveMaintainer_Latency: metrics.ResponsiveMaintainer,
         License_Latency: metrics.License.latency,
     };
 };
