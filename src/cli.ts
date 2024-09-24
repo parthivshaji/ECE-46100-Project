@@ -133,12 +133,15 @@ const processUrl = async (url: string) => {
         RampUp: rampup,
         Correctness: correctness,
         BusFactor: busFactor,
-        BusFactorLatency: BusFactorLatency,
-        ResponsiveMaintainer:  responsiveness,
-        ResponsiveMaintainer_Latency: responsivenessLatency,
-        License: { score: licenseScore, latency: licenseLatency },
-        CorrectnessLatency: correctness_latency,
-        RampUp_Latency: rampupLatency,
+        BusFactorLatency: Math.round(BusFactorLatency ) / 1000,  // Convert to seconds and round to 3 decimal places
+        ResponsiveMaintainer: responsiveness,
+        ResponsiveMaintainer_Latency: Math.round(responsivenessLatency ) / 1000,  // Convert to seconds and round
+        License: { 
+            score: licenseScore, 
+            latency: Math.round(licenseLatency ) / 1000  // Convert to seconds and round
+        },
+        CorrectnessLatency: Math.round(correctness_latency ) / 1000,  // Convert to seconds and round
+        RampUp_Latency: Math.round(rampupLatency) / 1000 // Convert to seconds and round
     };
 
     log(`Metrics calculated for ${url}: ${JSON.stringify(metrics)}`, 2); // Debug level
